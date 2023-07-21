@@ -585,7 +585,7 @@ def class1_ex7():
 	""")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	openapi_key = "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"
+	openapi_key = "xxxxxx"
 	''')
 	#st.markdown("**:red[Code Output]**")
 	pass
