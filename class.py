@@ -52,14 +52,13 @@ def main():
 	
 	if 'login_key' not in st.session_state:
 		st.session_state.login_key = False
-
-	if 'class_key' not in st.session_state:
-		st.session_state.class_key = class1
+	
+	cls = class1
 
 	# if 'option_key' not in st.session_state:
 	# 	st.session_state.option_key = ""
 	# st.session_state.option_key
-	if st.session_state.class_key == class0 and st.session_state.login_key == False:
+	if cls == class0 and st.session_state.login_key == False:
 		placeholder1 = st.empty()
 		with placeholder1:
 			divider(label='Class login', icon='door-open', align='left')
@@ -71,7 +70,7 @@ def main():
 					placeholder1.empty()
 				
 
-	elif st.session_state.class_key == class1 and st.session_state.login_key == False:
+	elif cls == class1 and st.session_state.login_key == False:
 		placeholder1 = st.empty()
 		with placeholder1:
 			divider(label='Class login', icon='door-open', align='left')
@@ -83,7 +82,7 @@ def main():
 					placeholder1.empty()
 	
 	with st.sidebar: #options for sidebar
-		if st.session_state.login_key == True and st.session_state.class_key == class1:
+		if st.session_state.login_key == True:
 			option = menu([MenuItem(prep, icon='journal-code'),
 				MenuItem(hw1, icon='journal-code'),
 				MenuItem(ex1, icon='journal-code'),
@@ -111,11 +110,10 @@ def main():
 				st.experimental_rerun()
 			pass
 		else:#not login yet
-			st.session_state.class_key = menu([MenuItem(class1, icon='laptop'),
-				MenuItem(class0, icon='laptop')])
+			cls = menu([MenuItem(class1, icon='laptop')])
 			pass
 	
-	if st.session_state.class_key == class1 and st.session_state.login_key == True:
+	if cls == class1 and st.session_state.login_key == True:
 		divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
 		if option == prep:
 			placeholder2 = st.empty()
