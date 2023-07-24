@@ -829,25 +829,24 @@ def class1_ex10():
 	st.divider()
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 	import streamlit as st
-	 	import openai
+	import streamlit as st
+	import openai
 	 
-		st.markdown("**:red[Code Output]**")
-		st.title("Api Call")
-		openai.api_key = st.secrets["openapi_key"]
-		MODEL = "gpt-3.5-turbo"
-		response = openai.ChatCompletion.create(
-			model=MODEL,
-			messages=[
-				{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
-				{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
-			],
-			temperature=0,
-		)
-		st.write("Raw results: ") 
-		st.write(response)
-		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
-		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+	st.title("Api Call")
+	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
+			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
+		],
+		temperature=0,
+	)
+	st.write("Raw results: ") 
+	st.write(response)
+	st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
+	st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
