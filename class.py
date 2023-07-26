@@ -84,24 +84,34 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([MenuItem(prep, icon='journal-code'),
-				MenuItem(hw1, icon='journal-code'),
-				MenuItem(ex1, icon='journal-code'),
-				MenuItem(ch1, icon='journal-code'),
-				MenuItem(ex2, icon='journal-code'),
-				MenuItem(ch2, icon='journal-code'),
-				MenuItem(ex3, icon='journal-code'),
-				MenuItem(ch3, icon='journal-code'),
-				MenuItem(ex4, icon='journal-code'),
-				MenuItem(ch4, icon='journal-code'),
-				MenuItem(ex5, icon='journal-code'),
-				MenuItem(ex6, icon='journal-code'),
-				MenuItem(ch6, icon='journal-code'),
-				MenuItem(ex7, icon='journal-code'),
-				MenuItem(ex8, icon='journal-code'),
-				MenuItem(ch8, icon='journal-code'),
-				MenuItem(ex9, icon='journal-code'),
-				MenuItem(ex10, icon='journal-code'),
-				MenuItem(ch10, icon='journal-code'),
+					MenuItem(hw1, icon='journal-code'),
+		      		MenuItem('Part 1', icon='journal-code', children=[
+					MenuItem(ex1, icon='journal-code'),
+					MenuItem(ex2, icon='journal-code'),
+					MenuItem(ex3, icon='journal-code'),
+					MenuItem(ex4, icon='journal-code'),
+					MenuItem(ch1, icon='journal-code'),
+					MenuItem(ch2, icon='journal-code'),
+					MenuItem(ch3, icon='journal-code'),
+					MenuItem(ch4, icon='journal-code'),
+    			]),
+					
+		      		MenuItem('Part 2', icon='journal-code', children=[
+					MenuItem(ex5, icon='journal-code'),
+					MenuItem(ex6, icon='journal-code'),
+					MenuItem(ch6, icon='journal-code'),
+    			]),
+		      		MenuItem('Part 3', icon='journal-code', children=[
+					MenuItem(ex7, icon='journal-code'),
+					MenuItem(ex8, icon='journal-code'),
+					MenuItem(ch8, icon='journal-code'),
+					MenuItem(ex9, icon='journal-code'),
+    			]),
+		      		MenuItem('Part 4', icon='journal-code', children=[
+					MenuItem(ex10, icon='journal-code'),
+					MenuItem(ch10, icon='journal-code'),
+    			], dashed=True),
+					
 				MenuItem(type='divider'),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=True)
 			if option == 'Logout':
