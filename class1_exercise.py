@@ -605,7 +605,6 @@ def class1_ex8():
 	st.code('''
 		import streamlit as st
 		import openai
-		import json
 
 		st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
@@ -620,8 +619,8 @@ def class1_ex8():
 			temperature=0,
 		)
 
-  		json_object = json.loads(str(response))
-    		st.json(json_object)
+  		st.write("Raw results: ") 
+		st.write(response)
 		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
 		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
 	''')
