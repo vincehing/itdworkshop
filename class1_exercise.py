@@ -4,6 +4,9 @@ import openai
 
 
 def class1_prep():
+	st.subheader("Course Slides")
+	st.markdown("https://go.gov.sg/itdchatbotprototype")
+	st.divider()
 	st.subheader("Pre-workshop Setup")
 	st.divider()
 	st.markdown("""1. Visual Studio (VS Code): this is the Integrated Development Environment (IDE) of choice by many coders and will make it easier for us to code our app.""")
