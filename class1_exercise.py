@@ -29,7 +29,7 @@ def class1_prep():
 			''')
 	st.markdown("4. While in your virtual environment, install the libraries using pip which should already be installed together with Python:")
 	st.code('''
-		pip install streamlit, openai
+		pip install streamlit openai
 			''')
 	st.markdown(" To test if Streamlit is installed properly, run this command:")
 	st.code('''
