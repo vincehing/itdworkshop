@@ -43,6 +43,7 @@ def class1_hw1():
 	st.subheader("My first Hello World app")
 	st.divider()
 	st.markdown("""1. Create a new file called 'main.py'.""")
+	st.markdown("""2. Copy the copy below and paste it in the newly created main.py file.""")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 			import streamlit as st
