@@ -4,7 +4,7 @@ import openai
 
 
 def class1_prep():
-	st.subheader("Pre-workshop Setup")
+	st.subheader("Pre-workshop Setup!")
 	st.divider()
 	st.markdown("""1. Visual Studio (VS Code): this is the Integrated Development Environment (IDE) of choice by many coders and will make it easier for us to code our app.""")
 	st.markdown("""2. Python (3.10 release or later): this is the coding language of choice for many data science related apps.""")
