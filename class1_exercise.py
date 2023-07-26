@@ -605,12 +605,11 @@ def class1_ex8():
 	st.code('''
 		import streamlit as st
 		import openai
-
+		import json
 
 		st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
 		MODEL = "gpt-3.5-turbo"
-
 
 		response = openai.ChatCompletion.create(
 			model=MODEL,
@@ -620,7 +619,9 @@ def class1_ex8():
 			],
 			temperature=0,
 		)
-		st.write("Raw results: " + response)
+
+  		json_object = json.loads(str(response))
+    		st.json(json_object)
 		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
 		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
 	''')
