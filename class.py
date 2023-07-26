@@ -85,7 +85,7 @@ def main():
 		if st.session_state.login_key == True:
 			option = menu([MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
-		      		MenuItem('Part 1', icon='journal-code', children=[
+		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
 					MenuItem(ex3, icon='journal-code'),
@@ -96,18 +96,18 @@ def main():
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
-		      		MenuItem('Part 2', icon='journal-code', children=[
+		      		MenuItem('Part 2: Rule-based chatbot', icon='journal-code', children=[
 					MenuItem(ex5, icon='journal-code'),
 					MenuItem(ex6, icon='journal-code'),
 					MenuItem(ch6, icon='journal-code'),
     			]),
-		      		MenuItem('Part 3', icon='journal-code', children=[
+		      		MenuItem('Part 3: Integrate OpenAI API', icon='journal-code', children=[
 					MenuItem(ex7, icon='journal-code'),
 					MenuItem(ex8, icon='journal-code'),
 					MenuItem(ch8, icon='journal-code'),
 					MenuItem(ex9, icon='journal-code'),
     			]),
-		      		MenuItem('Part 4', icon='journal-code', children=[
+		      		MenuItem('Part 4: Prompt Engineering', icon='journal-code', children=[
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			], dashed=True),
