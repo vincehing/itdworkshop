@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_antd_components import menu, MenuItem, divider
 from authenticate import class0_login, class1_login
+from PIL import Image
 from class1_exercise import (
 				class1_prep, 
 				class1_hw1, 
@@ -21,6 +22,7 @@ from class1_exercise import (
 				class1_ex9,  
 				class1_ex10, 
 				class1_ch10,
+				final_product
 				)
 
 class0 = "Python Basics"
@@ -44,6 +46,7 @@ ch8 = "Challenge 8"
 ex9 = "Exercise 9"
 ex10 = "Exercise 10"
 ch10 = "Challenge 10"
+final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
 
@@ -85,6 +88,7 @@ def main():
 		if st.session_state.login_key == True:
 			option = menu([MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
+					MenuItem(final, icon='chat-quote'),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
@@ -134,6 +138,11 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_hw1()
+
+		elif option == final:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				final_product()
 	
 		elif option == ex1:
 			placeholder2 = st.empty()
