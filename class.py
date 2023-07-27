@@ -1,7 +1,6 @@
 import streamlit as st
 from streamlit_antd_components import menu, MenuItem, divider
 from authenticate import class0_login, class1_login
-from PIL import Image
 from class1_exercise import (
 				class1_prep, 
 				class1_hw1, 
