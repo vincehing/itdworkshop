@@ -116,6 +116,8 @@ def class1_ex1():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	# Exercise 1 : Input , Output and Variables
+	import streamlit as st
+	
 	name = st.text_input("Enter your name")
 	# only prints the Hello {name} if input box is not empty
 	if name:
@@ -135,6 +137,8 @@ def class1_ch1():
 	with st.expander("Reveal Code"):
 		st.code('''
 			# Challenge 1 (answer)
+	  		import streamlit as st
+	  
 			name = st.text_input("Enter your name")
 			gender = st.selectbox("State your gender", ["Male", "Female"])
 			age = st.text_input("State your age", 18)
