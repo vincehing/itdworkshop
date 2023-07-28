@@ -87,12 +87,12 @@ def main():
 					MenuItem(hw1, icon='journal-code'),
 		      		MenuItem('Part 1', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
-					MenuItem(ex2, icon='journal-code'),
-					MenuItem(ex3, icon='journal-code'),
-					MenuItem(ex4, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
+					MenuItem(ex2, icon='journal-code'),
 					MenuItem(ch2, icon='journal-code'),
+					MenuItem(ex3, icon='journal-code'),
 					MenuItem(ch3, icon='journal-code'),
+					MenuItem(ex4, icon='journal-code'),
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
