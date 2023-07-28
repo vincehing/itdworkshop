@@ -1,9 +1,12 @@
 import streamlit as st
 import openai
-
+from PIL import Image
 
 
 def class1_prep():
+	st.subheader("Course Slides")
+	st.markdown("https://go.gov.sg/itdchatbotprototype")
+	st.divider()
 	st.subheader("Pre-workshop Setup")
 	st.divider()
 	st.markdown("""1. Visual Studio (VS Code): this is the Integrated Development Environment (IDE) of choice by many coders and will make it easier for us to code our app.""")
@@ -54,12 +57,67 @@ def class1_hw1():
 	st.write("Hello World")
 	pass
 
+def final_product():
+	st.subheader("**:green[Feel the force! Yoda Chatbot]**")
+	image = Image.open('yoda.jpg')
+	st.image(image, caption='Master Yoda at your service')
+	st.divider()
+
+	openai.api_key = st.secrets["openapi_key"]
+
+	prompt_template = """
+	"Speak like Yoda from Star Wars for every question that was asked, 
+	do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+	"""
+
+	if "openai_model" not in st.session_state:
+		st.session_state["openai_model"] = "gpt-3.5-turbo"
+
+	if "msg_bot" not in st.session_state:
+		st.session_state.msg_bot = []
+
+	for message in st.session_state.msg_bot:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	
+	try:
+
+		if prompt := st.chat_input("What is up?"):
+			st.session_state.msg_bot.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				for response in openai.ChatCompletion.create(
+					model=st.session_state["openai_model"],
+					messages=[
+								{"role": "system", "content": prompt_template},
+								{"role": "user", "content": prompt},
+							],
+					stream=True,
+				):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
+
+	except Exception as e:
+		st.error(e)
+	pass
+
+
+
+
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
 	st.divider()
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	# Exercise 1 : Input , Output and Variables
+	import streamlit as st
+	
 	name = st.text_input("Enter your name")
 	# only prints the Hello {name} if input box is not empty
 	if name:
@@ -79,6 +137,8 @@ def class1_ch1():
 	with st.expander("Reveal Code"):
 		st.code('''
 			# Challenge 1 (answer)
+	  		import streamlit as st
+	  
 			name = st.text_input("Enter your name")
 			gender = st.selectbox("State your gender", ["Male", "Female"])
 			age = st.text_input("State your age", 18)
@@ -603,11 +663,9 @@ def class1_ex8():
 		import streamlit as st
 		import openai
 
-
 		st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
 		MODEL = "gpt-3.5-turbo"
-
 
 		response = openai.ChatCompletion.create(
 			model=MODEL,
@@ -617,7 +675,9 @@ def class1_ex8():
 			],
 			temperature=0,
 		)
-		st.write("Raw results: " + response)
+
+  		st.write("Raw results: ") 
+		st.write(response)
 		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
 		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
 	''')
@@ -731,7 +791,7 @@ def class1_ch8():
 	pass
 
 def class1_ex9():
-	st.subheader("Exercise ")
+	st.subheader("Exercise 9: Building a ChatGPT clone ")
 	st.divider()
 	st.markdown("**:blue[Code]**")
 	st.code('''

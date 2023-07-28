@@ -21,6 +21,7 @@ from class1_exercise import (
 				class1_ex9,  
 				class1_ex10, 
 				class1_ch10,
+				final_product
 				)
 
 class0 = "Python Basics"
@@ -44,6 +45,7 @@ ch8 = "Challenge 8"
 ex9 = "Exercise 9"
 ex10 = "Exercise 10"
 ch10 = "Challenge 10"
+final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
 
@@ -85,7 +87,8 @@ def main():
 		if st.session_state.login_key == True:
 			option = menu([MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
-		      		MenuItem('Part 1', icon='journal-code', children=[
+					MenuItem(final, icon='chat-quote'),
+		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
@@ -96,18 +99,18 @@ def main():
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
-		      		MenuItem('Part 2', icon='journal-code', children=[
+		      		MenuItem('Part 2: Rule-based chatbot', icon='journal-code', children=[
 					MenuItem(ex5, icon='journal-code'),
 					MenuItem(ex6, icon='journal-code'),
 					MenuItem(ch6, icon='journal-code'),
     			]),
-		      		MenuItem('Part 3', icon='journal-code', children=[
+		      		MenuItem('Part 3: Integrate OpenAI API', icon='journal-code', children=[
 					MenuItem(ex7, icon='journal-code'),
 					MenuItem(ex8, icon='journal-code'),
 					MenuItem(ch8, icon='journal-code'),
 					MenuItem(ex9, icon='journal-code'),
     			]),
-		      		MenuItem('Part 4', icon='journal-code', children=[
+		      		MenuItem('Part 4: Prompt Engineering', icon='journal-code', children=[
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			], dashed=True),
@@ -134,6 +137,11 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_hw1()
+
+		elif option == final:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				final_product()
 	
 		elif option == ex1:
 			placeholder2 = st.empty()
