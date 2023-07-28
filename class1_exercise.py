@@ -436,21 +436,20 @@ def class1_ex5():
 	st.divider()
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 	st.title("My first chatbot")
+	st.title("My first chatbot")
 
-		if "store_msg" not in st.session_state:
-			st.session_state.store_msg = []
+	if "store_msg" not in st.session_state:
+		st.session_state.store_msg = []
 
-		prompt = st.chat_input("Say something")
-		if prompt:
-			st.write(f"User has sent the following prompt: {prompt}")
-			st.session_state.store_msg.append(prompt)
-			for message in st.session_state.store_msg:
-				with st.chat_message("user"):
-						st.write(message)
-				with st.chat_message("assistant"):
-					st.write("Hello human, what can I do for you?")
-
+	prompt = st.chat_input("Say something")
+	if prompt:
+		st.write(f"User has sent the following prompt: {prompt}")
+		st.session_state.store_msg.append(prompt)
+		for message in st.session_state.store_msg:
+			with st.chat_message("user"):
+					st.write(message)
+			with st.chat_message("assistant"):
+				st.write("Hello human, what can I do for you?")
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("My first chatbot")
