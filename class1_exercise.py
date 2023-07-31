@@ -295,54 +295,62 @@ if __name__ == "__main__":
 
 def class1_ch2():
 	st.subheader("Challenge 2: Logical Conditioning")
-	st.divider()
+	st.markdown("""
+	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
+	     In the ***main.py*** file, 
+	     create and append a new function called *ch2()* and call it in the main function.\n
+	     In *ch2()*, modify the code in Exercise 1 & 2 to include the following:
+	     * Get inputs on the gender and age of the user
+	     * The user can select 'Male' or 'Female' from a dropdown list
+	     * The output should be:
+
+	     		You are : an adult male / an adult female /  a young girl / a young boy
+	    
+	     Hint: Use *if/elif/else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
+	""")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-			# Challenge 2 : Logical Conditioning
-			name = st.text_input("Enter your name")
-			gender = st.selectbox("State your gender", ["Male", "Female"])
-			age = int(st.text_input("State your age", 18))
-			photo = st.camera_input("Smile! take a picture here.")
-
-			# conditional logic to run different statements
-			# All inputs and photo must be provided before any condition below is true
-			if name:
-				st.write("Hi " + name)
-			if age >= 18 and gender == "Male" and photo:
-				 st.write("You are a male adult")
-				 st.image(photo)
-			elif age < 18 and gender == "Male" and photo:
-				 st.write("You are a young boy")
-				 st.image(photo)
-			elif age >= 18 and gender == "Female" and photo:
-				 st.write("You are a female adult")
-				 st.image(photo)
-			elif age < 18 and gender == "Female" and photo:
-				 st.write("You are a young girl")
-				 st.image(photo)
-				''')
-	st.markdown("**:red[Code Output]**")
-	# Challenge 2 : Logical Conditioning
-	name = st.text_input("Enter your name")
+def ch2():
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
 	photo = st.camera_input("Smile! take a picture here.")
 
 	# conditional logic to run different statements
 	# All inputs and photo must be provided before any condition below is true
-	if name:
-		st.write("Hi " + name)
-	if age >= 18 and gender == "Male" and photo:
+	if age >= 21 and gender == "Male" and photo:
 		st.write("You are a male adult")
 		st.image(photo)
-	elif age < 18 and gender == "Male" and photo:
+	elif age < 21 and gender == "Male" and photo:
 		st.write("You are a young boy")
 		st.image(photo)
-	elif age >= 18 and gender == "Female" and photo:
+	elif age >= 21 and gender == "Female" and photo:
 		st.write("You are a female adult")
 		st.image(photo)
-	elif age < 18 and gender == "Female" and photo:
+	elif age < 21 and gender == "Female" and photo:
+		st.write("You are a young girl")
+		st.image(photo)
+
+if __name__ == "__main__":
+	ch2()
+				''')
+	st.markdown("**:red[Code Output]**")
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	age = int(st.text_input("State your age", 18))
+	photo = st.camera_input("Smile! take a picture here.")
+
+	# conditional logic to run different statements
+	# All inputs and photo must be provided before any condition below is true
+	if age >= 21 and gender == "Male" and photo:
+		st.write("You are a male adult")
+		st.image(photo)
+	elif age < 21 and gender == "Male" and photo:
+		st.write("You are a young boy")
+		st.image(photo)
+	elif age >= 21 and gender == "Female" and photo:
+		st.write("You are a female adult")
+		st.image(photo)
+	elif age < 21 and gender == "Female" and photo:
 		st.write("You are a young girl")
 		st.image(photo)
 	pass
