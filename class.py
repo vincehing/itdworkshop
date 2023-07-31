@@ -48,11 +48,11 @@ ch10 = "Challenge 10"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
+st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023")
 
-	st.session_state.login_key = True
 	
 	if 'login_key' not in st.session_state:
 		st.session_state.login_key = False
