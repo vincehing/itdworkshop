@@ -193,16 +193,20 @@ def part1_intro1():
 	
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
-	st.divider()
+	st.markdown("Create a new file called *part1.py* and copy the code below into the file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	# Exercise 1 : Input , Output and Variables
 	import streamlit as st
 	
-	name = st.text_input("Enter your name")
-	# only prints the Hello {name} if input box is not empty
-	if name:
-		st.write("Hello " + name)
+	def ex1():
+		name = st.text_input("Enter your name")
+		# only prints the Hello {name} if input box is not empty
+		if name:
+			st.write("Hello " + name)
+	
+	if __name__ == "__part1__":
+			ex1()
 	''')
 	st.markdown("**:red[Code Output]**")
 	# Exercise 1 : Input , Output and Variables
@@ -423,7 +427,6 @@ def check_age_gender(age, gender):
 		elif gender == "female":
 			st.write("You are a young girl")
 
-
 def class1_ex4():
 	st.subheader("Exercise 4: Functions")
 	st.divider()
@@ -465,7 +468,6 @@ def class1_ex4():
 	#calling function check_age_gender
 	check_age_gender(age, gender)
 	pass
-
 
 def my_list_func():
 	name = st.text_input("Enter your name")
