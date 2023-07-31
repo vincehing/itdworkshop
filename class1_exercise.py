@@ -193,7 +193,11 @@ def part1_intro1():
 	
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
-	st.markdown("Create a new file called ***part1.py*** and copy the code below into the file.")
+	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
+	st.markdown("Install the watchdog module by running the command below in the terminal.")
+	st.code("pip install watchdog")
+	st.markdown("Run the code by typing the following into the terminal:")
+	st.code("streamlit run main.py")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	# Exercise 1 : Input , Output and Variables
