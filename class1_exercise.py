@@ -170,7 +170,7 @@ def resources():
 	st.markdown("5. [Python cheatsheet](https://www.pythoncheatsheet.org/)")
 	st.markdown("6. [Python for beginners](https://www.python.org/about/gettingstarted/)")
 	st.markdown("7. [ChatGPT](https://chat.openai.com/) - you can ask ChatGPT to generate code for you!")
-	st.markdown("Notes:  - you may do a single click to copy all the code  - challenge code is hidden click reveal to see the code")
+	st.markdown("Notes for this workshop course:  \n- you may do a single click to copy all the code  \n- challenge code is hidden, click reveal to see the code")
 
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
