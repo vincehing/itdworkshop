@@ -304,9 +304,9 @@ def class1_ch2():
 	     * The user can select 'Male' or 'Female' from a dropdown list
 	     * The output should be:
 
-	     		You are : an adult male / an adult female /  a young girl / a young boy
+	     		You are an adult male / an adult female /  a young girl / a young boy
 	    
-	     Hint: Use *if/elif/else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
+	     Hint: Use *if / elif / else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
 	""")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
@@ -360,7 +360,7 @@ def class1_ex3():
 	st.divider()
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	# Exercise 3 : Data and Loops (part 1)
+def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -374,9 +374,12 @@ def class1_ex3():
 	#for loop to show dictionary list
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
+
+if __name__ == "__main__":
+	ex3()
 	''')
 	st.markdown("**:red[Code Output]**")
-	# Exercise 3 : Data and Loops (part 1)
+def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -390,7 +393,9 @@ def class1_ex3():
 	#for loop to show dictionary list
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
-		pass
+
+if __name__ == "__main__":
+	ex3()
 
 def class1_ch3():
 	st.subheader("Challenge 3: Data and Loops ")
