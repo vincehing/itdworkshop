@@ -4,6 +4,9 @@ from authenticate import class0_login, class1_login
 from class1_exercise import (
 				class1_prep, 
 				team_introduction,
+				workshop_rules,
+				vscode_ui,
+				command_palette_indent,
 				class1_hw1, 
 				class1_ex1, 
 				class1_ch1, 
@@ -30,6 +33,9 @@ class1 = "Build Chatbot"
 prep = "Setup"
 hw1 = "Hello World App"
 intro = "Hello Team"
+rules = "Workshop Rules"
+ui = "VSCode UI"
+indent = "Command Palette auto-indent"
 ex1 = "Exercise 1"
 ch1 = "Challenge 1"
 ex2 = "Exercise 2"
@@ -96,6 +102,10 @@ def main():
 					]),
 					MenuItem('Introduction', icon='journal-code', children=[
 						MenuItem(intro, icon='journal-code'),
+						MenuItem(intro, icon='journal-code'),
+						MenuItem(rules, icon='journal-code'),
+						MenuItem(ui, icon='journal-code'),
+						MenuItem(indent, icon='journal-code'),
 						MenuItem(final, icon='journal-code'),
 					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[

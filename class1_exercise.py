@@ -62,6 +62,35 @@ def team_introduction():
 	image = Image.open('team_introductions.jpeg')
 	st.image(image, caption='Hello there!')
 
+def workshop_rules():
+	st.subheader("Workshop Rules")
+	st.write("1. Ask if you have questions.")
+	st.write("2. Be open to different ways to solve the problem.")
+	st.write("3. Try. Fail. Learn. Repeat.")
+	st.write("4. Seek help from other team members.")
+	st.write("5. Collaborate, if possible, for the challenges.")
+	st.write("6. Approach facilitators if your team cannot solve the problem.")
+	st.write("7. Toilet break is own-time-own-target.")
+	st.write("8. Have fun!")
+
+def vscode_ui():
+	st.write("Live demo for VS Code UI layout")
+	image = Image.open('VSCode_interface.png')
+	st.image(image, caption='VS Code UI layout')
+
+def command_palette_indent():
+	st.markdown("""Python is very particular about indentation.
+	     
+		 Use the command palette to automatically indent your code.
+
+		 Windows: Ctrl - Shift - P
+		 Mac: Command - Shift - P
+
+		 Select the option to *Convert Indentation to Tabs*
+	    """)
+	image = Image.open('command_palette_command.png')
+	st.image(image, caption='Command Palette auto-indent command')
+
 def final_product():
 	st.write("This is what we will working towards and building by the end of the workshop today.")
 	st.write("Do try out the chatbot below!")
