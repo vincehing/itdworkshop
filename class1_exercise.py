@@ -206,7 +206,7 @@ def class1_ex1():
 			st.write("Hello " + name)
 	
 	if __name__ == "__main__":
-			ex1()
+		ex1()
 	''')
 	st.markdown("Install the watchdog module by running the command below in the terminal.")
 	st.code("pip install watchdog")
