@@ -230,14 +230,14 @@ def class1_ch1():
 	     * The user can select 'Male' or 'Female' from a dropdown list
 	     * The output should be:
 
-	     	Hello {name}, you are {gender} and this year you are {age} years old
+	     		Hello {name}, you are {gender} and this year you are {age} years old
 	    
+	     * Create a new function called ch1() and call it in the main function
 	     * Hint: You can use the st.selectbox() function to create a dropdown list
 	""")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  import streamlit as st
 	  # Challenge 1 
 	  def ch1():	  
 	  	name = st.text_input("Enter your name")
