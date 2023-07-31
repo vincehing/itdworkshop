@@ -56,6 +56,11 @@ def class1_hw1():
 	st.write("Hello World")
 	pass
 
+def team_introduction():
+	st.write("Do introduce yourself to your teammates - name, division, role")
+	image = Image.open('team_introductions.jpeg')
+	st.image(image, caption='Team Introductions')
+
 def final_product():
 	st.write("This is what we will working towards and building by the end of the workshop today.")
 	st.write("Do try out the chatbot below!")

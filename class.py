@@ -3,6 +3,7 @@ from streamlit_antd_components import menu, MenuItem, divider
 from authenticate import class0_login, class1_login
 from class1_exercise import (
 				class1_prep, 
+				team_introduction,
 				class1_hw1, 
 				class1_ex1, 
 				class1_ch1, 
@@ -27,7 +28,8 @@ from class1_exercise import (
 class0 = "Python Basics"
 class1 = "Build Chatbot"
 prep = "Setup"
-hw1 = 'Hello World App'
+hw1 = "Hello World App"
+intro = "Introduction"
 ex1 = "Exercise 1"
 ch1 = "Challenge 1"
 ex2 = "Exercise 2"
@@ -92,7 +94,7 @@ def main():
 						MenuItem(prep, icon='journal-code'),
 						MenuItem(hw1, icon='journal-code'),
 					]),
-					MenuItem('Intro', icon='journal-code', children=[
+					MenuItem('Introduction', icon='journal-code', children=[
 						MenuItem(final, icon='journal-code'),
 					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
@@ -139,7 +141,12 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_prep()
-
+		
+		elif option == intro:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				team_introduction()
+		
 		elif option == hw1:
 			placeholder2 = st.empty()
 			with placeholder2.container():
