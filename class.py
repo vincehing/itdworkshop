@@ -39,7 +39,7 @@ obj = "Objectives"
 outline = "Workshop Outline"
 intro = "Hello Team"
 rules = "Workshop Rules"
-res = "Resources"
+res = "Useful resources"
 ui = "VSCode UI"
 indent = "Command Palette Indent"
 ex1 = "Exercise 1"
@@ -106,7 +106,7 @@ def main():
 						MenuItem(prep, icon='journal-code'),
 						MenuItem(hw1, icon='journal-code'),
 					]),
-					MenuItem('Introduction', icon='journal-code', children=[
+					MenuItem('Part 0: Introduction', icon='journal-code', children=[
 						MenuItem(obj, icon='journal-code'),
 						MenuItem(outline, icon='journal-code'),
 						MenuItem(final, icon='journal-code'),
