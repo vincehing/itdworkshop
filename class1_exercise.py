@@ -237,15 +237,19 @@ def class1_ch1():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-			# Challenge 1 (answer)
-	  		import streamlit as st
-	  
-			name = st.text_input("Enter your name")
-			gender = st.selectbox("State your gender", ["Male", "Female"])
-			age = st.text_input("State your age", 18)
+			import streamlit as st
 
-			if name and gender and age:
-				st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
+			# Challenge 1 
+	  		def ch1():	  
+				name = st.text_input("Enter your name")
+				gender = st.selectbox("State your gender", ["Male", "Female"])
+				age = st.text_input("State your age", 18)
+
+				if name and gender and age:
+					st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
+			
+	  		if __name__ == "__main__":
+				ch1()
 			''')
 	st.markdown("**:red[Code Output]**")
 	
