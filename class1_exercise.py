@@ -226,7 +226,7 @@ def class1_ch1():
 	st.markdown("""
 	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
 	     In the ***main.py*** file, 
-	     Create a new function called ch1() and call it in the main function
+	     Create a new function called ch1() and call it in the main function.\n
 	     In ch1(), modify the code in Exercise 1 to include the following:
 	     * Get inputs on the name, gender and age of the user
 	     * The user can select 'Male' or 'Female' from a dropdown list
