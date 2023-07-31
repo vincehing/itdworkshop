@@ -44,8 +44,8 @@ def class1_prep():
 def class1_hw1():
 	st.subheader("My first Hello World app")
 	st.divider()
-	st.markdown("""1. Create a new file called 'main.py'.""")
-	st.markdown("""2. Copy the code below and paste it in the newly created main.py file.""")
+	st.markdown("""1. Create a new file called 'helloworld.py'.""")
+	st.markdown("""2. Copy the code below and paste it in the newly created helloworld.py file.""")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 			import streamlit as st
@@ -54,7 +54,7 @@ def class1_hw1():
 		''')
 	st.write("Save your file and run the app by typing the following command in the terminal:")
 	st.code('''
-			streamlit run main.py
+			streamlit run helloworld.py
 		''')
 	st.markdown("""3. You should see a Streamlit application running at http://localhost:8501""")
 	st.markdown("""4. Type Ctrl + C in VS Code terminal to stop the Streamlit app""")
