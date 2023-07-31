@@ -88,11 +88,13 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Pre-workhop prep', icon='journal-code', children=[
+					MenuItem('Pre-workshop prep', icon='journal-code', children=[
 						MenuItem(prep, icon='journal-code'),
 						MenuItem(hw1, icon='journal-code'),
 					]),
-					MenuItem(final, icon='chat-quote'),
+					MenuItem('What we will build', icon='journal-code', children=[
+						MenuItem(final, icon='journal-code'),
+					])
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
