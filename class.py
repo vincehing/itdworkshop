@@ -94,7 +94,7 @@ def main():
 					]),
 					MenuItem('What we will build', icon='journal-code', children=[
 						MenuItem(final, icon='journal-code'),
-					])
+					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
