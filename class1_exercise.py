@@ -205,7 +205,7 @@ def class1_ex1():
 		if name:
 			st.write("Hello " + name)
 	
-	if __name__ == "__part1__":
+	if __name__ == "__main__":
 			ex1()
 	''')
 	st.markdown("**:red[Code Output]**")
