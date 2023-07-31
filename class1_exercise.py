@@ -210,8 +210,10 @@ def class1_ex1():
 	''')
 	st.markdown("Install the watchdog module by running the command below in the terminal.")
 	st.code("pip install watchdog")
+	st.markdown("Now you don't have to keep restarting the app to see the changes you make to the code. Just refresh the browser.")
 	st.markdown("Run the code by typing the following into the terminal:")
 	st.code("streamlit run main.py")
+	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
 	# Exercise 1 : Input , Output and Variables
 	name = st.text_input("Enter your name")
