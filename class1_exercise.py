@@ -58,7 +58,7 @@ def class1_hw1():
 	pass
 
 def final_product():
-	st.write("This is what we will be building today")
+	st.write("This is what we will working towards and building today by the end of the workshop.\nDo try out the chatbot below!")
 	st.subheader("**:green[Feel the force! Yoda Chatbot]**")
 	image = Image.open('yoda.jpg')
 	st.image(image, caption='Master Yoda at your service')
