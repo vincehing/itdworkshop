@@ -79,15 +79,7 @@ def vscode_ui():
 	st.image(image, caption='VS Code UI layout')
 
 def command_palette_indent():
-	st.markdown("""Python is very particular about indentation.
-	     
-		 Use the command palette to automatically indent your code.
-
-		 Windows: Ctrl - Shift - P
-		 Mac: Command - Shift - P
-
-		 Select the option to *Convert Indentation to Tabs*
-	    """)
+	st.markdown("Python is very particular about indentation.\nUse the command palette to automatically indent your code.\n\nWindows: Ctrl - Shift - P\nMac: Command - Shift - P\n\nSelect the option to *Convert Indentation to Tabs*")
 	image = Image.open('command_palette_command.png')
 	st.image(image, caption='Command Palette auto-indent command')
 
