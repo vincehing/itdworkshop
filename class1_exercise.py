@@ -357,7 +357,7 @@ if __name__ == "__main__":
 
 def class1_ex3():
 	st.subheader("Exercise 3: Data and Loops ")
-	st.divider()
+	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 def ex3():
@@ -379,7 +379,6 @@ if __name__ == "__main__":
 	ex3()
 	''')
 	st.markdown("**:red[Code Output]**")
-def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -393,9 +392,6 @@ def ex3():
 	#for loop to show dictionary list
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
-
-if __name__ == "__main__":
-	ex3()
 
 def class1_ch3():
 	st.subheader("Challenge 3: Data and Loops ")
