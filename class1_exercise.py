@@ -177,6 +177,9 @@ def resources():
 	st.markdown("6. [Python for beginners](https://www.python.org/about/gettingstarted/)")
 	st.markdown("7. [ChatGPT](https://chat.openai.com/) - you can ask ChatGPT to generate code for you!")
 	st.markdown("**Notes for this workshop course:**  \n- you may do a single click to copy all the code  \n- challenge code is hidden, click reveal to see the code")
+	st.markdown("Python is very particular about indentation.\nUse the command palette to automatically indent your code.\n\nWindows: Ctrl-Shift-P  \nMac: Command-Shift-P\n\nSelect the option to *Convert Indentation to Tabs*")
+	image = Image.open('command_palette_command.png')
+	st.image(image, caption='Command Palette auto-indent command')
 
 def part1_intro1():
 	st.subheader("Streamlit")
