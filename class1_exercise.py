@@ -270,14 +270,18 @@ def class1_ex2():
 	st.markdown("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	#Exercise 2 : Logical Conditioning
-	def ex2(): 
-	 age = 23
-	 #if else statement
-	 if age >= 18:
-	 st.write("You are an adult "
-	 else:
-	 st.write("You are not an adult")
+#Exercise 2 : Logical Conditioning
+def ex2(): 
+	age = st.text_input("State your age", 18)
+	#if else statement
+	age = int(age)
+	if age >= 21:
+		st.write("You are an adult")
+	else:
+		st.write("You are not an adult")
+
+if __name__ == "__main__":
+	ex2()
 	''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
