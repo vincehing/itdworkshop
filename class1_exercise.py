@@ -267,16 +267,17 @@ def class1_ch1():
 
 def class1_ex2():
 	st.subheader("Exercise 2: Logical Conditioning ")
-	st.divider()
+	st.markdown("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	#Exercise 2 : Logical Conditioning
-	age = 23
-	#if else statement
-	if age >= 18:
-		st.write("You are an adult ")
-	else:
-		st.write("You are not an adult")
+	def ex2(): 
+	 age = 23
+	 #if else statement
+	 if age >= 18:
+	 st.write("You are an adult "
+	 else:
+	 st.write("You are not an adult")
 	''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
