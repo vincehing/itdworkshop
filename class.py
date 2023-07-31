@@ -118,7 +118,7 @@ def main():
     			], dashed=True),
 					
 				MenuItem(type='divider'),
-				MenuItem('Logout', icon='box-arrow-right'),],open_all=True)
+				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
 			if option == 'Logout':
 				for key in st.session_state.keys():
 					del st.session_state[key]
