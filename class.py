@@ -95,6 +95,7 @@ def main():
 						MenuItem(hw1, icon='journal-code'),
 					]),
 					MenuItem('Introduction', icon='journal-code', children=[
+						MenuItem(intro, icon='journal-code'),
 						MenuItem(final, icon='journal-code'),
 					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
