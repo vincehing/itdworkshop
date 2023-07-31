@@ -3,6 +3,8 @@ from streamlit_antd_components import menu, MenuItem, divider
 from authenticate import class0_login, class1_login
 from class1_exercise import (
 				class1_prep, 
+				objectives,
+				workshop_outline,
 				team_introduction,
 				workshop_rules,
 				vscode_ui,
@@ -32,6 +34,8 @@ class0 = "Python Basics"
 class1 = "Build Chatbot"
 prep = "Setup"
 hw1 = "Hello World App"
+obj = "Objectives"
+outline = "Workshop Outline"
 intro = "Hello Team"
 rules = "Workshop Rules"
 ui = "VSCode UI"
@@ -101,6 +105,8 @@ def main():
 						MenuItem(hw1, icon='journal-code'),
 					]),
 					MenuItem('Introduction', icon='journal-code', children=[
+						MenuItem(obj, icon='journal-code'),
+						MenuItem(outline, icon='journal-code'),
 						MenuItem(intro, icon='journal-code'),
 						MenuItem(rules, icon='journal-code'),
 						MenuItem(ui, icon='journal-code'),
@@ -151,6 +157,16 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_prep()
+
+		elif option == obj:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				objectives()
+
+		elif option == outline:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				workshop_outline()
 		
 		elif option == intro:
 			placeholder2 = st.empty()

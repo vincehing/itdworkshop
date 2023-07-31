@@ -56,6 +56,20 @@ def class1_hw1():
 	st.write("Hello World")
 	pass
 
+def objectives():
+	st.subheader("Objectives")
+	st.markdown("1. Learn how to use Python and Streamlit library to create an interactive web app.")
+	st.markdown("2. Learn how to integrate and use OpenAI's API in their streamlit application to create a simple chatbot.")
+	st.markdown("3. Learn how to apply basic prompt engineering to enhance the interaction with the chatbot.")
+
+def workshop_outline():
+	st.subheader("Outline of workshop")
+	st.markdown("Workshop introduction and rules")
+	st.markdown("Part 1: Introduction to Python and Streamlit")
+	st.markdown("Part 2: Creating a rule-based chatbot")
+	st.markdown("Part 3: Creating a chatbot using OpenAI's API")
+	st.markdown("Part 4: Modifying your chatbot with prompt engineering")
+
 def team_introduction():
 	st.write("Do introduce yourself to your teammates:\n", "1) name\n", "2) division\n", "3) role")
 	st.write("Please also share your favourite Star Wars character and why!")
