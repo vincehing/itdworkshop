@@ -173,14 +173,14 @@ def resources():
 	st.markdown("**Notes for this workshop course:**  \n- you may do a single click to copy all the code  \n- challenge code is hidden, click reveal to see the code")
 
 def part1_intro1():
-	st.subheader("Streamlit.io")
-	st.markdown("*Streamlit is an open-source Python library")
-	st.markdown("*used extensively for machine learning and data science")
-	st.markdown("*helps to create interactive web apps in just a few lines of code")
-	st.markdown("*highly flexible and supports complex interactive apps with highly customisable UI")
-	st.markdown("	*-CherGPT in String")
-	st.markdown("	*-Metacog for CotF MOE")
-	st.markdown("	*-AILC prototype for MOE")
+	st.subheader("Streamlit")
+	st.markdown("* an open-source Python library")
+	st.markdown("* used extensively for machine learning and data science")
+	st.markdown("* helps to create interactive web apps in just a few lines of code")
+	st.markdown("* highly flexible and supports complex interactive apps with highly customisable UI")
+	st.markdown("	* CherGPT in String")
+	st.markdown("	* Metacog for CotF MOE")
+	st.markdown("	* AILC prototype for MOE")
 
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
