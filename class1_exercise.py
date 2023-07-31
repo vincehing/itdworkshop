@@ -52,6 +52,12 @@ def class1_hw1():
 			#my first Hello World app
 			st.write("Hello World")
 		''')
+	st.write("Save your file and run the app by typing the following command in the terminal:")
+	st.code('''
+			streamlit run main.py
+		''')
+	st.markdown("""3. You should see a Streamlit application running at http://localhost:8501""")
+	st.markdown("""4. Type Ctrl + C in VS Code terminal to stop the Streamlit app""")
 	st.markdown("**:red[Code Output]**")
 	st.write("Hello World")
 	pass
@@ -178,15 +184,13 @@ def part1_intro1():
 	     * an open-source Python library
 	     * used extensively for machine learning and data science
 	     * helps to create interactive web apps in just a few lines of code
+	     * highly flexible and supports complex interactive apps with highly customisable UI
+	     * Some real world examples:
 	     	* CherGPT in String
+	     	* Metacog for CotF MOE
+	     	* AILC prototype for MOE
 	     """)
-	# st.markdown("* used extensively for machine learning and data science")
-	# st.markdown("* helps to create interactive web apps in just a few lines of code")
-	# st.markdown("* highly flexible and supports complex interactive apps with highly customisable UI")
-	# st.markdown("	* CherGPT in String")
-	# st.markdown("	* Metacog for CotF MOE")
-	# st.markdown("	* AILC prototype for MOE")
-
+	
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")
 	st.divider()
