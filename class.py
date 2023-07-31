@@ -10,6 +10,7 @@ from class1_exercise import (
 				resources,
 				vscode_ui,
 				command_palette_indent,
+				part1_intro1,
 				class1_hw1, 
 				class1_ex1, 
 				class1_ch1, 
@@ -42,6 +43,7 @@ rules = "Workshop Rules"
 res = "Useful resources"
 ui = "VSCode UI"
 indent = "Command Palette Indent"
+part1_1 = "Introducing Streamlit"
 ex1 = "Exercise 1"
 ch1 = "Challenge 1"
 ex2 = "Exercise 2"
@@ -117,6 +119,7 @@ def main():
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					MenuItem(ui, icon='journal-code'),
 					MenuItem(indent, icon='journal-code'),
+					MenuItem(part1_1, icon='journal-code')
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
@@ -205,6 +208,11 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				final_product()
+
+		elif option == part1_1:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				part1_intro1()
 	
 		elif option == ex1:
 			placeholder2 = st.empty()
