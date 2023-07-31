@@ -75,18 +75,6 @@ def workshop_rules():
 
 def vscode_ui():
 	st.subheader("Navigating the VS Code interface")
-	st.markdown("A: Activity Bar: this is where you can see the different activities you can do in VS Code.")
-	st.markdown("\tExplorer: this is where you can see all the files and folders in your project.")
-	st.markdown("\tSource Control: this is where you can see the changes you have made to your project.")
-	st.markdown("\tExtensions: this is where you can install extensions to VS Code.")
-	st.markdown("\tRun and Debug: this is where you can debug your code.")
-	st.markdown("B: Side Bar: this is where you can see the different views of your project.")
-	st.markdown("C: Editor: this is where you can see the code you have written in your project.")
-	st.markdown("D: Panel: this is where you can see the different panels you have opened in your project.")
-	st.markdown("\tTerminal: this is where you can run commands in your project.")
-	st.markdown("\tOutput: this is where you can see the output of your code.")
-	st.markdown("\tProblems: this is where you can see the errors in your code.")
-	st.markdown("E. Status Bar: this is where you can see the status of your project.")
 	image = Image.open('VSCode_interface.png')
 	st.image(image, caption='VS Code UI layout')
 	st.markdown("**A: Activity Bar: this is where you can see the different activities you can do in VS Code.**")
