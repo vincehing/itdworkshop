@@ -57,7 +57,8 @@ def class1_hw1():
 	pass
 
 def team_introduction():
-	st.write("Do introduce yourself to your teammates - name, division, role")
+	st.write("Do introduce yourself to your teammates - Your 1) name 2) division 3) role")
+	st.write("Please also share your favourite Star Wars character and why!")
 	image = Image.open('team_introductions.jpeg')
 	st.image(image, caption='Team Introductions')
 
