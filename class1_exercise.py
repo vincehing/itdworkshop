@@ -4,11 +4,11 @@ from PIL import Image
 
 
 def class1_prep():
-	st.subheader("Course Slides")
-	st.markdown("https://go.gov.sg/itdchatbotprototype")
+	# st.subheader("Course Slides")
+	# st.markdown("https://go.gov.sg/itdchatbotprototype")
 	st.divider()
 	st.subheader("Pre-workshop Setup")
-	st.divider()
+	# st.divider()
 	st.markdown("""1. Visual Studio (VS Code): this is the Integrated Development Environment (IDE) of choice by many coders and will make it easier for us to code our app.""")
 	st.markdown("""2. Python (3.10 release or later): this is the coding language of choice for many data science related apps.""")
 	st.write("""
@@ -58,6 +58,7 @@ def class1_hw1():
 	pass
 
 def final_product():
+	st.write("This is what we will be building today")
 	st.subheader("**:green[Feel the force! Yoda Chatbot]**")
 	image = Image.open('yoda.jpg')
 	st.image(image, caption='Master Yoda at your service')
