@@ -63,8 +63,8 @@ def objectives():
 	st.markdown("3. Learn how to apply basic prompt engineering to enhance the interaction with the chatbot.")
 
 def workshop_outline():
-	st.subheader("Outline of workshop")
-	st.markdown("Workshop introduction and rules")
+	st.subheader("Outline")
+	st.markdown("Part 0: Workshop introduction and rules")
 	st.markdown("Part 1: Introduction to Python and Streamlit")
 	st.markdown("Part 2: Creating a rule-based chatbot")
 	st.markdown("Part 3: Creating a chatbot using OpenAI's API")
@@ -161,8 +161,16 @@ def final_product():
 		st.error(e)
 	pass
 
-
-
+def resources():
+	st.subheader("Useful resources and references")
+	st.markdown("1. [Streamlit documentation](https://docs.streamlit.io/en/stable/)")
+	st.markdown("2. [OpenAI API documentation](https://beta.openai.com/docs/introduction)")
+	st.markdown("3. [VS Code documentation](https://code.visualstudio.com/docs)")
+	st.markdown("4. [Python documentation](https://docs.python.org/3/)")
+	st.markdown("5. [Python cheatsheet](https://www.pythoncheatsheet.org/)")
+	st.markdown("6. [Python for beginners](https://www.python.org/about/gettingstarted/)")
+	st.markdown("7. [ChatGPT](https://chat.openai.com/) - you can ask ChatGPT to generate code for you!")
+	st.markdown("Notes:  - you may do a single click to copy all the code  - challenge code is hidden click reveal to see the code")
 
 def class1_ex1():
 	st.subheader("Exercise 1: Input , Output and Variables ")

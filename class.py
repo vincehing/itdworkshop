@@ -7,6 +7,7 @@ from class1_exercise import (
 				workshop_outline,
 				team_introduction,
 				workshop_rules,
+				resources,
 				vscode_ui,
 				command_palette_indent,
 				class1_hw1, 
@@ -38,6 +39,7 @@ obj = "Objectives"
 outline = "Workshop Outline"
 intro = "Hello Team"
 rules = "Workshop Rules"
+res = "Resources"
 ui = "VSCode UI"
 indent = "Command Palette Indent"
 ex1 = "Exercise 1"
@@ -107,13 +109,14 @@ def main():
 					MenuItem('Introduction', icon='journal-code', children=[
 						MenuItem(obj, icon='journal-code'),
 						MenuItem(outline, icon='journal-code'),
-						MenuItem(intro, icon='journal-code'),
-						MenuItem(rules, icon='journal-code'),
-						MenuItem(ui, icon='journal-code'),
-						MenuItem(indent, icon='journal-code'),
 						MenuItem(final, icon='journal-code'),
+						MenuItem(rules, icon='journal-code'),
+						MenuItem(intro, icon='journal-code'),
+						MenuItem(res, icon='journal-code'),
 					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
+					MenuItem(ui, icon='journal-code'),
+					MenuItem(indent, icon='journal-code'),
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
@@ -182,6 +185,11 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				workshop_rules()
+
+		elif option == res:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				resources()
 
 		elif option == ui:
 			placeholder2 = st.empty()
