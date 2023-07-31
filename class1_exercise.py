@@ -2,6 +2,8 @@ import streamlit as st
 import openai
 from PIL import Image
 
+def 
+
 
 def class1_prep():
 	# st.subheader("Course Slides")
