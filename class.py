@@ -118,7 +118,7 @@ def main():
 					]),
 		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
 					# MenuItem(ui, icon='journal-code'),
-					MenuItem(indent, icon='journal-code'),
+					# MenuItem(indent, icon='journal-code'),
 					# MenuItem(part1_1, icon='journal-code'),
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
