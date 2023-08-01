@@ -1079,7 +1079,7 @@ def class1_ch9():
 	pass
 
 def class1_ex10():
-	st.subheader("Exercise 10: Prompt Engineering")
+	st.subheader("Exercise 10: Basic Prompt Engineering")
 	st.markdown("""
 	     Now, we are going to create a chatbot with a personality by creating a default prompt for our chatbot.\n
 	     Let's make it a chatbot that speaks like Yoda from Star Wars.\n
@@ -1103,10 +1103,12 @@ def class1_ex10():
 		],
 		temperature=0,
 	)
-	st.write("Raw results: ") 
+	st.markdown("**Raw results:**") 
 	st.write(response)
-	st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
-	st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+	st.markdown("**LLM Response:**")
+	st.write(response["choices"][0]["message"]["content"].strip())
+	st.markdown(**Total tokens:**)
+	st.write(str(response["usage"]["total_tokens"]))
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -1120,10 +1122,12 @@ def class1_ex10():
 		],
 		temperature=0,
 	)
-	st.write("Raw results: ") 
+	st.markdown("**Raw results:**") 
 	st.write(response)
-	st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
-	st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+	st.markdown("**LLM Response:**")
+	st.write(response["choices"][0]["message"]["content"].strip())
+	st.markdown(**Total tokens:**)
+	st.write(str(response["usage"]["total_tokens"]))
 	pass
 
 def class1_ch10():
