@@ -957,7 +957,7 @@ def class1_ch8():
 			st.session_state.chat_msg.append({"role": "assistant", "content": reply})
 	  
 	if __name__ == "__main__":
-			ch8()
+		ch8()
 
 		''')
 	st.markdown("**:red[Code Output]**")
