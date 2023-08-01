@@ -618,6 +618,7 @@ def class1_ex6():
 	st.subheader("Exercise 6: Building a simple echo chatbot")
 	st.write("We will now build a simple echo chatbot.")
 	st.write("Append the following code to the ***main.py*** file.")
+	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	 def ex6():
@@ -650,7 +651,7 @@ def class1_ex6():
 	 	ex6()
 	 ''')
 	st.markdown("**:red[Code Output]**")
-	st.title("Echo Bot")
+	st.markdown("**Echo Bot**")
 
 	# Initialize chat history
 	if "messages" not in st.session_state:
@@ -674,64 +675,72 @@ def class1_ex6():
 			st.markdown(response)
 		# Add assistant response to chat history
 		st.session_state.messages.append({"role": "assistant", "content": response})
-	pass
 
 def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
-	st.divider()
+	st.markdown("""
+	     Create a new function called ***ch6()*** and modify the **ex6()** function to create the following rule based chatbot:
+	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”
+			Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”
+			Human : “How old are you?”,  Assistant: “Today is my birthday!”
+	     For other queries, it will reply “I am sorry, I am unable to help you with your query”
+	     Use *if / elif / else* statements to create the chatbot behaviour logic. 
+	     """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-					import streamlit as st
+		 def ch6():
+			st.title("Rule Based Bot")
 
-					st.title("Rule Based Bot")
+			# Initialize chat history
+			if "messages" not in st.session_state:
+				st.session_state.messages = []
 
-					# Initialize chat history
-					if "messages" not in st.session_state:
-						st.session_state.messages = []
+			# Display chat messages from history on app rerun
+			for message in st.session_state.messages:
+				with st.chat_message(message["role"]):
+					st.markdown(message["content"])
 
-					# Display chat messages from history on app rerun
-					for message in st.session_state.messages:
-						with st.chat_message(message["role"]):
-							st.markdown(message["content"])
+			# React to user input
+			if prompt := st.chat_input("Enter your query"):
+				if prompt == "Hello":
+					with st.chat_message("user"):
+						st.write("Hello")
+						st.session_state.messages.append({"role": "user", "content": prompt})
+					with st.chat_message("assistant"):
+						reply = "Hi there what can I do for you"
+						st.write(reply)
+						st.session_state.messages.append({"role": "assistant", "content": reply})
 
-					# React to user input
-					if prompt := st.chat_input("Enter your query"):
-						if prompt == "Hello":
-							with st.chat_message("user"):
-								st.write("Hello")
-								st.session_state.messages.append({"role": "user", "content": prompt})
-							with st.chat_message("assistant"):
-								reply = "Hi there what can I do for you"
-								st.write(reply)
-								st.session_state.messages.append({"role": "assistant", "content": reply})
+				elif prompt == "What is your name?":
+					with st.chat_message("user"):
+						st.write("What is your name?")
+						st.session_state.messages.append({"role": "user", "content": prompt})
+					with st.chat_message("assistant"):
+						reply = "My name is EAI , an electronic artificial being"
+						st.write(reply)
+						st.session_state.messages.append({"role": "assistant", "content": reply})
 
-						elif prompt == "What is your name?":
-							with st.chat_message("user"):
-								st.write("What is your name?")
-								st.session_state.messages.append({"role": "user", "content": prompt})
-							with st.chat_message("assistant"):
-								reply = "My name is EAI , an electronic artificial being"
-								st.write(reply)
-								st.session_state.messages.append({"role": "assistant", "content": reply})
+				elif prompt == "How old are you?":
+					with st.chat_message("user"):
+						st.write("How old are you?")
+						st.session_state.messages.append({"role": "user", "content": prompt})
+					with st.chat_message("assistant"):
+						reply = "Today is my birthday!"
+						st.write(reply)
+						st.session_state.messages.append({"role": "assistant", "content": reply})
 
-						elif prompt == "How old are you?":
-							with st.chat_message("user"):
-								st.write("How old are you?")
-								st.session_state.messages.append({"role": "user", "content": prompt})
-							with st.chat_message("assistant"):
-								reply = "Today is my birthday!"
-								st.write(reply)
-								st.session_state.messages.append({"role": "assistant", "content": reply})
-
-						else:
-							with st.chat_message("user"):
-								st.write(prompt)
-								st.session_state.messages.append({"role": "user", "content": prompt})
-							with st.chat_message("assistant"):
-								reply = "I am sorry, I am unable to help you with your query"
-								st.write(reply)
-								st.session_state.messages.append({"role": "assistant", "content": reply})
+				else:
+					with st.chat_message("user"):
+						st.write(prompt)
+						st.session_state.messages.append({"role": "user", "content": prompt})
+					with st.chat_message("assistant"):
+						reply = "I am sorry, I am unable to help you with your query"
+						st.write(reply)
+						st.session_state.messages.append({"role": "assistant", "content": reply})
+		
+	  if __name__ == "__main__":
+	  	ch6()
 		''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Rule Based Bot")
