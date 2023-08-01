@@ -318,18 +318,20 @@ def ch2():
 	photo = st.camera_input("Smile! take a picture here.")
 
 	# conditional logic to run different statements
-	# All inputs and photo must be provided before any condition below is true
-	if age >= 21 and gender == "Male" and photo:
+	if age >= 21 and gender == "Male":
 		st.write("You are a male adult")
 		st.image(photo)
-	elif age < 21 and gender == "Male" and photo:
+	elif age < 21 and gender == "Male":
 		st.write("You are a young boy")
 		st.image(photo)
-	elif age >= 21 and gender == "Female" and photo:
+	elif age >= 21 and gender == "Female":
 		st.write("You are a female adult")
 		st.image(photo)
-	elif age < 21 and gender == "Female" and photo:
+	elif age < 21 and gender == "Female":
 		st.write("You are a young girl")
+		
+	if photo:
+		st.write("Here is your photo: ")
 		st.image(photo)
 
 if __name__ == "__main__":
@@ -341,20 +343,21 @@ if __name__ == "__main__":
 	photo = st.camera_input("Smile! take a picture here.")
 
 	# conditional logic to run different statements
-	# All inputs and photo must be provided before any condition below is true
-	if age >= 21 and gender == "Male" and photo:
+	if age >= 21 and gender == "Male":
 		st.write("You are a male adult")
 		st.image(photo)
-	elif age < 21 and gender == "Male" and photo:
+	elif age < 21 and gender == "Male":
 		st.write("You are a young boy")
 		st.image(photo)
-	elif age >= 21 and gender == "Female" and photo:
+	elif age >= 21 and gender == "Female":
 		st.write("You are a female adult")
 		st.image(photo)
-	elif age < 21 and gender == "Female" and photo:
+	elif age < 21 and gender == "Female":
 		st.write("You are a young girl")
+		
+	if photo:
+		st.write("Here is your photo: ")
 		st.image(photo)
-	pass
 
 def class1_ex3():
 	st.subheader("Exercise 3: Data and Loops ")
