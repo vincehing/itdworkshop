@@ -576,6 +576,7 @@ def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
 	st.write("We will start creating a user interface for our first chatbot.")
 	st.write("Append the following code to the ***main.py*** file.")
+	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	def ex5():
