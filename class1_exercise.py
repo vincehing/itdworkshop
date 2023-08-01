@@ -443,12 +443,11 @@ def class1_ch3():
 	  #Print out the items in the dictionary
 	  st.write("Here is your dictionary: ")
 	  st.write(mydict)]
-			
-	#show individual items in dictionary
-	st.write("You can also show individual items in the dictionary like this: ")
-	for key, value in mydict.items():
+	  
+	  #show individual items in dictionary
+	  st.write("You can also show individual items in the dictionary like this: ")
+	  for key, value in mydict.items():
 		st.write(key + ": " + str(value))
-
 		''')
 	st.markdown("**:red[Code Output]**")
 	# Challenge 3 : Data and Loops
