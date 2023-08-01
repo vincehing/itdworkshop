@@ -685,6 +685,7 @@ def class1_ch6():
 	     	Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
 	     For other queries, it will reply “I am sorry, I am unable to help you with your query”\n
 	     Use *if / elif / else* statements to create the chatbot behaviour logic.\n 
+	     You should see the output below when you run your programme.\n
 	     """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
