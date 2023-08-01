@@ -870,8 +870,8 @@ def class1_ex8():
 	st.write(response)
 	st.markdown("**This is the extracted response:**")
 	st.write(response["choices"][0]["message"]["content"].strip())
-	myResponse = str(response["usage"]["total_tokens"]
-	st.markdown("**Total tokens used:** + {myResponse}")
+	s = str(response["usage"]["total_tokens"])
+	st.markdown("**Total tokens used:** + {s}")
 	pass
 
 def chat_completion(prompt):
