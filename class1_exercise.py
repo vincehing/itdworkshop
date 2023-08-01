@@ -679,11 +679,11 @@ def class1_ex6():
 def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
 	st.markdown("""
-	     Create a new function called ***ch6()*** and modify the **ex6()** function to create the following rule based chatbot:
-	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”
-			Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”
-			Human : “How old are you?”,  Assistant: “Today is my birthday!”
-	     For other queries, it will reply “I am sorry, I am unable to help you with your query”
+	     Create a new function called ***ch6()*** and modify the **ex6()** function to create the following rule based chatbot:    	
+	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”    	
+			Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”    	
+			Human : “How old are you?”,  Assistant: “Today is my birthday!”    	
+	     For other queries, it will reply “I am sorry, I am unable to help you with your query”		
 	     Use *if / elif / else* statements to create the chatbot behaviour logic. 
 	     """)
 	st.markdown("**:blue[Code]**")
