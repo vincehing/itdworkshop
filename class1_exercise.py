@@ -803,7 +803,7 @@ def class1_ch6():
 
 def class1_ex7():
 	st.subheader("Exercise 7: Secrets- Shhh ")
-	st.divider()
+	st.write("In this exercise, we will learn how to hide your API key")
 	st.markdown("""
 	In your working directory (chatbot), create a directory called **.streamlit**\n
 	Note the *dot* in front of the directory\n
@@ -821,14 +821,19 @@ def class1_ch7():
 	pass
 
 def class1_ex8():
-	st.subheader("Exercise 8: Calling OpenAI LLM API")
-	st.divider()
+	st.subheader("Exercise 8: Calling the OpenAI LLM API")
+	st.write("In this exercise, we will learn how to call the OpenAI LLM API")
+	st.write("Note that there is a new import statement **import openai**")
+	st.markdown("""
+	     Append the following code to your **main.py** and run it.\n
+	     You should see the output as shown below.\n
+	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
-		import streamlit as st
-		import openai
-
-		st.title("Api Call")
+	 import openai
+	 
+	 def ex8():
+	 	st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
 		MODEL = "gpt-3.5-turbo"
 
@@ -845,6 +850,9 @@ def class1_ex8():
 		st.write(response)
 		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
 		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+	 
+	 if __name__ == "__main__":
+		ex8()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
