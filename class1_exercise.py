@@ -432,33 +432,7 @@ def class1_ch3():
 	with st.expander("Reveal Code"):
 		st.code('''
 		# Challenge 3 : Data and Loops
-		name = st.text_input("Enter your name")
-		gender = st.selectbox("State your gender", ["Male", "Female"])
-		age = st.text_input("State your age", 18)
-		#declare empty dictionary 
-		mydict = {}
-		mydict["name"] = name
-		mydict["gender"] = gender
-		mydict["age"] = age
-		#Print out the items in the dictionary
-		st.write(mydict)
-				
-		 #show individual items in dictionary
-		for key, value in mydict.items():
-			st.write(key + ": " + str(value))
-
-		#Extra challenge:
-		mylist = []
-		mylist.append(mydict)
-	   
-		#show dictionary items in mylist
-		for dict in mylist:
-			st.write(dict)
-
-		''')
-	st.markdown("**:red[Code Output]**")
-	# Challenge 3 : Data and Loops
-	name = st.text_input("Enter your name")
+			name = st.text_input("Enter your name")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = st.text_input("State your age", 18)
 	#declare empty dictionary 
@@ -466,21 +440,34 @@ def class1_ch3():
 	mydict["name"] = name
 	mydict["gender"] = gender
 	mydict["age"] = age
-
+	#Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
 	st.write(mydict)
-
+			
 	#show individual items in dictionary
+	st.write("You can also show individual items in the dictionary like this: ")
 	for key, value in mydict.items():
 		st.write(key + ": " + str(value))
 
-	#Extra challenge:
-	mylist = []
-	mylist.append(mydict)
-
-	#show dictionary items in mylist
-	for dict in mylist:
-		st.write(dict)
-	pass
+		''')
+	st.markdown("**:red[Code Output]**")
+	# Challenge 3 : Data and Loops
+		name = st.text_input("Enter your name")
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	age = st.text_input("State your age", 18)
+	#declare empty dictionary 
+	mydict = {}
+	mydict["name"] = name
+	mydict["gender"] = gender
+	mydict["age"] = age
+	#Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
+	st.write(mydict)
+			
+	#show individual items in dictionary
+	st.write("You can also show individual items in the dictionary like this: ")
+	for key, value in mydict.items():
+		st.write(key + ": " + str(value))
 
 #function to check age and gender        
 def check_age_gender(age, gender):
