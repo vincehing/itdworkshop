@@ -330,6 +330,8 @@ def ch2():
 	if photo:
 		st.write("Here is your photo: ")
 		st.image(photo)
+	else:
+		st.write("No photo taken")
 
 if __name__ == "__main__":
 	ch2()
@@ -352,6 +354,8 @@ if __name__ == "__main__":
 	if photo:
 		st.write("Here is your photo: ")
 		st.image(photo)
+	else:
+		st.write("No photo taken")
 
 def class1_ex3():
 	st.subheader("Exercise 3: Data and Loops ")
