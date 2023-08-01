@@ -159,7 +159,11 @@ def main():
 	
 	if cls == class1 and st.session_state.login_key == True:
 		divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
-		if option == prep:
+
+		if option == None:
+			st.write("Welcome to the workshop! Select a section from the sidebar to get started.")
+
+		elif option == prep:
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_prep()
