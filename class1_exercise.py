@@ -544,11 +544,11 @@ def class1_ch4():
 	st.subheader("Challenge 4: Functions ")
 	st.write("For this challenge, we will rewrite our code from the previous exercise to use functions.")
 	st.markdown("""
-	     Copy our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary.
-	     Put the above code in a function called ***my_list_func()*** and call the function in the ***main()*** function.
+	     Copy our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary.\n
+	     Put the above code in a function called ***my_list_func()*** and call the function in the ***main()*** function.\n
 	     Call the previous function ***check_age_gender()*** in the ***my_list_func()*** function.
-	     Run the code to see if it works.
-	     Refresh the browser to see the changes.
+	     Run the code to see if it works.\n
+	     Refresh the browser to see the changes.\n
 	     """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
