@@ -866,11 +866,11 @@ def class1_ex8():
 		],
 		temperature=0,
 	)
-	st.write("Raw results: ") 
+	st.write("This is the raw response: ") 
 	st.write(response)
-	st.write("LLM Response: ")
+	st.write("This is the extracted response: ")
 	st.write(response["choices"][0]["message"]["content"].strip())
-	st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+	st.write("Total tokens used: " + str(response["usage"]["total_tokens"]))
 	pass
 
 def chat_completion(prompt):
