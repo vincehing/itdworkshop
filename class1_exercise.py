@@ -987,8 +987,9 @@ def class1_ch8():
 	pass
 
 def class1_ex9():
-	st.subheader("Exercise 9: Building a ChatGPT clone ")
-	st.divider()
+	st.subheader("Exercise 9: Building a ChatGPT-like clone with streaming")
+	st.write("Now, we will incorporate a streaming response from the LLM API into our chatbot to mimic the behaviour of ChatGPT.")
+	st.write("Copy and run the code below. You should see the code output as shown below.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	import openai
