@@ -485,7 +485,7 @@ def check_age_gender(age, gender):
 
 def class1_ex4():
 	st.subheader("Exercise 4: Functions")
-	st.write("For this exercise, we will learn what functions are and how to use them.")
+	st.write("For this exercise, we will learn what functions are and how to use them. We will rewrite our previous code to use functions.")
 	st.write("Append the following function to the ***main.py*** file.")
 	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
@@ -542,7 +542,14 @@ def my_list_func():
 
 def class1_ch4():
 	st.subheader("Challenge 4: Functions ")
-	st.divider()
+	st.write("For this challenge, we will rewrite our code from the previous exercise to use functions.")
+	st.markdown("""
+	     Copy our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary.
+	     Put the above code in a function called ***my_list_func()*** and call the function in the ***main()*** function.
+	     Call the previous function ***check_age_gender()*** in the ***my_list_func()*** function.
+	     Run the code to see if it works.
+	     Refresh the browser to see the changes.
+	     """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
