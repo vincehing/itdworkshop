@@ -802,13 +802,13 @@ def class1_ch6():
 	pass
 
 def class1_ex7():
-	st.subheader("Exercise 7: Secrets- Shhdddh ")
+	st.subheader("Exercise 7: Secrets- Shhh ")
 	st.divider()
 	st.markdown("""
-	In your working directory (chatbot), create a directory called (.streamlit)
-	     * Note the dot in front of the directory\n
-	In this folder, create a file called secrets.toml\n
-	Get an API key from your OpenAI account and type this in secrets.toml
+	In your working directory (chatbot), create a directory called **.streamlit**\n
+	Note the *dot* in front of the directory\n
+	In this folder, create a file called **secrets.toml**\n
+	Get an API key from your OpenAI account and type the following in **secrets.toml**:
 	""")
 	st.markdown("**:blue[Code]**")
 	st.code('''
