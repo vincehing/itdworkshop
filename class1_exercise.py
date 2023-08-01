@@ -1131,7 +1131,7 @@ def class1_ex10():
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
 	st.write("Now, let's create a variable to store a prompt to make your bot speak like someone you know!")
-	st.write("You can use the code below as a template.")
+	st.write("You can use the code below as a starter template. Note the ***prompt_template*** variable.")
 	st.code('''
 	for response in openai.ChatCompletion.create(
 		model=st.session_state["openai_model"],
