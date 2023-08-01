@@ -598,7 +598,7 @@ def class1_ex5():
 	ex5()
 	''')
 	st.markdown("**:red[Code Output]**")
-	st.title("My first chatbot")
+	st.markdown("**My first chatbot**")
 
 	if "store_msg" not in st.session_state:
 		st.session_state.store_msg = []
