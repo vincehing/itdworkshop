@@ -989,16 +989,11 @@ def class1_ch8():
 def class1_ex9():
 	st.subheader("Exercise 9: Building a ChatGPT-like clone with streaming responses")
 	st.write("Now, we will incorporate a streaming response from the LLM API into our chatbot to mimic the behaviour of ChatGPT.")
-	st.write("Copy and run the code below. You should see the code output as shown below.")
+	st.write("Copy and run the code below to see the streaming responses.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	import openai
-	import streamlit as st
-
-	st.title("ChatGPT-like clone")
-	
-	def main():
-
+	def ex9():
+		st.title("ChatGPT-like clone")
 		openai.api_key = st.secrets["openapi_key"]
 
 		if "openai_model" not in st.session_state:
@@ -1036,7 +1031,7 @@ def class1_ex9():
 			st.error(e)
 	 
 	 if __name__ == "__main__":
-			main()
+			ex9()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone")
