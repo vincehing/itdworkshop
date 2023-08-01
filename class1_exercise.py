@@ -397,7 +397,26 @@ if __name__ == "__main__":
 
 def class1_ch3():
 	st.subheader("Challenge 3: Data and Loops ")
-	st.divider()
+	st.markdown("""
+	     Add a new function called ***ch3()*** to the ***main.py*** file and call it in the main function.\n
+	     In *ch3()*, modify the code in Exercise 3 to include the following:
+	     * Get inputs on the name, age and gender of the user
+	     * Store the inputs in a dictionary and display the dictionary
+	     Hint:
+	     * To add a value into a dictionary, you can use the following syntax:
+	     """)
+	st.code('''	
+	 mydict["name"] = name
+	 st.write(mydict)
+	 ''')
+	st.write("The output should look like this:")
+	st.code('''
+	 {"name":"Joe",
+	 "gender":"Male",
+	 "age":20}
+	 ''')
+	st.write("For extra challenge, you can try to store the dictionary in a list and display the list. You can use the following syntax:")
+	st.code('''my_list.append(person)''')
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
