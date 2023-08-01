@@ -1126,7 +1126,7 @@ def class1_ex10():
 	st.write(response)
 	st.markdown("**LLM Response:**")
 	st.write(response["choices"][0]["message"]["content"].strip())
-	st.markdown(**Total tokens:**)
+	st.markdown("**Total tokens:**")
 	st.write(str(response["usage"]["total_tokens"]))
 	pass
 
