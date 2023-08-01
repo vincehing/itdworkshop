@@ -868,7 +868,8 @@ def class1_ex8():
 	)
 	st.write("Raw results: ") 
 	st.write(response)
-	st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
+	st.write("LLM Response: ")
+	st.write(response["choices"][0]["message"]["content"].strip())
 	st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
 	pass
 
