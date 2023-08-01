@@ -1086,6 +1086,7 @@ def class1_ex10():
 	     Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
 	     Note the prompt inside the *role* that goes *Speak like Yoda ...*.\n
 	     This is the default prompt that will be used for every conversation.\n
+	     Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
 	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
