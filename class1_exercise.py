@@ -320,13 +320,10 @@ def ch2():
 	# conditional logic to run different statements
 	if age >= 21 and gender == "Male":
 		st.write("You are a male adult")
-		st.image(photo)
 	elif age < 21 and gender == "Male":
 		st.write("You are a young boy")
-		st.image(photo)
 	elif age >= 21 and gender == "Female":
 		st.write("You are a female adult")
-		st.image(photo)
 	elif age < 21 and gender == "Female":
 		st.write("You are a young girl")
 		
@@ -345,13 +342,10 @@ if __name__ == "__main__":
 	# conditional logic to run different statements
 	if age >= 21 and gender == "Male":
 		st.write("You are a male adult")
-		st.image(photo)
 	elif age < 21 and gender == "Male":
 		st.write("You are a young boy")
-		st.image(photo)
 	elif age >= 21 and gender == "Female":
 		st.write("You are a female adult")
-		st.image(photo)
 	elif age < 21 and gender == "Female":
 		st.write("You are a young girl")
 		
