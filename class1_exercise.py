@@ -916,9 +916,7 @@ def class1_ch8():
 	st.write("You should see the code output as shown below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
-		st.code('''
-	st.title("My LLM Chatbot")
-	
+		st.code('''	
 	#create chat_completion function
 	def chat_completion(prompt):
 		openai.api_key = st.secrets["openapi_key"]
