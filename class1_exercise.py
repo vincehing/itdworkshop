@@ -596,7 +596,7 @@ def class1_ex5():
 					st.write("Hello human, what can I do for you?")
 
 	if __name__ == "__main__":
-	ex5()
+		ex5()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**My first chatbot**")
@@ -613,7 +613,6 @@ def class1_ex5():
 					st.write(message)
 			with st.chat_message("assistant"):
 				st.write("Hello human, what can I do for you?")
-	pass
 
 def class1_ex6():
 	st.subheader("Exercise 6: Building a simple echo chatbot")
