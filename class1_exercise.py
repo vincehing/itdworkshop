@@ -484,7 +484,7 @@ def check_age_gender(age, gender):
 
 def class1_ex4():
 	st.subheader("Exercise 4: Functions")
-	st.write("For this exercise, we will learn what functions are and how to use them. We will rewrite our previous code to use functions.")
+	st.write("For this exercise, we will rewrite our previous code to use functions.")
 	st.write("Append the following function to the ***main.py*** file.")
 	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
@@ -574,23 +574,28 @@ def class1_ch4():
 
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
-	st.divider()
+	st.write("We will start creating a simple rule-based chatbot.")
+	st.write("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	st.title("My first chatbot")
+	def ex5():
+		st.title("My first chatbot")
 
-	if "store_msg" not in st.session_state:
-		st.session_state.store_msg = []
+		if "store_msg" not in st.session_state:
+			st.session_state.store_msg = []
 
-	prompt = st.chat_input("Say something")
-	if prompt:
-		st.write(f"User has sent the following prompt: {prompt}")
-		st.session_state.store_msg.append(prompt)
-		for message in st.session_state.store_msg:
-			with st.chat_message("user"):
-					st.write(message)
-			with st.chat_message("assistant"):
-				st.write("Hello human, what can I do for you?")
+		prompt = st.chat_input("Say something")
+		if prompt:
+			st.write(f"User has sent the following prompt: {prompt}")
+			st.session_state.store_msg.append(prompt)
+			for message in st.session_state.store_msg:
+				with st.chat_message("user"):
+						st.write(message)
+				with st.chat_message("assistant"):
+					st.write("Hello human, what can I do for you?")
+
+	if __name__ == "__main__":
+	ex5()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("My first chatbot")
