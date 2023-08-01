@@ -401,7 +401,7 @@ def class1_ch3():
 	     Add a new function called ***ch3()*** to the ***main.py*** file and call it in the main function.\n
 	     In *ch3()*, modify the code in Exercise 3 to include the following:
 	     * Get inputs on the name, age and gender of the user
-	     * Store the inputs in a dictionary and display the dictionary
+	     * Store the inputs in a dictionary and display the dictionary\n
 	     Hint:
 	     * To add a value into a dictionary, you can use the following syntax:
 	     """)
@@ -412,9 +412,9 @@ def class1_ch3():
 	st.write("The output should look like this:")
 	st.code('''
 	 {
-	 "name" : "Joe",
-	 "gender" : "Male",
-	 "age" : 20
+	 	"name" : "Joe",
+	 	"gender" : "Male",
+		"age" : 20
 	 }
 	 ''')
 	st.write("For extra challenge, you can try to store the dictionary in a list and display the list. You can use the following syntax:")
@@ -422,7 +422,7 @@ def class1_ch3():
 	 mylist = []
 	 my_list.append(person)
 	 for dict in my_list:
-		st.write(dict)
+	 st.write(dict)
 	 ''')
 	st.markdown("""
 	     You may need to add a submit button to check for a new dictionary entry and append it to the list each time the button is clicked.
