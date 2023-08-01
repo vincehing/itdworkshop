@@ -805,9 +805,9 @@ def class1_ex7():
 	st.subheader("Exercise 7: Secrets- Shhh ")
 	st.divider()
 	st.markdown("""
-	In your working directory (chatbot)
-	Using VS create a directory called (.streamlit)*Note the dot in front of the directory
-	Create a file called secrets.toml
+	In your working directory (chatbot), create a directory called (.streamlit)
+	     * Note the dot in front of the directory\n
+	In this folder, create a file called secrets.toml\n
 	Get an API key from your OpenAI account and type this in secrets.toml
 	""")
 	st.markdown("**:blue[Code]**")
