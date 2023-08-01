@@ -163,6 +163,7 @@ def main():
 		# if option == None:
 		# 	placeholder2 = st.empty()
 		# 	with placeholder2.container():
+		st.write("option: ", option)
 		st.write("Welcome to the workshop! Select a section from the sidebar to get started.")
 
 		if option == prep:
