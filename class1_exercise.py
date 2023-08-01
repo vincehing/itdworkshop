@@ -1080,7 +1080,13 @@ def class1_ch9():
 
 def class1_ex10():
 	st.subheader("Exercise 10: Prompt Engineering")
-	st.divider()
+	st.markdown("""
+	     Now, we are going to create a chatbot with a personality by creating a default prompt for our chatbot.\n
+	     Let's make it a chatbot that speaks like Yoda from Star Wars.\n
+	     Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
+	     Note the prompt inside the *role* that goes *Speak like Yoda ...*.\n
+	     This is the default prompt that will be used for every conversation.\n
+	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	import streamlit as st
