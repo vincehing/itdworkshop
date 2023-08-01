@@ -679,7 +679,7 @@ def class1_ex6():
 def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
 	st.markdown("""
-	     Create a new function called ***ch6()*** and modify the **ex6()** function to create the following rule based chatbot:\n
+	     Create a new function called ***ch6()*** and modify the ***ex6()*** function to create the following rule based chatbot:\n
 	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
 	     	Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
 	     	Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
@@ -750,7 +750,7 @@ def class1_ch6():
 		ch6()
 		''')
 	st.markdown("**:red[Code Output]**")
-	st.title("Rule Based Bot")
+	st.markdown("**Rule Based Bot**")
 
 	# Initialize chat history
 	if "messages" not in st.session_state:
