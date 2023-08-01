@@ -449,7 +449,7 @@ def class1_ch3():
 	  for key, value in mydict.items():
 		st.write(key + ": " + str(value))
 		''')
-		
+
 	st.markdown("**:red[Code Output]**")
 	# Challenge 3 : Data and Loops
 	name = st.text_input("Enter your name")
@@ -485,7 +485,9 @@ def check_age_gender(age, gender):
 
 def class1_ex4():
 	st.subheader("Exercise 4: Functions")
-	st.divider()
+	st.write("For this exercise, we will learn what functions are and how to use them.")
+	st.write("Append the following function to the ***main.py*** file.")
+	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 		#function to check age and gender        
@@ -503,7 +505,6 @@ def class1_ex4():
 					st.write("You are a young girl")
 				
 		#main program function, optional but it is a good coding practise in python application
-				
 		def main():
 				
 			st.title("Age and Gender Check")
