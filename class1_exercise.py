@@ -491,8 +491,7 @@ def class1_ex4():
 	st.code('''
 		#function to check age and gender        
 		def check_age_gender(age, gender):
-				
-			if age >= 18:
+			if age >= 21:
 				if gender == "male":
 					st.write("You are an adult male")
 				elif gender == "female":
@@ -503,8 +502,7 @@ def class1_ex4():
 				elif gender == "female":
 					st.write("You are a young girl")
 				
-		#main program function, optional but it is a good coding practise in python application
-		def main():
+		def ex4():
 				
 			st.title("Age and Gender Check")
 			#Note that age is converted from string to int
@@ -514,7 +512,7 @@ def class1_ex4():
 			check_age_gender(age, gender)
 				
 		if __name__ == "__main__":
-			main()
+			ex4()
 
 	''')
 	st.markdown("**:red[Code Output]**")
@@ -523,7 +521,6 @@ def class1_ex4():
 	gender = st.selectbox("Select your gender:", ["male", "female"])
 	#calling function check_age_gender
 	check_age_gender(age, gender)
-	pass
 
 def my_list_func():
 	name = st.text_input("Enter your name")
