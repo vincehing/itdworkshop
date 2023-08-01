@@ -1090,26 +1090,25 @@ def class1_ex10():
 	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	import streamlit as st
-	import openai
+	 def ex10():
+		st.title("Api Call")
+		openai.api_key = st.secrets["openapi_key"]
+		MODEL = "gpt-3.5-turbo"
+		response = openai.ChatCompletion.create(
+			model=MODEL,
+			messages=[
+				{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
+				{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
+			],
+			temperature=0,
+		)
+		st.markdown("**LLM Response:**")
+		st.write(response["choices"][0]["message"]["content"].strip())
+		st.markdown("**Total tokens:**")
+		st.write(str(response["usage"]["total_tokens"]))
 	 
-	st.title("Api Call")
-	openai.api_key = st.secrets["openapi_key"]
-	MODEL = "gpt-3.5-turbo"
-	response = openai.ChatCompletion.create(
-		model=MODEL,
-		messages=[
-			{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
-			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
-		],
-		temperature=0,
-	)
-	st.markdown("**Raw results:**") 
-	st.write(response)
-	st.markdown("**LLM Response:**")
-	st.write(response["choices"][0]["message"]["content"].strip())
-	st.markdown(**Total tokens:**)
-	st.write(str(response["usage"]["total_tokens"]))
+	 if __name__ == "__main__":
+		ex10()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -1123,8 +1122,6 @@ def class1_ex10():
 		],
 		temperature=0,
 	)
-	st.markdown("**Raw results:**") 
-	st.write(response)
 	st.markdown("**LLM Response:**")
 	st.write(response["choices"][0]["message"]["content"].strip())
 	st.markdown("**Total tokens:**")
@@ -1133,58 +1130,64 @@ def class1_ex10():
 
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
-	st.divider()
+	st.write("Now, let's create a variable to store a prompt to make your bot speak like someone you know!")
+	st.write("You can use the code below as a template.")
+	st.code('''
+	for response in openai.ChatCompletion.create(
+		model=st.session_state["openai_model"],
+		messages=[{"role":"system", "content":prompt_template}, {"role":"user", "content":prompt}],
+	''')
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	import streamlit as st
-	import openai
-	  
-	st.title("ChatGPT-like clone with Prompt Engineering")
+	  def ch10():
+		st.title("ChatGPT-like clone with Prompt Engineering")
 
-	openai.api_key = st.secrets["openapi_key"]
+		openai.api_key = st.secrets["openapi_key"]
 
-	prompt_template = """
-	"Speak like Yoda from Star Wars for every question that was asked, 
-	do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-	"""
+		prompt_template = """
+		"Speak like Yoda from Star Wars for every question that was asked, 
+		do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+		"""
 
-	if "openai_model" not in st.session_state:
-		st.session_state["openai_model"] = "gpt-3.5-turbo"
+		if "openai_model" not in st.session_state:
+			st.session_state["openai_model"] = "gpt-3.5-turbo"
 
-	if "msg_bot" not in st.session_state:
-		st.session_state.msg_bot = []
+		if "msg_bot" not in st.session_state:
+			st.session_state.msg_bot = []
 
-	for message in st.session_state.msg_bot:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
-	
-	try:
-
-		if prompt := st.chat_input("What is up?"):
-			st.session_state.msg_bot.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
-
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				for response in openai.ChatCompletion.create(
-					model=st.session_state["openai_model"],
-					messages=[
-								{"role": "system", "content": prompt_template},
-								{"role": "user", "content": prompt},
-							],
-					stream=True,
-				):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
-
-	except Exception as e:
-		st.error(e)
+		for message in st.session_state.msg_bot:
+			with st.chat_message(message["role"]):
+				st.markdown(message["content"])
 		
+		try:
+
+			if prompt := st.chat_input("What is up?"):
+				st.session_state.msg_bot.append({"role": "user", "content": prompt})
+				with st.chat_message("user"):
+					st.markdown(prompt)
+
+				with st.chat_message("assistant"):
+					message_placeholder = st.empty()
+					full_response = ""
+					for response in openai.ChatCompletion.create(
+						model=st.session_state["openai_model"],
+						messages=[
+									{"role": "system", "content": prompt_template},
+									{"role": "user", "content": prompt},
+								],
+						stream=True,
+					):
+						full_response += response.choices[0].delta.get("content", "")
+						message_placeholder.markdown(full_response + "▌")
+					message_placeholder.markdown(full_response)
+				st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
+
+		except Exception as e:
+			st.error(e)
+		
+	  if __name__ == "__main__":
+		ch10()	
 		''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone with Prompt Engineering")
