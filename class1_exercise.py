@@ -841,15 +841,18 @@ def class1_ex8():
 			model=MODEL,
 			messages=[
 				{"role": "system", "content": "You are a helpful assistant."},
-				{"role": "user", "content": "Tell me about Singapore in the 1970s"},
+				{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
 			],
 			temperature=0,
 		)
 
-  		st.write("Raw results: ") 
+		st.markdown("**This is the raw response:**") 
 		st.write(response)
-		st.write("LLM Response: " + response["choices"][0]["message"]["content"].strip())
-		st.write("Total tokens: " + str(response["usage"]["total_tokens"]))
+		st.markdown("**This is the extracted response:**")
+		st.write(response["choices"][0]["message"]["content"].strip())
+		s = str(response["usage"]["total_tokens"])
+		st.markdown("**Total tokens used:**")
+		st.write(s)
 	 
 	 if __name__ == "__main__":
 		ex8()
@@ -862,7 +865,7 @@ def class1_ex8():
 		model=MODEL,
 		messages=[
 			{"role": "system", "content": "You are a helpful assistant."},
-			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
+			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
 		],
 		temperature=0,
 	)
@@ -871,9 +874,7 @@ def class1_ex8():
 	st.markdown("**This is the extracted response:**")
 	st.write(response["choices"][0]["message"]["content"].strip())
 	s = str(response["usage"]["total_tokens"])
-	st.markdown("""
-	     **Total tokens used:** 
-	     """)
+	st.markdown("**Total tokens used:**")
 	st.write(s)
 	pass
 
@@ -893,7 +894,7 @@ def chat_completion(prompt):
 
 def class1_ch8():
 	st.subheader("Challenge 8: Incorporate your LLM API call into your chatbot")
-	st.divider()
+	st.write("In this challenge, we will incorporate the LLM API call into our previous rule-based *Echo* chatbot")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
