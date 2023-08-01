@@ -872,8 +872,9 @@ def class1_ex8():
 	st.write(response["choices"][0]["message"]["content"].strip())
 	s = str(response["usage"]["total_tokens"])
 	st.markdown("""
-	     **Total tokens used:** + s
+	     **Total tokens used:** 
 	     """)
+	st.write(s)
 	pass
 
 def chat_completion(prompt):
