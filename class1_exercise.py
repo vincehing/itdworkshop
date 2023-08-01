@@ -895,6 +895,25 @@ def chat_completion(prompt):
 def class1_ch8():
 	st.subheader("Challenge 8: Incorporate your LLM API call into your chatbot")
 	st.write("In this challenge, we will incorporate the LLM API call into our previous rule-based *Echo* chatbot")
+	st.markdown("""
+	     Create a new function **ch8()** and copy the code from **ex6()** into it.\n
+	     Now, instead of echoing the user's input, we will call the LLM API to generate a response.\n
+	     First, copy the code from **ex8** into a function named **chat_completion()**.\n
+	     This function should return the response from the LLM API like this:\n
+	     """)
+	st.code('''return response["choices"][0]["message"]["content"].strip()''')
+	st.markdown("""
+	     In **chat_completion()**, replace the previous *Tell me the history ..."* prompt from **ex8()** with the current user's input.\n
+	     In **ch8()**, you can use the following code to call **chat_completion()**:\n
+	     """)
+	st.code('''
+	 if prompt := st.chat.input("What's up?"):
+	 	#display user messgae in chat message container
+	 	reply = chat_completion(prompt) 
+	 	st.chat_message("user").markdown(prompt)
+		''')
+	st.write("Don't forget to add the user message to the chat history!")
+	st.write("You should see the code output as shown below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
