@@ -802,7 +802,7 @@ def class1_ch6():
 	pass
 
 def class1_ex7():
-	st.subheader("Exercise 7: Secrets- Shhh ")
+	st.subheader("Exercise 7: Secrets- Shhdddh ")
 	st.divider()
 	st.markdown("""
 	In your working directory (chatbot), create a directory called (.streamlit)
