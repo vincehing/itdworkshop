@@ -681,8 +681,8 @@ def class1_ch6():
 	st.markdown("""
 	     Create a new function called ***ch6()*** and modify the **ex6()** function to create the following rule based chatbot:\n
 	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
-			Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
-			Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
+	     	Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
+	     	Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
 	     For other queries, it will reply “I am sorry, I am unable to help you with your query”\n
 	     Use *if / elif / else* statements to create the chatbot behaviour logic.\n 
 	     """)
