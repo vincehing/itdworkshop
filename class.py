@@ -161,7 +161,9 @@ def main():
 		divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
 
 		if option == None:
-			st.write("Welcome to the workshop! Select a section from the sidebar to get started.")
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				st.write("Welcome to the workshop! Select a section from the sidebar to get started.")
 
 		elif option == prep:
 			placeholder2 = st.empty()
