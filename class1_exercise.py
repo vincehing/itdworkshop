@@ -242,7 +242,7 @@ def class1_ch1():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  # Challenge 1 
+	  # Challenge 1 : Input , Output and Variables
 	  def ch1():	  
 	  	name = st.text_input("Enter your name")
 		gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -312,6 +312,7 @@ def class1_ch2():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
+	# Challenge 2 : Logical Conditioning
 def ch2():
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
@@ -362,6 +363,7 @@ def class1_ex3():
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
+	 # Exercise 3 : Data and Loops 
 def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
@@ -489,6 +491,7 @@ def class1_ex4():
 	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
+	 	#Exercise 4: Functions
 		#function to check age and gender        
 		def check_age_gender(age, gender):
 			if age >= 21:
@@ -548,7 +551,7 @@ def class1_ch4():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-
+		# Challenge 4: Functions
 		def my_list_func():
 			name = st.text_input("Enter your name")
 			gender = st.selectbox("State your gender", ["male", "female"])
@@ -579,6 +582,7 @@ def class1_ex5():
 	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
+	 #Exercise 5 : Chatbot UI
 	def ex5():
 		st.title("My first chatbot")
 
@@ -621,6 +625,7 @@ def class1_ex6():
 	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
+	 #Exercise 6 : Rule-based Echo Chatbot 
 	 def ex6():
 		st.title("Echo Bot")
 
@@ -690,6 +695,7 @@ def class1_ch6():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
+	  #Challenge 6 : Rule-based If-Else Chatbot
 	  def ch6():
 		st.title("Rule Based Bot")
 	  
@@ -832,6 +838,7 @@ def class1_ex8():
 	st.code('''
 	 import openai
 	 
+	 #Exercise 8 : Using the OpenAI API
 	 def ex8():
 	 	st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
@@ -917,8 +924,8 @@ def class1_ch8():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''	
-	#create chat_completion function
-	def chat_completion(prompt):
+	  #Challenge 8: Incorporating the API into your chatbot
+	 def chat_completion(prompt):
 		openai.api_key = st.secrets["openapi_key"]
 		MODEL = "gpt-3.5-turbo"
 		response = openai.ChatCompletion.create(
@@ -992,7 +999,8 @@ def class1_ex9():
 	st.write("Copy and run the code below to see the streaming responses.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	def ex9():
+	 #Exercise 9 : Building a ChatGPT-like clone with streaming responses
+	 def ex9():
 		st.title("ChatGPT-like clone")
 		openai.api_key = st.secrets["openapi_key"]
 
@@ -1090,6 +1098,7 @@ def class1_ex10():
 	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
+	 #Exercise 10: Basic prompt engineering
 	 def ex10():
 		st.title("Api Call")
 		openai.api_key = st.secrets["openapi_key"]
@@ -1142,6 +1151,7 @@ def class1_ch10():
 	with st.expander("Reveal Code"):
 		st.code('''
 	  def ch10():
+		#Challenge 10: Make the bot speak like someone you know
 		st.title("ChatGPT-like clone with Prompt Engineering")
 
 		openai.api_key = st.secrets["openapi_key"]
