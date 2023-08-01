@@ -411,12 +411,23 @@ def class1_ch3():
 	 ''')
 	st.write("The output should look like this:")
 	st.code('''
-	 {"name":"Joe",
-	 "gender":"Male",
-	 "age":20}
+	 {
+	 "name" : "Joe",
+	 "gender" : "Male",
+	 "age" : 20
+	 }
 	 ''')
 	st.write("For extra challenge, you can try to store the dictionary in a list and display the list. You can use the following syntax:")
-	st.code('''my_list.append(person)''')
+	st.code('''
+	 mylist = []
+	 my_list.append(person)
+	 for dict in my_list:
+		st.write(dict)
+	 ''')
+	st.markdown("""
+	     You may need to add a submit button to check for a new dictionary entry and append it to the list each time the button is clicked.
+	     In the interest of time, we will not be covering this in class. You can try it out on your own. 
+	    """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
