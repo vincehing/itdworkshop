@@ -452,7 +452,7 @@ def class1_ch3():
 		''')
 	st.markdown("**:red[Code Output]**")
 	# Challenge 3 : Data and Loops
-		name = st.text_input("Enter your name")
+	name = st.text_input("Enter your name")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = st.text_input("State your age", 18)
 	#declare empty dictionary 
