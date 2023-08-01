@@ -516,7 +516,7 @@ def class1_ex4():
 
 	''')
 	st.markdown("**:red[Code Output]**")
-	st.title("Age and Gender Check")
+	st.subheader("Age and Gender Check")
 	age = int(st.text_input("State your age", 18))
 	gender = st.selectbox("Select your gender:", ["male", "female"])
 	#calling function check_age_gender
