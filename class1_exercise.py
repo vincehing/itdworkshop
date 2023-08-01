@@ -917,8 +917,6 @@ def class1_ch8():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	import streamlit as st
-	import openai
 	st.title("My LLM Chatbot")
 	
 	#create chat_completion function
@@ -933,9 +931,11 @@ def class1_ch8():
 			],
 			temperature=0,
 		)
-
 		return response["choices"][0]["message"]["content"].strip()
-	def main():
+	  
+	def ch8():
+	  	st.title("My LLM Chatbot")
+
 		# Initialize chat history
 		if "chat_msg" not in st.session_state:
 			st.session_state.chat_msg = []
@@ -946,7 +946,7 @@ def class1_ch8():
 				st.markdown(message["content"])
 
 		# React to user input
-		if prompt := st.chat_input("What is up?"):
+		if prompt := st.chat_input("What's up?"):
 			# Display user message in chat message container
 			reply = chat_completion(prompt)
 			st.chat_message("user").markdown(prompt)
@@ -959,7 +959,7 @@ def class1_ch8():
 			st.session_state.chat_msg.append({"role": "assistant", "content": reply})
 	  
 	if __name__ == "__main__":
-			main()
+			ch8()
 
 		''')
 	st.markdown("**:red[Code Output]**")
