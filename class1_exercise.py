@@ -541,8 +541,8 @@ def class1_ch4():
 	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
 	st.markdown("""
 	     Copy our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary.\n
-	     Put the above code in a function called ***my_list_func()*** and call this function in the ***main()*** function.\n
-	     Call our ***check_age_gender()*** function in the ***my_list_func()*** function.\n
+	     Put the above code in a new function called ***ch4()*** and call this function as your first running function.\n
+	     Call our ***check_age_gender()*** function in the ***ch4()*** function.\n
 	     Run the code to see if it works. Refresh the browser to see the changes.\n
 	     """)
 	st.markdown("**:blue[Code]**")
@@ -562,11 +562,11 @@ def class1_ch4():
 			check_age_gender(mydict["age"], mydict["gender"])
 			st.write(mydict)
 
-		def main():
+		def ch4():
 			my_list_func()
 
 		if __name__ == "__main__":
-			main()
+			ch4()
 		
 		''')
 	st.markdown("**:red[Code Output]**")
