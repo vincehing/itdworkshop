@@ -616,36 +616,39 @@ def class1_ex5():
 
 def class1_ex6():
 	st.subheader("Exercise 6: Building a simple echo chatbot")
-	st.divider()
+	st.write("We will now build a simple echo chatbot.")
+	st.write("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	import streamlit as st
+	 def ex6():
+		st.title("Echo Bot")
 
-	st.title("Echo Bot")
+		# Initialize chat history
+		if "messages" not in st.session_state:
+			st.session_state.messages = []
 
-	# Initialize chat history
-	if "messages" not in st.session_state:
-		st.session_state.messages = []
+		# Display chat messages from history on app rerun
+		for message in st.session_state.messages:
+			with st.chat_message(message["role"]):
+				st.markdown(message["content"])
 
-	# Display chat messages from history on app rerun
-	for message in st.session_state.messages:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
+		# React to user input
+		if prompt := st.chat_input("What is up?"):
+			# Display user message in chat message container
+			st.chat_message("user").markdown(prompt)
+			# Add user message to chat history
+			st.session_state.messages.append({"role": "user", "content": prompt})
 
-	# React to user input
-	if prompt := st.chat_input("What is up?"):
-		# Display user message in chat message container
-		st.chat_message("user").markdown(prompt)
-		# Add user message to chat history
-		st.session_state.messages.append({"role": "user", "content": prompt})
-
-		response = f"Echo: {prompt}"
-		# Display assistant response in chat message container
-		with st.chat_message("assistant"):
-			st.markdown(response)
-		# Add assistant response to chat history
-		st.session_state.messages.append({"role": "assistant", "content": response})
-	''')
+			response = f"Echo: {prompt}"
+			# Display assistant response in chat message container
+			with st.chat_message("assistant"):
+				st.markdown(response)
+			# Add assistant response to chat history
+			st.session_state.messages.append({"role": "assistant", "content": response})
+		
+	 if __name__ == "__main__":
+	 	ex6()
+	 ''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Echo Bot")
 
