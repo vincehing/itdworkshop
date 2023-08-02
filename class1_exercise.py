@@ -172,7 +172,6 @@ def final_product():
 
 def resources():
 	st.subheader("Useful resources and references")
-	st.markdown("[Presentation deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
 	st.markdown("1. [Streamlit documentation](https://docs.streamlit.io/en/stable/)")
 	st.markdown("2. [OpenAI API documentation](https://beta.openai.com/docs/introduction)")
 	st.markdown("3. [VS Code documentation](https://code.visualstudio.com/docs)")

@@ -67,8 +67,8 @@ st.set_page_config(layout="wide")
 st.session_state.login_key = True
 
 def main():
-	st.title("ITD Sharing Workshops 2023")
-
+	st.title("ITD Sharing Workshops 2023") 
+	st.markdown("[Workshop slide deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
 	
 	if 'login_key' not in st.session_state:
 		st.session_state.login_key = False
