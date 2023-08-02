@@ -241,9 +241,8 @@ def class1_ex2():
 	st.code('''
 	 def main():
 	 	ex2()
-
-  	 if __name__ == "__main__":
-		main()
+	 if __name__ == "__main__":
+	 	main()
 	''')
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
