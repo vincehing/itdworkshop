@@ -233,14 +233,17 @@ def class1_ex2():
 	import streamlit as st
 	
 	# Exercise 2 : Input , Output and Variables
-	def ex2():
+	 def ex2():
 		name = st.text_input("Enter your name")
 		# only prints the Hello {name} if input box is not empty
 		if name:
 			st.write("Hello " + name)
-	
-	if __name__ == "__main__":
-		ex2()
+	 
+	 def main():
+	 	ex2()
+
+  	 if __name__ == "__main__":
+		main()
 	''')
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
@@ -276,9 +279,12 @@ def class1_ch2():
 
 		if name and gender and age:
 			st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
-			
-	if __name__ == "__main__":
+	 
+	 def main():
 		ch2()
+	
+	 if __name__ == "__main__":
+		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	
@@ -306,8 +312,11 @@ def ex3():
 	else:
 		st.write("You are not an adult")
 
-if __name__ == "__main__":
+ def main():
 	ex3()
+	 
+ if __name__ == "__main__":
+	main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
@@ -339,7 +348,7 @@ def class1_ch3():
 	with st.expander("Reveal Code"):
 		st.code('''
 	# Challenge 3 : Logical Conditioning
-def ch3():
+ def ch3():
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
 	photo = st.camera_input("Smile! take a picture here.")
@@ -359,9 +368,12 @@ def ch3():
 		st.image(photo)
 	else:
 		st.write("No photo taken")
-
-if __name__ == "__main__":
+ 
+ def main():
 	ch3()
+	  
+ if __name__ == "__main__":
+	 main()
 				''')
 	st.markdown("**:red[Code Output]**")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -405,8 +417,11 @@ def ex4():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
-if __name__ == "__main__":
+ def main():
 	ex4()
+ 
+ if __name__ == "__main__":
+	main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	# Data list
@@ -460,22 +475,29 @@ def class1_ch4():
 	with st.expander("Reveal Code"):
 		st.code('''
 	  # Challenge 4 : Data and Loops
-	  name = st.text_input("Enter your name")
-	  gender = st.selectbox("State your gender", ["Male", "Female"])
-	  age = st.text_input("State your age", 18)
-	  #declare empty dictionary
-	  mydict = {}
-	  mydict["name"] = name
-	  mydict["gender"] = gender
-	  mydict["age"] = age
-	  #Print out the items in the dictionary
-	  st.write("Here is your dictionary: ")
-	  st.write(mydict)
+	  def ch4():
+		name = st.text_input("Enter your name")
+		gender = st.selectbox("State your gender", ["Male", "Female"])
+		age = st.text_input("State your age", 18)
+		#declare empty dictionary
+		mydict = {}
+		mydict["name"] = name
+		mydict["gender"] = gender
+		mydict["age"] = age
+		#Print out the items in the dictionary
+		st.write("Here is your dictionary: ")
+		st.write(mydict)
+		
+		#show individual items in dictionary
+		st.write("You can also show individual items in the dictionary like this: ")
+		for key, value in mydict.items():
+			st.write(key + ": " + str(value))
+	
+	 def main():
+		ch4()
 	  
-	  #show individual items in dictionary
-	  st.write("You can also show individual items in the dictionary like this: ")
-	  for key, value in mydict.items():
-		st.write(key + ": " + str(value))
+	 if __name__ == "__main__":
+		main()
 		''')
 
 	st.markdown("**:red[Code Output]**")
@@ -625,8 +647,11 @@ def class1_ex5():
 				with st.chat_message("assistant"):
 					st.write("Hello human, what can I do for you?")
 
-	if __name__ == "__main__":
+	 def main():
 		ex5()
+	 
+	 if __name__ == "__main__":
+		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**My first chatbot**")
@@ -678,8 +703,11 @@ def class1_ex6():
 			# Add assistant response to chat history
 			st.session_state.messages.append({"role": "assistant", "content": response})
 		
+	 def main():
+		ex6()
+	 
 	 if __name__ == "__main__":
-	 	ex6()
+	 	main()
 	 ''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**Echo Bot**")
@@ -779,8 +807,12 @@ def class1_ch6():
 					st.session_state.messages.append(
 					{"role": "assistant", "content": reply}
 					)
-	  if __name__ == "__main__":
+	  
+	  def main():
 		ch6()
+	  
+	  if __name__ == "__main__":
+		main()
 		''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**Rule Based Bot**")
@@ -887,8 +919,11 @@ def class1_ex8():
 		st.markdown("**Total tokens used:**")
 		st.write(s)
 	 
-	 if __name__ == "__main__":
+	 def main():
 		ex8()
+	 
+	 if __name__ == "__main__":
+		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -989,8 +1024,11 @@ def class1_ch8():
 			# Add assistant response to chat history
 			st.session_state.chat_msg.append({"role": "assistant", "content": reply})
 	  
-	if __name__ == "__main__":
+	 def main():
 		ch8()
+	  
+	 if __name__ == "__main__":
+		main()
 
 		''')
 	st.markdown("**:red[Code Output]**")
@@ -1064,8 +1102,11 @@ def class1_ex9():
 	 	except Exception as e:
 			st.error(e)
 	 
+	 def main():
+		ex9()
+	 
 	 if __name__ == "__main__":
-			ex9()
+			main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone")
@@ -1142,8 +1183,11 @@ def class1_ex10():
 		st.markdown("**Total tokens:**")
 		st.write(str(response["usage"]["total_tokens"]))
 	 
+	 def main():
+			ex10()
+	 
 	 if __name__ == "__main__":
-		ex10()
+		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -1223,8 +1267,11 @@ def class1_ch10():
 		except Exception as e:
 			st.error(e)
 		
+	 def main():
+			ch10()
+	  
 	  if __name__ == "__main__":
-		ch10()	
+		main()	
 		''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone with Prompt Engineering")
