@@ -227,18 +227,18 @@ def class1_ch1():
 
 def class1_ex2():
 	st.subheader("Exercise 2: Input , Output and Variables ")
-	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
+	st.markdown("In your ***main.py***, copy the code below into the file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	import streamlit as st
-	
-	# Exercise 2 : Input , Output and Variables
+	 # Exercise 2 : Input , Output and Variables
 	 def ex2():
 		name = st.text_input("Enter your name")
 		# only prints the Hello {name} if input box is not empty
 		if name:
 			st.write("Hello " + name)
-	 
+	''')
+	st.write("We will now call the function *ex2()* in the main function.")
+	st.code('''
 	 def main():
 	 	ex2()
 
