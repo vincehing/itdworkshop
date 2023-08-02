@@ -222,6 +222,9 @@ def class1_ex1():
 	# Exercise 1 : Functions
 	st.write("Hello World")
 
+def class1_ch1():
+	pass
+
 def class1_ex2():
 	st.subheader("Exercise 2: Input , Output and Variables ")
 	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
