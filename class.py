@@ -121,7 +121,7 @@ def main():
 					# MenuItem(indent, icon='journal-code'),
 					# MenuItem(part1_1, icon='journal-code'),
 					MenuItem(ex1, icon='journal-code'),
-					MenuItem(ch1, icon='journal-code'),
+					# MenuItem(ch1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
 					MenuItem(ch2, icon='journal-code'),
 					MenuItem(ex3, icon='journal-code'),
