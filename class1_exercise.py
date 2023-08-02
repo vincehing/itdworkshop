@@ -517,96 +517,96 @@ def check_age_gender(age, gender):
 		elif gender == "female":
 			st.write("You are a young girl")
 
-# def class1_ex4():
-# 	st.subheader("Exercise 4: Functions")
-# 	st.write("For this exercise, we will rewrite our previous code to use functions.")
-# 	st.write("Append the following function to the ***main.py*** file.")
-# 	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
-# 	st.markdown("**:blue[Code]**")
-# 	st.code('''
-# 	 	#Exercise 4: Functions
-# 		#function to check age and gender        
-# 		def check_age_gender(age, gender):
-# 			if age >= 21:
-# 				if gender == "male":
-# 					st.write("You are an adult male")
-# 				elif gender == "female":
-# 					st.write("You are an adult female")
-# 			else:
-# 				if gender == "male":
-# 					st.write("You are a young boy")
-# 				elif gender == "female":
-# 					st.write("You are a young girl")
+def class1_ex4_old():
+	st.subheader("Exercise 4: Functions")
+	st.write("For this exercise, we will rewrite our previous code to use functions.")
+	st.write("Append the following function to the ***main.py*** file.")
+	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
+	st.markdown("**:blue[Code]**")
+	st.code('''
+	 	#Exercise 4: Functions
+		#function to check age and gender        
+		def check_age_gender(age, gender):
+			if age >= 21:
+				if gender == "male":
+					st.write("You are an adult male")
+				elif gender == "female":
+					st.write("You are an adult female")
+			else:
+				if gender == "male":
+					st.write("You are a young boy")
+				elif gender == "female":
+					st.write("You are a young girl")
 				
-# 		def ex4():
+		def ex4():
 				
-# 			st.title("Age and Gender Check")
-# 			#Note that age is converted from string to int
-# 			age = int(st.text_input("State your age", 18))
-# 			gender = st.selectbox("Select your gender:", ["male", "female"])
-# 			#calling function check_age_gender
-# 			check_age_gender(age, gender)
+			st.title("Age and Gender Check")
+			#Note that age is converted from string to int
+			age = int(st.text_input("State your age", 18))
+			gender = st.selectbox("Select your gender:", ["male", "female"])
+			#calling function check_age_gender
+			check_age_gender(age, gender)
 				
-# 		if __name__ == "__main__":
-# 			ex4()
+		if __name__ == "__main__":
+			ex4()
 
-# 	''')
-# 	st.markdown("**:red[Code Output]**")
-# 	st.markdown("**Age and Gender Check**")
-# 	age = int(st.text_input("State your age", 18))
-# 	gender = st.selectbox("Select your gender:", ["male", "female"])
-# 	#calling function check_age_gender
-# 	check_age_gender(age, gender)
+	''')
+	st.markdown("**:red[Code Output]**")
+	st.markdown("**Age and Gender Check**")
+	age = int(st.text_input("State your age", 18))
+	gender = st.selectbox("Select your gender:", ["male", "female"])
+	#calling function check_age_gender
+	check_age_gender(age, gender)
 
-# def my_list_func():
-# 	name = st.text_input("Enter your name")
-# 	gender = st.selectbox("State your gender", ["male", "female"])
-# 	age = int(st.text_input("State your age", 18))
+def my_list_func():
+	name = st.text_input("Enter your name")
+	gender = st.selectbox("State your gender", ["male", "female"])
+	age = int(st.text_input("State your age", 18))
 
-# 	mydict = {}
-# 	mydict["name"] = name
-# 	mydict["gender"] = gender
-# 	mydict["age"] = age
+	mydict = {}
+	mydict["name"] = name
+	mydict["gender"] = gender
+	mydict["age"] = age
 
-# 	check_age_gender(age, gender)
-# 	st.write(mydict)
-# 	return mydict
+	check_age_gender(age, gender)
+	st.write(mydict)
+	return mydict
 
-# def class1_ch4():
-# 	st.subheader("Challenge 4: Functions ")
-# 	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
-# 	st.markdown("""
-# 	     Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
-# 	     Remember our previous ***check_age_gender()*** function?
-# 	     Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
-# 	     Run the code to see if it works. Refresh the browser to see the changes.\n
-# 	     """)
-# 	st.markdown("**:blue[Code]**")
-# 	with st.expander("Reveal Code"):
-# 		st.code('''
-# 		# Challenge 4: Functions
-# 		def my_list_func():
-# 			name = st.text_input("Enter your name")
-# 			gender = st.selectbox("State your gender", ["male", "female"])
-# 			age = int(st.text_input("State your age", 18))
+def class1_ch4_old():
+	st.subheader("Challenge 4: Functions ")
+	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
+	st.markdown("""
+	     Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
+	     Remember our previous ***check_age_gender()*** function?
+	     Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
+	     Run the code to see if it works. Refresh the browser to see the changes.\n
+	     """)
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+		# Challenge 4: Functions
+		def my_list_func():
+			name = st.text_input("Enter your name")
+			gender = st.selectbox("State your gender", ["male", "female"])
+			age = int(st.text_input("State your age", 18))
 
-# 			mydict = {}
-# 			mydict["name"] = name
-# 			mydict["gender"] = gender
-# 			mydict["age"] = age
+			mydict = {}
+			mydict["name"] = name
+			mydict["gender"] = gender
+			mydict["age"] = age
 	  
-# 			check_age_gender(mydict["age"], mydict["gender"])
-# 			st.write(mydict)
+			check_age_gender(mydict["age"], mydict["gender"])
+			st.write(mydict)
 
-# 		def ch4():
-# 			my_list_func()
+		def ch4():
+			my_list_func()
 
-# 		if __name__ == "__main__":
-# 			ch4()
+		if __name__ == "__main__":
+			ch4()
 		
-# 		''')
-# 	st.markdown("**:red[Code Output]**")
-# 	my_list_func()
+		''')
+	st.markdown("**:red[Code Output]**")
+	my_list_func()
 
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
@@ -724,9 +724,9 @@ def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
 	st.markdown("""
 	     Create a new function called ***ch6()*** and modify the ***ex6()*** function to create the following rule based chatbot:\n
-	     	Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
-	     	Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
-	     	Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
+	     Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
+	     Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
+	     Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
 	     For other queries, it will reply “I am sorry, I am unable to help you with your query”\n
 	     Use *if / elif / else* statements to create the chatbot behaviour logic.\n 
 	     You should see the output below when you run your programme.\n
