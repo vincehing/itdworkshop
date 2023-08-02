@@ -399,12 +399,6 @@ def ex4():
 	 st.subheader("Person dictionary:")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
-
- def main():
-	ex4()
- 
- if __name__ == "__main__":
-	main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	# Data list
@@ -459,12 +453,6 @@ def class1_ch4():
 		st.write("You can also show individual items in the dictionary like this: ")
 		for key, value in mydict.items():
 			st.write(key + ": " + str(value))
-	
-	 def main():
-		ch4()
-	  
-	 if __name__ == "__main__":
-		main()
 		''')
 
 	st.markdown("**:red[Code Output]**")
