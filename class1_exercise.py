@@ -197,7 +197,7 @@ def part1_intro1():
 def class1_ex1():
 	st.subheader("Exercise 1: Functions")
 	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
-	st.write("For this exercise, we will rearranging the code for *helloworld* to use functions")
+	st.write("For this exercise, we will putting the code for *helloworld* inside a Python function")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	import streamlit as st
