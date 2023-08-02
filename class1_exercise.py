@@ -277,12 +277,6 @@ def class1_ch2():
 
 		if name and gender and age:
 			st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
-	 
-	 def main():
-		ch2()
-	
-	 if __name__ == "__main__":
-		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	
@@ -309,12 +303,6 @@ def ex3():
 		st.write("You are an adult")
 	else:
 		st.write("You are not an adult")
-
- def main():
-	ex3()
-	 
- if __name__ == "__main__":
-	main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
@@ -365,13 +353,7 @@ def class1_ch3():
 		st.image(photo)
 	else:
 		st.write("No photo taken")
- 
- def main():
-	ch3()
-	  
- if __name__ == "__main__":
-	 main()
-				''')
+	''')
 	st.markdown("**:red[Code Output]**")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
