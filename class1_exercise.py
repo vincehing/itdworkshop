@@ -601,12 +601,6 @@ def class1_ex5():
 						st.write(message)
 				with st.chat_message("assistant"):
 					st.write("Hello human, what can I do for you?")
-
-	 def main():
-		ex5()
-	 
-	 if __name__ == "__main__":
-		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**My first chatbot**")
@@ -657,12 +651,6 @@ def class1_ex6():
 				st.markdown(response)
 			# Add assistant response to chat history
 			st.session_state.messages.append({"role": "assistant", "content": response})
-		
-	 def main():
-		ex6()
-	 
-	 if __name__ == "__main__":
-	 	main()
 	 ''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**Echo Bot**")
@@ -762,13 +750,7 @@ def class1_ch6():
 					st.session_state.messages.append(
 					{"role": "assistant", "content": reply}
 					)
-	  
-	  def main():
-		ch6()
-	  
-	  if __name__ == "__main__":
-		main()
-		''')
+	''')
 	st.markdown("**:red[Code Output]**")
 	st.markdown("**Rule Based Bot**")
 
@@ -873,12 +855,6 @@ def class1_ex8():
 		s = str(response["usage"]["total_tokens"])
 		st.markdown("**Total tokens used:**")
 		st.write(s)
-	 
-	 def main():
-		ex8()
-	 
-	 if __name__ == "__main__":
-		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -978,13 +954,6 @@ def class1_ch8():
 				st.markdown(reply)
 			# Add assistant response to chat history
 			st.session_state.chat_msg.append({"role": "assistant", "content": reply})
-	  
-	 def main():
-		ch8()
-	  
-	 if __name__ == "__main__":
-		main()
-
 		''')
 	st.markdown("**:red[Code Output]**")
 	st.title("My LLM Chatbot")
@@ -1056,12 +1025,6 @@ def class1_ex9():
 	 
 	 	except Exception as e:
 			st.error(e)
-	 
-	 def main():
-		ex9()
-	 
-	 if __name__ == "__main__":
-			main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone")
@@ -1137,12 +1100,6 @@ def class1_ex10():
 		st.write(response["choices"][0]["message"]["content"].strip())
 		st.markdown("**Total tokens:**")
 		st.write(str(response["usage"]["total_tokens"]))
-	 
-	 def main():
-			ex10()
-	 
-	 if __name__ == "__main__":
-		main()
 	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
@@ -1221,13 +1178,7 @@ def class1_ch10():
 
 		except Exception as e:
 			st.error(e)
-		
-	 def main():
-			ch10()
-	  
-	  if __name__ == "__main__":
-		main()	
-		''')
+	''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone with Prompt Engineering")
 
