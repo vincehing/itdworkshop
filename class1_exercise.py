@@ -241,6 +241,7 @@ def class1_ex2():
 	st.code('''
 	 def main():
 	 	ex2()
+	 
 	 if __name__ == "__main__":
 	 	main()
 	''')
@@ -257,8 +258,8 @@ def class1_ch2():
 	st.markdown("""
 	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
 	     In the ***main.py*** file, 
-	     create and append a new function called *ch1()* and call it in the main function.\n
-	     In *ch1()*, modify the code in Exercise 1 to include the following:
+	     create and append a new function called *ch2()* and call it in the main function.\n
+	     In *ch2()*, modify the code in Exercise 2 to include the following:
 	     * Get inputs on the name, gender and age of the user
 	     * The user can select 'Male' or 'Female' from a dropdown list
 	     * The output should be:
