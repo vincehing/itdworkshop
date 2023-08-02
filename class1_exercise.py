@@ -395,7 +395,7 @@ def class1_ch3():
 
 def class1_ex4():
 	st.subheader("Exercise 4: Data and Loops ")
-	st.write("We can store data in a list or dictionary and display the data in a list using a for loop.")
+	st.write("We can store data in a list or dictionary and display the data using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
@@ -455,25 +455,7 @@ def class1_ch4():
 	 mydict["name"] = name
 	 st.write(mydict)
 	 ''')
-	st.write("The output should look like this:")
-	st.code('''
-	 {
-	 	"name" : "Joe",
-	 	"gender" : "Male",
-		"age" : 20
-	 }
-	 ''')
-	st.write("For extra challenge, you can try to store the dictionary in a list and display the list. You can use the following syntax:")
-	st.code('''
-	 mylist = []
-	 my_list.append(person)
-	 for dict in my_list:
-	 st.write(dict)
-	 ''')
-	st.markdown("""
-	     You may need to add a submit button to check for a new dictionary entry and append it to the list each time the button is clicked.
-	     In the interest of time, we will not be covering this in class. You can try it out on your own. 
-	    """)
+	st.write("The output should look like the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
