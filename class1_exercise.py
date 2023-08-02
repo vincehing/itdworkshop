@@ -395,7 +395,7 @@ def class1_ch3():
 
 def class1_ex4():
 	st.subheader("Exercise 4: Data and Loops ")
-	st.write("We can store data in a list or dictionary and display the data using a for loop.")
+	st.write("We can store data in a list or dictionary and display the data in a list using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
@@ -409,12 +409,12 @@ def ex4():
 	person = {"name": "John", "age": 30, "city": "New York"}
 
 	# For loop to show list
-	 st.write("Fruits list:")
+	 st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
 	#for loop to show dictionary list
-	 st.write("Person dictionary:")
+	 st.subheader("Person dictionary:")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
@@ -432,12 +432,12 @@ def ex4():
 	person = {"name": "John", "age": 30, "city": "New York"}
 
 	# For loop to show list
-	st.write("Fruits list:")
+	st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
 	#for loop to show dictionary list
-	st.write("Person dictionary:")
+	st.subheader("Person dictionary:")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
