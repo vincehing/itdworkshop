@@ -158,7 +158,7 @@ def main():
 			pass
 	
 	if cls == class1 and st.session_state.login_key == True:
-		st.markdown(["Presentation deck"]("https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing"))
+		st.markdown("[Presentation deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
 		divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
 
 		if option == "Pre-workshop prep":
