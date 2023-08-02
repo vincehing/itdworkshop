@@ -195,22 +195,23 @@ def part1_intro1():
 	     """)
 	
 def class1_ex1():
-	st.subheader("Exercise 1: Input , Output and Variables ")
+	st.subheader("Exercise 1: Functions")
 	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
+	st.write("For this exercise, we will rearranging the code for *helloworld* to use functions")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 	import streamlit as st
-	
-	# Exercise 1 : Input , Output and Variables
-	def ex1():
-		name = st.text_input("Enter your name")
-		# only prints the Hello {name} if input box is not empty
-		if name:
-			st.write("Hello " + name)
-	
-	if __name__ == "__main__":
+	 
+	 #Exercise 1: Functions
+	 def ex1():
+		st.write("Hello World")
+	 
+	 def main():
 		ex1()
-	''')
+	 
+	 if __name__ == "__main__":
+		main()		
+	 ''')
 	st.markdown("Install the watchdog module by running the command below in the terminal.")
 	st.code("pip install watchdog")
 	st.markdown("Now you don't have to keep restarting the app to see the changes you make to the code. Just refresh the browser.")
@@ -218,14 +219,36 @@ def class1_ex1():
 	st.code("streamlit run main.py")
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
-	# Exercise 1 : Input , Output and Variables
+	# Exercise 1 : Functions
+	st.write("Hello World")
+
+def class1_ex2():
+	st.subheader("Exercise 2: Input , Output and Variables ")
+	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
+	st.markdown("**:blue[Code]**")
+	st.code('''
+	import streamlit as st
+	
+	# Exercise 2 : Input , Output and Variables
+	def ex2():
+		name = st.text_input("Enter your name")
+		# only prints the Hello {name} if input box is not empty
+		if name:
+			st.write("Hello " + name)
+	
+	if __name__ == "__main__":
+		ex2()
+	''')
+	st.markdown("You should see the following behaviour in your browser window:")
+	st.markdown("**:red[Code Output]**")
+	# Exercise 2 : Input , Output and Variables
 	name = st.text_input("Enter your name")
 	# only prints the Hello {name} if input box is not empty
 	if name:
 		st.write("Hello " + name)
 
-def class1_ch1():
-	st.subheader("Challenge 1: Input , Output and Variables ")
+def class1_ch2():
+	st.subheader("Challenge 2: Input , Output and Variables ")
 	st.markdown("""
 	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
 	     In the ***main.py*** file, 
@@ -242,8 +265,8 @@ def class1_ch1():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  # Challenge 1 : Input , Output and Variables
-	  def ch1():	  
+	  # Challenge 2 : Input , Output and Variables
+	  def ch2():	  
 	  	name = st.text_input("Enter your name")
 		gender = st.selectbox("State your gender", ["Male", "Female"])
 		age = st.text_input("State your age", 18)
@@ -252,11 +275,11 @@ def class1_ch1():
 			st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
 			
 	if __name__ == "__main__":
-		ch1()
+		ch2()
 	''')
 	st.markdown("**:red[Code Output]**")
 	
-	# Challenge 1 (answer)
+	# Challenge 2 (answer)
 	name = st.text_input("Enter your name")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = st.text_input("State your age", 18)
@@ -265,13 +288,13 @@ def class1_ch1():
 		st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")
 	pass
 
-def class1_ex2():
-	st.subheader("Exercise 2: Logical Conditioning ")
+def class1_ex3():
+	st.subheader("Exercise 3: Logical Conditioning ")
 	st.markdown("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 2 : Logical Conditioning
-def ex2(): 
+#Exercise 3 : Logical Conditioning
+def ex3(): 
 	age = st.text_input("State your age", 18)
 	#if else statement
 	age = int(age)
@@ -281,7 +304,7 @@ def ex2():
 		st.write("You are not an adult")
 
 if __name__ == "__main__":
-	ex2()
+	ex3()
 	''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
@@ -294,13 +317,13 @@ if __name__ == "__main__":
 		st.write("You are not an adult")
 	pass
 
-def class1_ch2():
-	st.subheader("Challenge 2: Logical Conditioning")
+def class1_ch3():
+	st.subheader("Challenge 3: Logical Conditioning")
 	st.markdown("""
 	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
 	     In the ***main.py*** file, 
-	     create and append a new function called *ch2()* and call it in the main function.\n
-	     In *ch2()*, modify the code in Exercise 1 & 2 to include the following:
+	     create and append a new function called *ch3()* and call it in the main function.\n
+	     In *ch3()*, modify the code in Exercise 2 & 3 to include the following:
 	     * Get inputs on the gender and age of the user
 	     * The user can select 'Male' or 'Female' from a dropdown list
 	     * The output should be:
@@ -312,8 +335,8 @@ def class1_ch2():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	# Challenge 2 : Logical Conditioning
-def ch2():
+	# Challenge 3 : Logical Conditioning
+def ch3():
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
 	photo = st.camera_input("Smile! take a picture here.")
@@ -335,7 +358,7 @@ def ch2():
 		st.write("No photo taken")
 
 if __name__ == "__main__":
-	ch2()
+	ch3()
 				''')
 	st.markdown("**:red[Code Output]**")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -358,13 +381,13 @@ if __name__ == "__main__":
 	else:
 		st.write("No photo taken")
 
-def class1_ex3():
-	st.subheader("Exercise 3: Data and Loops ")
+def class1_ex4():
+	st.subheader("Exercise 4: Data and Loops ")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 # Exercise 3 : Data and Loops 
-def ex3():
+	 # Exercise 4 : Data and Loops 
+def ex4():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -380,7 +403,7 @@ def ex3():
 		st.write(key + ": " + str(value))
 
 if __name__ == "__main__":
-	ex3()
+	ex4()
 	''')
 	st.markdown("**:red[Code Output]**")
 	# Data list
@@ -397,11 +420,11 @@ if __name__ == "__main__":
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
-def class1_ch3():
-	st.subheader("Challenge 3: Data and Loops ")
+def class1_ch4():
+	st.subheader("Challenge 4: Data and Loops ")
 	st.markdown("""
-	     Add a new function called ***ch3()*** to the ***main.py*** file and call it in the main function.\n
-	     In *ch3()*, modify the code in Exercise 3 to include the following:
+	     Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
+	     In *ch4()*, modify the code in Exercise 4 to include the following:
 	     * Get inputs on the name, age and gender of the user
 	     * Store the inputs in a dictionary and display the dictionary\n
 	     Hint:
@@ -433,7 +456,7 @@ def class1_ch3():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  # Challenge 3 : Data and Loops
+	  # Challenge 4 : Data and Loops
 	  name = st.text_input("Enter your name")
 	  gender = st.selectbox("State your gender", ["Male", "Female"])
 	  age = st.text_input("State your age", 18)
@@ -453,7 +476,7 @@ def class1_ch3():
 		''')
 
 	st.markdown("**:red[Code Output]**")
-	# Challenge 3 : Data and Loops
+	# Challenge 4 : Data and Loops
 	name = st.text_input("Enter your name")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = st.text_input("State your age", 18)
@@ -484,96 +507,96 @@ def check_age_gender(age, gender):
 		elif gender == "female":
 			st.write("You are a young girl")
 
-def class1_ex4():
-	st.subheader("Exercise 4: Functions")
-	st.write("For this exercise, we will rewrite our previous code to use functions.")
-	st.write("Append the following function to the ***main.py*** file.")
-	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
-	st.markdown("**:blue[Code]**")
-	st.code('''
-	 	#Exercise 4: Functions
-		#function to check age and gender        
-		def check_age_gender(age, gender):
-			if age >= 21:
-				if gender == "male":
-					st.write("You are an adult male")
-				elif gender == "female":
-					st.write("You are an adult female")
-			else:
-				if gender == "male":
-					st.write("You are a young boy")
-				elif gender == "female":
-					st.write("You are a young girl")
+# def class1_ex4():
+# 	st.subheader("Exercise 4: Functions")
+# 	st.write("For this exercise, we will rewrite our previous code to use functions.")
+# 	st.write("Append the following function to the ***main.py*** file.")
+# 	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
+# 	st.markdown("**:blue[Code]**")
+# 	st.code('''
+# 	 	#Exercise 4: Functions
+# 		#function to check age and gender        
+# 		def check_age_gender(age, gender):
+# 			if age >= 21:
+# 				if gender == "male":
+# 					st.write("You are an adult male")
+# 				elif gender == "female":
+# 					st.write("You are an adult female")
+# 			else:
+# 				if gender == "male":
+# 					st.write("You are a young boy")
+# 				elif gender == "female":
+# 					st.write("You are a young girl")
 				
-		def ex4():
+# 		def ex4():
 				
-			st.title("Age and Gender Check")
-			#Note that age is converted from string to int
-			age = int(st.text_input("State your age", 18))
-			gender = st.selectbox("Select your gender:", ["male", "female"])
-			#calling function check_age_gender
-			check_age_gender(age, gender)
+# 			st.title("Age and Gender Check")
+# 			#Note that age is converted from string to int
+# 			age = int(st.text_input("State your age", 18))
+# 			gender = st.selectbox("Select your gender:", ["male", "female"])
+# 			#calling function check_age_gender
+# 			check_age_gender(age, gender)
 				
-		if __name__ == "__main__":
-			ex4()
+# 		if __name__ == "__main__":
+# 			ex4()
 
-	''')
-	st.markdown("**:red[Code Output]**")
-	st.markdown("**Age and Gender Check**")
-	age = int(st.text_input("State your age", 18))
-	gender = st.selectbox("Select your gender:", ["male", "female"])
-	#calling function check_age_gender
-	check_age_gender(age, gender)
+# 	''')
+# 	st.markdown("**:red[Code Output]**")
+# 	st.markdown("**Age and Gender Check**")
+# 	age = int(st.text_input("State your age", 18))
+# 	gender = st.selectbox("Select your gender:", ["male", "female"])
+# 	#calling function check_age_gender
+# 	check_age_gender(age, gender)
 
-def my_list_func():
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["male", "female"])
-	age = int(st.text_input("State your age", 18))
+# def my_list_func():
+# 	name = st.text_input("Enter your name")
+# 	gender = st.selectbox("State your gender", ["male", "female"])
+# 	age = int(st.text_input("State your age", 18))
 
-	mydict = {}
-	mydict["name"] = name
-	mydict["gender"] = gender
-	mydict["age"] = age
+# 	mydict = {}
+# 	mydict["name"] = name
+# 	mydict["gender"] = gender
+# 	mydict["age"] = age
 
-	check_age_gender(age, gender)
-	st.write(mydict)
-	return mydict
+# 	check_age_gender(age, gender)
+# 	st.write(mydict)
+# 	return mydict
 
-def class1_ch4():
-	st.subheader("Challenge 4: Functions ")
-	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
-	st.markdown("""
-	     Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
-	     Remember our previous ***check_age_gender()*** function?
-	     Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
-	     Run the code to see if it works. Refresh the browser to see the changes.\n
-	     """)
-	st.markdown("**:blue[Code]**")
-	with st.expander("Reveal Code"):
-		st.code('''
-		# Challenge 4: Functions
-		def my_list_func():
-			name = st.text_input("Enter your name")
-			gender = st.selectbox("State your gender", ["male", "female"])
-			age = int(st.text_input("State your age", 18))
+# def class1_ch4():
+# 	st.subheader("Challenge 4: Functions ")
+# 	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
+# 	st.markdown("""
+# 	     Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
+# 	     Remember our previous ***check_age_gender()*** function?
+# 	     Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
+# 	     Run the code to see if it works. Refresh the browser to see the changes.\n
+# 	     """)
+# 	st.markdown("**:blue[Code]**")
+# 	with st.expander("Reveal Code"):
+# 		st.code('''
+# 		# Challenge 4: Functions
+# 		def my_list_func():
+# 			name = st.text_input("Enter your name")
+# 			gender = st.selectbox("State your gender", ["male", "female"])
+# 			age = int(st.text_input("State your age", 18))
 
-			mydict = {}
-			mydict["name"] = name
-			mydict["gender"] = gender
-			mydict["age"] = age
+# 			mydict = {}
+# 			mydict["name"] = name
+# 			mydict["gender"] = gender
+# 			mydict["age"] = age
 	  
-			check_age_gender(mydict["age"], mydict["gender"])
-			st.write(mydict)
+# 			check_age_gender(mydict["age"], mydict["gender"])
+# 			st.write(mydict)
 
-		def ch4():
-			my_list_func()
+# 		def ch4():
+# 			my_list_func()
 
-		if __name__ == "__main__":
-			ch4()
+# 		if __name__ == "__main__":
+# 			ch4()
 		
-		''')
-	st.markdown("**:red[Code Output]**")
-	my_list_func()
+# 		''')
+# 	st.markdown("**:red[Code Output]**")
+# 	my_list_func()
 
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
