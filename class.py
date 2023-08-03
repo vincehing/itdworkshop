@@ -68,6 +68,7 @@ st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023") 
+	divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
 	st.markdown("[Workshop slide deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
 	
 	if 'login_key' not in st.session_state:
@@ -158,7 +159,6 @@ def main():
 			pass
 	
 	if cls == class1 and st.session_state.login_key == True:
-		divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
 
 		if option == "Pre-workshop prep":
 			st.write("Welcome to the workshop! Please select a menu item on the left sidebar.")
