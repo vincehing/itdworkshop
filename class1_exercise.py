@@ -1159,7 +1159,7 @@ def ch10():
 	
 		try:
 
-			if prompt := st.chat_input("What is up?"):
+			if prompt := st.text_input("What is up?"):
 				st.session_state.msg_bot.append({"role": "user", "content": prompt})
 				with st.chat_message("user"):
 					st.markdown(prompt)
@@ -1213,7 +1213,7 @@ def ch10():
 		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 	
 		try:
-			if prompt := st.text_input("What is up?"):
+			if prompt := st.text_input("What is up? Test your prompt template here!"):
 				st.session_state.msg_bot.append({"role": "user", "content": prompt})
 				with st.chat_message("user"):
 					st.markdown(prompt)
