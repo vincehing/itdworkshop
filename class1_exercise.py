@@ -1125,7 +1125,7 @@ def class1_ch10():
 	st.code('''
 	 prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know!")
 	''')
-	st.write("You can use the code below as a starter template. Note the ***prompt_template*** variable.")
+	st.write("You can use the code snippet below as a starter template. Note the ***prompt_template*** variable.")
 	st.code('''
 	for response in openai.ChatCompletion.create(
 		model=st.session_state["openai_model"],
@@ -1141,10 +1141,7 @@ def ch10():
 
 	openai.api_key = st.secrets["openapi_key"]
 
-	prompt_template = """
-	"Speak like Yoda from Star Wars for every question that was asked, 
-	do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-	"""
+	prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know!")
 
 	if "openai_model" not in st.session_state:
 		st.session_state["openai_model"] = "gpt-3.5-turbo"
@@ -1187,10 +1184,7 @@ def ch10():
 
 	openai.api_key = st.secrets["openapi_key"]
 
-	prompt_template = """
-	"Speak like Yoda from Star Wars for every question that was asked, 
-	do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-	"""
+	prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know!")
 
 	if "openai_model" not in st.session_state:
 		st.session_state["openai_model"] = "gpt-3.5-turbo"
