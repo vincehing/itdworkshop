@@ -916,45 +916,45 @@ def class1_ch8():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''	
-	  #Challenge 8: Incorporating the API into your chatbot
-	 def chat_completion(prompt):
-		openai.api_key = st.secrets["openapi_key"]
-		MODEL = "gpt-3.5-turbo"
-		response = openai.ChatCompletion.create(
-			model=MODEL,
-			messages=[
-				{"role": "system", "content": "You are a helpful assistant."},
-				{"role": "user", "content": prompt},
-			],
-			temperature=0,
-		)
-		return response["choices"][0]["message"]["content"].strip()
-	  
-	def ch8():
-	  	st.title("My LLM Chatbot")
+#Challenge 8: Incorporating the API into your chatbot
+def chat_completion(prompt):
+	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant."},
+			{"role": "user", "content": prompt},
+		],
+		temperature=0,
+	)
+	return response["choices"][0]["message"]["content"].strip()
+	
+def ch8():
+	st.title("My LLM Chatbot")
 
-		# Initialize chat history
-		if "chat_msg" not in st.session_state:
-			st.session_state.chat_msg = []
+	# Initialize chat history
+	if "chat_msg" not in st.session_state:
+		st.session_state.chat_msg = []
 
-		# Display chat chat_msg from history on app rerun
-		for message in st.session_state.chat_msg:
-			with st.chat_message(message["role"]):
-				st.markdown(message["content"])
+	# Display chat chat_msg from history on app rerun
+	for message in st.session_state.chat_msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
 
-		# React to user input
-		if prompt := st.chat_input("What's up?"):
-			# Display user message in chat message container
-			reply = chat_completion(prompt)
-			st.chat_message("user").markdown(prompt)
-			# Add user message to chat history
-			st.session_state.chat_msg.append({"role": "user", "content": prompt})
-			# Display assistant response in chat message container
-			with st.chat_message("assistant"):
-				st.markdown(reply)
-			# Add assistant response to chat history
-			st.session_state.chat_msg.append({"role": "assistant", "content": reply})
-		''')
+	# React to user input
+	if prompt := st.chat_input("What's up?"):
+		# Display user message in chat message container
+		reply = chat_completion(prompt)
+		st.chat_message("user").markdown(prompt)
+		# Add user message to chat history
+		st.session_state.chat_msg.append({"role": "user", "content": prompt})
+		# Display assistant response in chat message container
+		with st.chat_message("assistant"):
+			st.markdown(reply)
+		# Add assistant response to chat history
+		st.session_state.chat_msg.append({"role": "assistant", "content": reply})
+''')
 	st.markdown("**:red[Code Output]**")
 	st.title("My LLM Chatbot")
 
