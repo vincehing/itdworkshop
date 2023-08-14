@@ -1201,27 +1201,27 @@ def ch10():
 	
 	try:
 
-		if prompt_template := st.chat_input("Enter a prompt to make your bot speak like someone you know! Default is Yoda from Star Wars")
-		if prompt := st.chat_input("What is up?"):
-			st.session_state.msg_bot.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
+		prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know! Default is Yoda from Star Wars")
+		# if prompt := st.chat_input("What is up?"):
+		# 	st.session_state.msg_bot.append({"role": "user", "content": prompt})
+		# 	with st.chat_message("user"):
+		# 		st.markdown(prompt)
 
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				for response in openai.ChatCompletion.create(
-					model=st.session_state["openai_model"],
-					messages=[
-								{"role": "system", "content": prompt_template},
-								{"role": "user", "content": prompt},
-							],
-					stream=True,
-				):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
+		# 	with st.chat_message("assistant"):
+		# 		message_placeholder = st.empty()
+		# 		full_response = ""
+		# 		for response in openai.ChatCompletion.create(
+		# 			model=st.session_state["openai_model"],
+		# 			messages=[
+		# 						{"role": "system", "content": prompt_template},
+		# 						{"role": "user", "content": prompt},
+		# 					],
+		# 			stream=True,
+		# 		):
+		# 			full_response += response.choices[0].delta.get("content", "")
+		# 			message_placeholder.markdown(full_response + "▌")
+		# 		message_placeholder.markdown(full_response)
+		# 	st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 
 	except Exception as e:
 		st.error(e)
