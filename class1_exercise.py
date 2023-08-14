@@ -1202,7 +1202,7 @@ def ch10():
 	# 	Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars
 	# """
 
-	if prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!dsadsdas"):
+	if prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!"):
 		st.session_state.msg_bot.append({"role": "user", "content": prompt_template})
 		with st.chat_message("user"):
 			st.markdown(prompt_template)
