@@ -1199,39 +1199,40 @@ def ch10():
 	# 	Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars
 	# """
 
+	# prompt_template = ""
+
 	if prompt_template := st.chat_input("Enter a prompt to make your bot speak like someone you know!"):
 		st.session_state.msg_bot.append({"role": "user", "content": prompt_template})
 		with st.chat_message("user"):
 			st.markdown(prompt_template)
 
 		with st.chat_message("assistant"):
-			message_placeholder = st.empty()
 			full_response = "Nice! Now, let's test out your prompt."
 			st.markdown(full_response)
 		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 	
-	try:
-		if prompt := st.chat_input("What is up?"):
-			st.session_state.msg_bot.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
+		try:
+			if prompt := st.chat_input("What is up?"):
+				st.session_state.msg_bot.append({"role": "user", "content": prompt})
+				with st.chat_message("user"):
+					st.markdown(prompt)
 
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				for response in openai.ChatCompletion.create(
-					model=st.session_state["openai_model"],
-					messages=[
-								{"role": "system", "content": prompt_template},
-								{"role": "user", "content": prompt},
-							],
-					stream=True,
-				):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
+				with st.chat_message("assistant"):
+					message_placeholder = st.empty()
+					full_response = ""
+					for response in openai.ChatCompletion.create(
+						model=st.session_state["openai_model"],
+						messages=[
+									{"role": "system", "content": prompt_template},
+									{"role": "user", "content": prompt},
+								],
+						stream=True,
+					):
+						full_response += response.choices[0].delta.get("content", "")
+						message_placeholder.markdown(full_response + "▌")
+					message_placeholder.markdown(full_response)
+				st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 
-	except Exception as e:
-		st.error(e)
+		except Exception as e:
+			st.error(e)
 	pass
