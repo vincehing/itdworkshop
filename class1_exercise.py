@@ -831,31 +831,31 @@ def class1_ex8():
 	     """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 import openai
+import openai
 	 
-	 #Exercise 8 : Using the OpenAI API
-	 def ex8():
-	 	st.title("Api Call")
-		openai.api_key = st.secrets["openapi_key"]
-		MODEL = "gpt-3.5-turbo"
+#Exercise 8 : Using the OpenAI API
+def ex8():
+	st.title("Api Call")
+	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo"
 
-		response = openai.ChatCompletion.create(
-			model=MODEL,
-			messages=[
-				{"role": "system", "content": "You are a helpful assistant."},
-				{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
-			],
-			temperature=0,
-		)
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant."},
+			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
+		],
+		temperature=0,
+	)
 
-		st.markdown("**This is the raw response:**") 
-		st.write(response)
-		st.markdown("**This is the extracted response:**")
-		st.write(response["choices"][0]["message"]["content"].strip())
-		s = str(response["usage"]["total_tokens"])
-		st.markdown("**Total tokens used:**")
-		st.write(s)
-	''')
+	st.markdown("**This is the raw response:**") 
+	st.write(response)
+	st.markdown("**This is the extracted response:**")
+	st.write(response["choices"][0]["message"]["content"].strip())
+	s = str(response["usage"]["total_tokens"])
+	st.markdown("**Total tokens used:**")
+	st.write(s)
+''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
 	openai.api_key = st.secrets["openapi_key"]
