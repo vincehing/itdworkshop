@@ -203,17 +203,17 @@ def class1_ex1():
 	st.write("For this exercise, we will putting the code for *helloworld* inside a Python function")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 import streamlit as st
+import streamlit as st
 	 
-	 #Exercise 1: Functions
-	 def ex1():
-	 	st.write("Hello World")
+#Exercise 1: Functions
+def ex1():
+	st.write("Hello World")
 	 
-	 def main():
-		ex1()
+def main():
+	ex1()
 	 
-	 if __name__ == "__main__":
-		main()		
+if __name__ == "__main__":
+	main()		
 	 ''')
 	st.markdown("Run the code by typing the following into the terminal:")
 	st.code("streamlit run main.py")
