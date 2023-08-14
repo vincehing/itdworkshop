@@ -1207,7 +1207,7 @@ def ch10():
 			st.markdown(prompt_template)
 
 		with st.chat_message("assistant"):
-			full_response = "Nice! Now, let's test out your prompt."
+			full_response = "Nice! Now, let's test out your prompt template. Enter a prompt below to see how your bot responds."
 			st.markdown(full_response)
 		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 	
