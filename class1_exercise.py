@@ -382,7 +382,7 @@ def class1_ex4():
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-# Exercise 4 : Data and Loops 
+#Exercise 4 : Data and Loops 
 def ex4():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
@@ -428,32 +428,32 @@ def class1_ch4():
 	     * To add a value into a dictionary, you can use the following syntax:
 	     """)
 	st.code('''	
-	 mydict["name"] = name
-	 st.write(mydict)
-	 ''')
+mydict["name"] = name
+st.write(mydict)
+''')
 	st.write("The output should look like the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  # Challenge 4 : Data and Loops
-	  def ch4():
-		name = st.text_input("Enter your name")
-		gender = st.selectbox("State your gender", ["Male", "Female"])
-		age = st.text_input("State your age", 18)
-		#declare empty dictionary
-		mydict = {}
-		mydict["name"] = name
-		mydict["gender"] = gender
-		mydict["age"] = age
-		#Print out the items in the dictionary
-		st.write("Here is your dictionary: ")
-		st.write(mydict)
+#Challenge 4 : Data and Loops
+def ch4():
+	name = st.text_input("Enter your name")
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	age = st.text_input("State your age", 18)
+	#declare empty dictionary
+	mydict = {}
+	mydict["name"] = name
+	mydict["gender"] = gender
+	mydict["age"] = age
+	#Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
+	st.write(mydict)
 		
-		#show individual items in dictionary
-		st.write("You can also show individual items in the dictionary like this: ")
-		for key, value in mydict.items():
-			st.write(key + ": " + str(value))
-		''')
+	#show individual items in dictionary
+	st.write("You can also show individual items in the dictionary like this: ")
+	for key, value in mydict.items():
+		st.write(key + ": " + str(value))
+''')
 
 	st.markdown("**:red[Code Output]**")
 	# Challenge 4 : Data and Loops

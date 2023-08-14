@@ -1,21 +1,17 @@
-# Challenge 3 : Logical Conditioning
-def ch3():
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = int(st.text_input("State your age", 18))
-	photo = st.camera_input("Smile! take a picture here.")
+# Exercise 4 : Data and Loops 
+def ex4():
+	# Data list
+	fruits = ["apple", "banana", "orange"]
 
-	# conditional logic to run different statements
-	if age >= 21 and gender == "Male":
-		st.write("You are a male adult")
-	elif age < 21 and gender == "Male":
-		st.write("You are a young boy")
-	elif age >= 21 and gender == "Female":
-		st.write("You are a female adult")
-	elif age < 21 and gender == "Female":
-		st.write("You are a young girl")
+	# Dictionary
+	person = {"name": "John", "age": 30, "city": "New York"}
 
-	if photo:
-		st.write("Here is your photo: ")
-		st.image(photo)
-	else:
-		st.write("No photo taken")
+	# For loop to show list
+	st.subheader("Fruits list:")
+	for fruit in fruits:
+		st.write(fruit)
+
+	#for loop to show dictionary list
+	st.subheader("Person dictionary:")
+	for key, value in person.items():
+		st.write(key + ": " + str(value))
