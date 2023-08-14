@@ -230,21 +230,21 @@ def class1_ex2():
 	st.markdown("In your ***main.py***, copy the code below into the file.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 # Exercise 2 : Input , Output and Variables
-	 def ex2():
-		name = st.text_input("Enter your name")
-		# only prints the Hello {name} if input box is not empty
-		if name:
-			st.write("Hello " + name)
-	 ''')
+# Exercise 2 : Input , Output and Variables
+def ex2():
+	name = st.text_input("Enter your name")
+	# only prints the Hello {name} if input box is not empty
+	if name:
+		st.write("Hello " + name)
+''')
 	st.write("We will now call the function *ex2()* in the main function.")
 	st.code('''
-	 def main():
-	 	ex2()
+def main():
+	ex2()
 	 
-	 if __name__ == "__main__":
-	 	main()
-	 ''')
+if __name__ == "__main__":
+	main()
+''')
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
 	# Exercise 2 : Input , Output and Variables
