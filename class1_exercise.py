@@ -382,7 +382,7 @@ def class1_ex4():
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	 # Exercise 4 : Data and Loops 
+# Exercise 4 : Data and Loops 
 def ex4():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
@@ -391,15 +391,15 @@ def ex4():
 	person = {"name": "John", "age": 30, "city": "New York"}
 
 	# For loop to show list
-	 st.subheader("Fruits list:")
+	st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
 	#for loop to show dictionary list
-	 st.subheader("Person dictionary:")
+	st.subheader("Person dictionary:")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
-	''')
+''')
 	st.markdown("**:red[Code Output]**")
 	# Data list
 	fruits = ["apple", "banana", "orange"]
