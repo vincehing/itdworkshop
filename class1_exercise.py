@@ -203,11 +203,11 @@ def class1_ex1():
 	st.write("For this exercise, we will putting the code for *helloworld* inside a Python function")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-	import streamlit as st
+	 import streamlit as st
 	 
 	 #Exercise 1: Functions
 	 def ex1():
-		st.write("Hello World")
+	 	st.write("Hello World")
 	 
 	 def main():
 		ex1()
@@ -236,7 +236,7 @@ def class1_ex2():
 		# only prints the Hello {name} if input box is not empty
 		if name:
 			st.write("Hello " + name)
-	''')
+	 ''')
 	st.write("We will now call the function *ex2()* in the main function.")
 	st.code('''
 	 def main():
@@ -244,7 +244,7 @@ def class1_ex2():
 	 
 	 if __name__ == "__main__":
 	 	main()
-	''')
+	 ''')
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
 	# Exercise 2 : Input , Output and Variables
@@ -269,15 +269,15 @@ def class1_ch2():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	  # Challenge 2 : Input , Output and Variables
-	  def ch2():	  
+	 #Challenge 2 : Input , Output and Variables
+	 def ch2():
 	  	name = st.text_input("Enter your name")
 		gender = st.selectbox("State your gender", ["Male", "Female"])
 		age = st.text_input("State your age", 18)
 
 		if name and gender and age:
 			st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
-	''')
+	 ''')
 	st.markdown("**:red[Code Output]**")
 	
 	# Challenge 2 (answer)
