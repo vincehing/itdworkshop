@@ -303,7 +303,7 @@ def ex3():
 		st.write("You are an adult")
 	else:
 		st.write("You are not an adult")
-	''')
+''')
 	st.markdown("**:red[Code Output]**")
 	#Exercise 2 : Logical Conditioning
 	age = st.text_input("State your age", 18)
