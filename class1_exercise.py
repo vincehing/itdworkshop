@@ -332,8 +332,8 @@ def class1_ch3():
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-	# Challenge 3 : Logical Conditioning
- def ch3():
+# Challenge 3 : Logical Conditioning
+def ch3():
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
 	photo = st.camera_input("Smile! take a picture here.")
@@ -353,7 +353,7 @@ def class1_ch3():
 		st.image(photo)
 	else:
 		st.write("No photo taken")
-	''')
+''')
 	st.markdown("**:red[Code Output]**")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	age = int(st.text_input("State your age", 18))
