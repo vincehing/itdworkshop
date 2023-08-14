@@ -1121,17 +1121,14 @@ def ex10():
 
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
-	st.write("Now, let's create a variable to store a prompt to make your bot speak like someone you know! Get this prompt from the user.")
-	st.code('''
-prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!"):
-''')
-	st.write("You can use the code snippet below. Note the ***prompt_template*** variable.")
+	st.write("Now, let's create a variable to store a prompt to make your bot speak like someone you know! Get this prompt as an input from the user.")
+	st.write("You can adapt the code snippet below. Note the ***prompt_template*** variable.")
 	st.code('''
 	for response in openai.ChatCompletion.create(
 		model=st.session_state["openai_model"],
 		messages=[{"role":"system", "content":prompt_template}, {"role":"user", "content":prompt}],
 	''')
-	st.write("Try and get something similar to the code output below.")
+	st.write("Try to create something similar to the code output below.")
 	st.write("Best prompt that gets the most votes win a prize!")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
