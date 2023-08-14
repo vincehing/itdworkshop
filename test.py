@@ -1,17 +1,18 @@
-# Exercise 4 : Data and Loops 
-def ex4():
-	# Data list
-	fruits = ["apple", "banana", "orange"]
+#Challenge 4 : Data and Loops
+def ch4():
+	name = st.text_input("Enter your name")
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	age = st.text_input("State your age", 18)
+	#declare empty dictionary
+	mydict = {}
+	mydict["name"] = name
+	mydict["gender"] = gender
+	mydict["age"] = age
+	#Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
+	st.write(mydict)
 
-	# Dictionary
-	person = {"name": "John", "age": 30, "city": "New York"}
-
-	# For loop to show list
-	st.subheader("Fruits list:")
-	for fruit in fruits:
-		st.write(fruit)
-
-	#for loop to show dictionary list
-	st.subheader("Person dictionary:")
-	for key, value in person.items():
+	#show individual items in dictionary
+	st.write("You can also show individual items in the dictionary like this: ")
+	for key, value in mydict.items():
 		st.write(key + ": " + str(value))
