@@ -1201,7 +1201,7 @@ def ch10():
 
 	# prompt_template = ""
 
-	if prompt_template := st.chat_input("Enter a prompt to make your bot speak like someone you know!"):
+	if prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!"):
 		st.session_state.msg_bot.append({"role": "user", "content": prompt_template})
 		with st.chat_message("user"):
 			st.markdown(prompt_template)
@@ -1212,7 +1212,7 @@ def ch10():
 		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
 	
 		try:
-			if prompt := st.chat_input("What is up?"):
+			if prompt := st.text_input("What is up?"):
 				st.session_state.msg_bot.append({"role": "user", "content": prompt})
 				with st.chat_message("user"):
 					st.markdown(prompt)
