@@ -1191,9 +1191,9 @@ def ch10():
 	if "msg_bot" not in st.session_state:
 		st.session_state.msg_bot = []
 
-	for message in st.session_state.msg_bot:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
+	# for message in st.session_state.msg_bot:
+	# 	with st.chat_message(message["role"]):
+	# 		st.markdown(message["content"])
 		
 	# prompt_template = """
 	# 	Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars
