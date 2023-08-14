@@ -1201,7 +1201,7 @@ def ch10():
 	
 	try:
 
-		prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know! Default is Yoda from Star Wars", value=prompt_template)
+		prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know! Default is Yoda from Star Wars")
 		if prompt := st.chat_input("What is up?"):
 			st.session_state.msg_bot.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
