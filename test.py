@@ -1,5 +1,5 @@
 #Exercise 6 : Rule-based Echo Chatbot 
- def ex6():
+def ex6():
 	st.title("Echo Bot")
 
 	# Initialize chat history
