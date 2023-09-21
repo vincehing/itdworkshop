@@ -2,7 +2,7 @@ import streamlit as st
 
 def class1_login():
     with st.form("my_form"):
-        st.write("Workshop 1 : Building a Chatbot using OpenAI LLM API")
+        st.write("Code Exercises")
         course_code = st.text_input("Enter your course code")
         
         # Every form must have a submit button.

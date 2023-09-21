@@ -64,11 +64,11 @@ ch10 = "Challenge 10"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
-# st.session_state.login_key = True
+#st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023") 
-	divider(label='Workshop 1 - Building a Chatbot using LLM API', icon='journal-code', align='left')
+	divider(label='Workshop Series - Exploring Generative AI using LLMs', icon='journal-code', align='left')
 	st.markdown("[Workshop slide deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
 	
 	if 'login_key' not in st.session_state:
