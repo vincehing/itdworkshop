@@ -109,7 +109,7 @@ def main():
 						MenuItem(prep, icon='journal-code'),
 						MenuItem(hw1, icon='journal-code'),
 					]),
-					MenuItem('Part 0: Introduction', icon='journal-code', children=[
+					MenuItem('Introduction', icon='journal-code', children=[
 						# MenuItem(obj, icon='journal-code'),
 						# MenuItem(outline, icon='journal-code'),
 						MenuItem(final, icon='journal-code'),
@@ -117,7 +117,7 @@ def main():
 						# MenuItem(intro, icon='journal-code'),
 						MenuItem(res, icon='journal-code'),
 					]),
-		      		MenuItem('Part 1: Intro to Streamlit', icon='journal-code', children=[
+		      		MenuItem('Intro to Streamlit', icon='journal-code', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),
 					# MenuItem(part1_1, icon='journal-code'),
@@ -131,18 +131,18 @@ def main():
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
-		      		MenuItem('Part 2: Rule-based chatbot', icon='journal-code', children=[
+		      		MenuItem('Rule-based chatbot', icon='journal-code', children=[
 					MenuItem(ex5, icon='journal-code'),
 					MenuItem(ex6, icon='journal-code'),
 					MenuItem(ch6, icon='journal-code'),
     			]),
-		      		MenuItem('Part 3: Integrate OpenAI API', icon='journal-code', children=[
+		      		MenuItem('Integrate OpenAI API', icon='journal-code', children=[
 					MenuItem(ex7, icon='journal-code'),
 					MenuItem(ex8, icon='journal-code'),
 					MenuItem(ch8, icon='journal-code'),
 					MenuItem(ex9, icon='journal-code'),
     			]),
-		      		MenuItem('Part 4: Prompt Engineering', icon='journal-code', children=[
+		      		MenuItem('Prompt Engineering', icon='journal-code', children=[
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			], dashed=True),
