@@ -447,7 +447,7 @@ def class1_ch4():
 		 * Create session data for ***name***, ***age*** and ***gender***
 		 * Create session data for ***prompt_template*** with the following value:
 			 "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-		 * Include this code in ***main*** as well, because we need the session data for later exercises.
+		 * Include this code in ***main*** as well, because we need the session data for later exercises.\n
 		 Hint:
 		 * To check that the session data is created, you can print out the session data using ***st.write()***:
 		 """)
