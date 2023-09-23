@@ -85,7 +85,7 @@ def ex4a():
 		st.write(data)
 
 
-#Exercise 4a : session_state
+#Exercise 4b : session_state
 def ex4b():
 
 	if "session_data" not in st.session_state:
@@ -939,9 +939,9 @@ def main():
 	# ch2()
 	# ex3()
 
-#Challenge 3
+#Challenge 2
 	with st.sidebar:
-		option = st.selectbox("Function exercises", ["ex1", "ex2", "ch2", "ex3", "ch3", "ex4a", "ex4b", "ch4", "ex5", "ex6", "ch6", "ex8", "ch8", "ex9", "ex10", "ch10", "ex11", "ch11", "ex12", "ch12", "ex13", "ex14", "ex15", "ch15", "ex16", "ex17", "ex18"])
+		option = st.selectbox("Function exercises", ["ex1", "ex2", "ex3", "ch3", "ex4a", "ex4b", "ch4", "ex5", "ex6", "ch6", "ex8", "ch8", "ex9", "ex10", "ch10", "ex11", "ch11", "ex12", "ch12", "ex13", "ex14", "ex15", "ch15", "ex16", "ex17", "ex18"])
 	if option == "ex1":
 		ex1()
 	elif option == "ex2":
@@ -950,7 +950,6 @@ def main():
 		ch2()
 	elif option == "ex3":
 		ex3()
-#end of challenge 3
 	elif option == "ex4a":
 		ex4a()
 	elif option == "ex4b":

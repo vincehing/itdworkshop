@@ -941,7 +941,7 @@ def chat_completion(prompt):
 	return response["choices"][0]["message"]["content"].strip()
 	
 def ch8():
-	st.title("My LLM Chatbot")
+	st.title("My first LLM Chatbot")
 
 	# Initialize chat history
 	if "chat_msg" not in st.session_state:
