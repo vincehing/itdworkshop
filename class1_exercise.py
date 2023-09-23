@@ -283,7 +283,7 @@ def ex2():
 ''')
 	st.write("Refresh the browser to see the changes.")
 
-	st.markdown("You should see the following behaviour in the streamlit sidebar:")
+	st.markdown("You should see the following selectbox in the sidebar on the left:")
 	st.markdown("**:red[Code Output]**")
 	
 	my_option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
@@ -295,40 +295,28 @@ def ex2():
 		st.write("Please select an option from the sidebar")
 
 def class1_ch2():
-	st.subheader("Challenge 2: Input , Output and Variables ")
-	st.markdown("""
-		Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
-		 In the ***main.py*** file, 
-		 create and append a new function called *ch2()* and call it in the main function.\n
-		 In *ch2()*, modify the code in Exercise 2 to include the following:
-		 * Get inputs on the name, gender and age of the user
-		 * The user can select 'Male' or 'Female' from a dropdown list
-		 * The output should be similar to the *Code Output* below
-		
-		 Hint: You can use the st.selectbox() function to create a dropdown list
-	""")
+	st.subheader("Challenge 2: The Streamlit sidebar ")
+	st.markdown("""Copy the code for ***ex2()*** and paste in the ***main()*** function. Change the title to ***Code Exercises*** and name the options ***ex1()***, ***ex2()***, and so on.""")
+	st.write("This way, just by selecting the options in the sidebar, you can run the different exercises.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-#Challenge 2 : Input , Output and Variables
-def ch2():
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = st.text_input("State your age", 18)
-
-	if name and gender and age:
-		st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")       
+def main():
+	placeholder = st.empty()
+		 
+	with st.sidebar:
+		 option = st.selectbox("Code Exercises", ["", "ex1()", "ex2()", "ex3()"])
+	if option == "ex1":
+        with placeholder.container():
+            ex1()
+    elif option == "ex2":
+        with placeholder.container():
+            ex2()
+    elif option == "ex3":
+        with placeholder.container():
+            ex3()
 ''')
-	st.markdown("**:red[Code Output]**")
-	
-	# Challenge 2 (answer)
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = st.text_input("State your age", 18)
 
-	if name and gender and age:
-		st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")
-	pass
 
 def class1_ex3():
 	st.subheader("Exercise 3: Logical Conditioning ")
