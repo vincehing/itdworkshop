@@ -8,18 +8,17 @@ def template():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise X : Title
-def ex123():
-	#code here
+#exercise code here
 ''')
-	st.markdown("**:red[Code Output]**")
-	# Actual code here
 
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-#challenge code
+#challenge code here
 ''')
+		  
+	st.markdown("**:red[Code Output]**")
+	# Actual code here
 
 def class1_prep():
 	# st.subheader("Course Slides")
@@ -415,7 +414,7 @@ def ex3():
 		st.write(key + ": " + str(value))
 
 def class1_ex4():
-	st.subheader("Session Data")
+	st.subheader("Exercise 4: Session Data")
 	st.write("We can create variables to store data in a user session. Session data persist within a user session.")
 
 	st.markdown("**:blue[Code]**")
@@ -441,74 +440,56 @@ def ex4():
 		st.write("session_data: ", data)
 
 def class1_ch4():
-	st.subheader("Challenge 4: Data and Loops ")
+	st.subheader("Challenge 4: Session Data")
 	st.markdown("""
 		 Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
 		 In *ch4()*, modify the code in Exercise 4 to include the following:
-		 * Get inputs on the name, age and gender of the user
-		 * Store the inputs in a dictionary and display the dictionary\n
+		 * Create session data for ***name***, ***age*** and ***gender***
+		 * Create session data for ***prompt_template*** with the following value:
+			 "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+		 * Include this code in ***main*** as well, because we need the session data for later exercises.
 		 Hint:
-		 * To add a value into a dictionary, you can use the following syntax:
+		 * To check that the session data is created, you can print out the session data using ***st.write()***:
 		 """)
-	st.code('''	
-mydict["name"] = name
-st.write(mydict)
-''')
-	st.write("The output should look like the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-#Challenge 4 : Data and Loops
 def ch4():
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = st.text_input("State your age", 18)
-	#declare empty dictionary
-	mydict = {}
-	mydict["name"] = name
-	mydict["gender"] = gender
-	mydict["age"] = age
-	#Print out the items in the dictionary
-	st.write("Here is your dictionary: ")
-	st.write(mydict)
-		
-	#show individual items in dictionary
-	st.write("You can also show individual items in the dictionary like this: ")
-	for key, value in mydict.items():
-		st.write(key + ": " + str(value))
+	if "name" not in st.session_state:
+		st.session_state.name = "Yoda"
+
+	if "age" not in st.session_state:
+		st.session_state.age = 999
+
+	if "gender" not in st.session_state:
+		st.session_state.gender = "male"
+
+	if "prompt_template" not in st.session_state:
+		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+
+	st.write("session_state.name: ", st.session_state.name)
+	st.write("session_state.ageprompt_template: ", st.session_state.age)
+	st.write("session_state.gender: ", st.session_state.gender)
+	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 ''')
-
+		  
 	st.markdown("**:red[Code Output]**")
-	# Challenge 4 : Data and Loops
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = st.text_input("State your age", 18)
-	#declare empty dictionary 
-	mydict = {}
-	mydict["name"] = name
-	mydict["gender"] = gender
-	mydict["age"] = age
-	#Print out the items in the dictionary
-	st.write("Here is your dictionary: ")
-	st.write(mydict)
-			
-	#show individual items in dictionary
-	st.write("You can also show individual items in the dictionary like this: ")
-	for key, value in mydict.items():
-		st.write(key + ": " + str(value))
+	if "name" not in st.session_state:
+		st.session_state.name = "Yoda"
 
-#function to check age and gender        
-def check_age_gender(age, gender):
-	if age >= 21:
-		if gender == "male":
-			st.write("You are an adult male")
-		elif gender == "female":
-			st.write("You are an adult female")
-	else:
-		if gender == "male":
-			st.write("You are a young boy")
-		elif gender == "female":
-			st.write("You are a young girl")
+	if "age" not in st.session_state:
+		st.session_state.age = 999
+
+	if "gender" not in st.session_state:
+		st.session_state.gender = "male"
+
+	if "prompt_template" not in st.session_state:
+		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+
+	st.write("session_state.name: ", st.session_state.name)
+	st.write("session_state.ageprompt_template: ", st.session_state.age)
+	st.write("session_state.gender: ", st.session_state.gender)
+	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 
 def class1_ex4_old():
 	st.subheader("Exercise 4: Functions")
