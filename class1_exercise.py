@@ -396,6 +396,9 @@ def ex4():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
+def class1_ex4():
+	pass
+
 def class1_ch4():
 	st.subheader("Challenge 4: Data and Loops ")
 	st.markdown("""

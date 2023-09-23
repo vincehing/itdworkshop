@@ -126,7 +126,7 @@ def main():
 					MenuItem(ex2, icon='journal-code'),
 					MenuItem(ch2, icon='journal-code'),
 					MenuItem(ex3, icon='journal-code'),
-					MenuItem(ch3, icon='journal-code'),
+					# MecnuItem(ch3, icon='journal-code'),
 					MenuItem(ex4, icon='journal-code'),
 					MenuItem(ch4, icon='journal-code'),
     			]),
@@ -256,10 +256,6 @@ def main():
 			with placeholder2.container():
 				class1_ex3()
 
-		elif option == ch3:
-			placeholder2 = st.empty()
-			with placeholder2.container():
-				class1_ch3()
 		elif option == ex4:
 			placeholder2 = st.empty()
 			with placeholder2.container():
