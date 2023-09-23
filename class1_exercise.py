@@ -1200,8 +1200,8 @@ def ch10_basebot():
 
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
-	st.write("Now, let's create your own prompt to make your bot speak like someone you know! Modify the ***prompt_template*** in your ***main()*** to your own liking. Be imaginative!")
-	st.write("You can use the streaming chat_completion function you wrote earlier. Don't forget to replace the system prompt with your own prompt_template!")
+	st.write("Now, let's create your own prompt to make your bot speak like someone you know! \nModify the ***prompt_template*** in your ***main()*** to your own liking.\nBe imaginative!")
+	st.write("You can use the streaming chat_completion function you wrote earlier.\nDon't forget to replace the system prompt with your own prompt_template!")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
