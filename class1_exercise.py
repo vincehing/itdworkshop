@@ -314,9 +314,10 @@ def main():
 	elif option == "ex2":
 		with placeholder.container():
 			ex2()
+		  
 	elif option == "ex3":
-    	with placeholder.container():
-        	ex3()
+		with placeholder.container():
+			ex3()
 ''')
 
 
