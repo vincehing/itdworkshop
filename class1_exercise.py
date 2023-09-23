@@ -1260,3 +1260,23 @@ def ch10_basebot():
 	st.title("ChatGPT-like clone with Prompt Engineering")
 
 	ch10_basebot()
+
+def class1_ex11():
+	st.subheader("Exercise 11: Prompt Template with LangChain")
+	st.write("LangChain helps you to create a more complext prompt template for your chatbot.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+def ex11():
+	#langchain prompt template
+	fstring_template = """Tell me a {adjective} story about {content}"""
+	prompt = PromptTemplate.from_template(fstring_template)
+	final_prompt = prompt.format(adjective="funny", content="chickens")
+	st.write(final_prompt)
+''')
+	st.markdown("**:red[Code Output]**")
+	#langchain prompt template
+	fstring_template = """Tell me a {adjective} story about {content}"""
+	prompt = PromptTemplate.from_template(fstring_template)
+	final_prompt = prompt.format(adjective="funny", content="chickens")
+	st.write(final_prompt)

@@ -28,6 +28,8 @@ from class1_exercise import (
 				class1_ex9,  
 				class1_ex10, 
 				class1_ch10,
+				class1_ex11, 
+				class1_ch11,
 				final_product
 				)
 
@@ -144,7 +146,11 @@ def main():
 		      		MenuItem('Prompt Engineering', icon='journal-code', children=[
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
-    			], dashed=True),
+    			]), 
+					MenuItem('LangChain', icon='journal-code', children=[
+					MenuItem(ex11, icon='journal-code'),
+					MenuItem(ch11, icon='journal-code'),
+    			]), dashed=True),
 					
 				MenuItem(type='divider'),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
@@ -308,6 +314,16 @@ def main():
 			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch10()
+
+		elif option == ex11:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				class1_ex11()
+
+		elif option == ch11:
+			placeholder2 = st.empty()
+			with placeholder2.container():
+				class1_ch11()
 		
 
 if __name__ == "__main__":
