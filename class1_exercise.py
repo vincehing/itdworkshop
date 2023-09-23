@@ -305,7 +305,8 @@ def main():
 	placeholder = st.empty()
 		 
 	with st.sidebar:
-		 option = st.selectbox("Code Exercises", ["", "ex1()", "ex2()", "ex3()"])
+		option = st.selectbox("Code Exercises", ["", "ex1()", "ex2()", "ex3()"])
+	
 	if option == "ex1":
         with placeholder.container():
             ex1()
