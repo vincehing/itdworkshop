@@ -261,7 +261,7 @@ if __name__ == "__main__":
 		st.write("Hello " + name)
 
 def class1_ex2():
-	
+	pass
 
 def class1_ch2():
 	st.subheader("Challenge 2: Input , Output and Variables ")
