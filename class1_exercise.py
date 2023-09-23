@@ -348,14 +348,14 @@ def ex3():
 	pass
 
 def class1_ex3():
-	st.subheader("Exercise 4: Data and Loops ")
+	st.subheader("Exercise 3: Data and Loops ")
 	st.write("We can store data in a list or dictionary and display the data using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 4 : Data and Loops 
-def ex4():
+#Exercise 3 : Data and Loops 
+def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
