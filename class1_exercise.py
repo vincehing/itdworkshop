@@ -187,15 +187,15 @@ def resources():
 def part1_intro1():
 	st.subheader("Streamlit")
 	st.markdown("""
-	     * an open-source Python library
-	     * used extensively for machine learning and data science
-	     * helps to create interactive web apps in just a few lines of code
-	     * highly flexible and supports complex interactive apps with highly customisable UI
-	     * Some real world examples:
-	     	* CherGPT in String
-	     	* Metacog for CotF MOE
-	     	* AILC prototype for MOE
-	     """)
+		 * an open-source Python library
+		 * used extensively for machine learning and data science
+		 * helps to create interactive web apps in just a few lines of code
+		 * highly flexible and supports complex interactive apps with highly customisable UI
+		 * Some real world examples:
+		 	* CherGPT in String
+		 	* Metacog for CotF MOE
+		 	* AILC prototype for MOE
+		 """)
 	
 def class1_ex1():
 	st.subheader("Exercise 1: Functions")
@@ -261,20 +261,51 @@ if __name__ == "__main__":
 		st.write("Hello " + name)
 
 def class1_ex2():
-	pass
+	st.subheader("Exercise 2: The Streamlit sidebar")
+	st.markdown("In your ***main.py***, copy the code below into the file.")
+	st.markdown("**:blue[Code]**")
+	st.code('''
+# Exercise 2 : Streamlit sidebar
+def ex2():
+	placeholder = st.empty()
+	
+	with st.sidebar:
+		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
+
+	if option == "Option 1":
+		with placeholder.container():
+			st.write("You selected option 1")
+	elif option == "Option 2":
+		with placeholder.container():
+			st.write("You selected option 2")
+	else:
+		st.write("Please select an option from the sidebar")
+''')
+	st.write("Refresh the browser to see the changes.")
+
+	st.markdown("You should see the following behaviour in the streamlit sidebar:")
+	st.markdown("**:red[Code Output]**")
+	
+	my_option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
+	if my_option == "Option 1":
+		st.write("You selected option 1")
+	elif my_option == "Option 2":
+		st.write("You selected option 2")
+	else:
+		st.write("Please select an option from the sidebar")
 
 def class1_ch2():
 	st.subheader("Challenge 2: Input , Output and Variables ")
 	st.markdown("""
-	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
-	     In the ***main.py*** file, 
-	     create and append a new function called *ch2()* and call it in the main function.\n
-	     In *ch2()*, modify the code in Exercise 2 to include the following:
-	     * Get inputs on the name, gender and age of the user
-	     * The user can select 'Male' or 'Female' from a dropdown list
-	     * The output should be similar to the *Code Output* below
-	    
-	     Hint: You can use the st.selectbox() function to create a dropdown list
+		Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
+		 In the ***main.py*** file, 
+		 create and append a new function called *ch2()* and call it in the main function.\n
+		 In *ch2()*, modify the code in Exercise 2 to include the following:
+		 * Get inputs on the name, gender and age of the user
+		 * The user can select 'Male' or 'Female' from a dropdown list
+		 * The output should be similar to the *Code Output* below
+		
+		 Hint: You can use the st.selectbox() function to create a dropdown list
 	""")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
@@ -328,16 +359,16 @@ def ex3():
 def class1_ch3():
 	st.subheader("Challenge 3: Logical Conditioning")
 	st.markdown("""
-	    Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
-	     In the ***main.py*** file, 
-	     create and append a new function called *ch3()* and call it in the main function.\n
-	     In *ch3()*, modify the code in Exercise 2 & 3 to include the following:
-	     * Get inputs on the gender and age of the user
-	     * The user can select 'Male' or 'Female' from a dropdown list
-	     * The user can take a picture of themselves using the st.camera_input() function
-	     * The output should be similar to the *Code Output* below
+		Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
+		 In the ***main.py*** file, 
+		 create and append a new function called *ch3()* and call it in the main function.\n
+		 In *ch3()*, modify the code in Exercise 2 & 3 to include the following:
+		 * Get inputs on the gender and age of the user
+		 * The user can select 'Male' or 'Female' from a dropdown list
+		 * The user can take a picture of themselves using the st.camera_input() function
+		 * The output should be similar to the *Code Output* below
 
-	     Hint: Use *if / elif / else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
+		 Hint: Use *if / elif / else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
 	""")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
@@ -430,13 +461,13 @@ def ex4():
 def class1_ch4():
 	st.subheader("Challenge 4: Data and Loops ")
 	st.markdown("""
-	     Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
-	     In *ch4()*, modify the code in Exercise 4 to include the following:
-	     * Get inputs on the name, age and gender of the user
-	     * Store the inputs in a dictionary and display the dictionary\n
-	     Hint:
-	     * To add a value into a dictionary, you can use the following syntax:
-	     """)
+		 Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
+		 In *ch4()*, modify the code in Exercise 4 to include the following:
+		 * Get inputs on the name, age and gender of the user
+		 * Store the inputs in a dictionary and display the dictionary\n
+		 Hint:
+		 * To add a value into a dictionary, you can use the following syntax:
+		 """)
 	st.code('''	
 mydict["name"] = name
 st.write(mydict)
@@ -556,11 +587,11 @@ def class1_ch4_old():
 	st.subheader("Challenge 4: Functions ")
 	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
 	st.markdown("""
-	     Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
-	     Remember our previous ***check_age_gender()*** function?
-	     Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
-	     Run the code to see if it works. Refresh the browser to see the changes.\n
-	     """)
+		 Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
+		 Remember our previous ***check_age_gender()*** function?
+		 Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
+		 Run the code to see if it works. Refresh the browser to see the changes.\n
+		 """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
@@ -691,14 +722,14 @@ def ex6():
 def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
 	st.markdown("""
-	     Create a new function called ***ch6()*** and modify the ***ex6()*** function to create the following rule based chatbot:\n
-	     * Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
-	     * Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
-	     * Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
-	     For other queries, it will reply “I am sorry, I am unable to help you with your query”\n
-	     Use *if / elif / else* statements to create the chatbot behaviour logic.\n 
-	     You should see the output below when you run your programme.\n
-	     """)
+		 Create a new function called ***ch6()*** and modify the ***ex6()*** function to create the following rule based chatbot:\n
+		 * Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
+		 * Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
+		 * Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
+		 For other queries, it will reply “I am sorry, I am unable to help you with your query”\n
+		 Use *if / elif / else* statements to create the chatbot behaviour logic.\n 
+		 You should see the output below when you run your programme.\n
+		 """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
@@ -836,9 +867,9 @@ def class1_ex8():
 	st.write("In this exercise, we will learn how to call the OpenAI LLM API")
 	st.write("Note that there is a new import statement **import openai**")
 	st.markdown("""
-	     Append the following code to your **main.py** and run it.\n
-	     You should see the output as shown below.\n
-	     """)
+		 Append the following code to your **main.py** and run it.\n
+		 You should see the output as shown below.\n
+		 """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
 import openai
@@ -905,16 +936,16 @@ def class1_ch8():
 	st.subheader("Challenge 8: Incorporate your LLM API call into your chatbot")
 	st.write("In this challenge, we will incorporate the LLM API call into our previous rule-based *Echo* chatbot")
 	st.markdown("""
-	     Create a new function **ch8()** and copy the code from **ex6()** into it.\n
-	     Now, instead of echoing the user's input, we will call the LLM API to generate a response.\n
-	     First, copy the code from **ex8** into a function named **chat_completion()**.\n
-	     This function should return the response from the LLM API like this:\n
-	     """)
+		 Create a new function **ch8()** and copy the code from **ex6()** into it.\n
+		 Now, instead of echoing the user's input, we will call the LLM API to generate a response.\n
+		 First, copy the code from **ex8** into a function named **chat_completion()**.\n
+		 This function should return the response from the LLM API like this:\n
+		 """)
 	st.code('''return response["choices"][0]["message"]["content"].strip()''')
 	st.markdown("""
-	     In **chat_completion()**, replace the previous *Tell me the history ..."* prompt from **ex8()** with the current user's input.\n
-	     In **ch8()**, you can use the following code to call **chat_completion()**:\n
-	     """)
+		 In **chat_completion()**, replace the previous *Tell me the history ..."* prompt from **ex8()** with the current user's input.\n
+		 In **ch8()**, you can use the following code to call **chat_completion()**:\n
+		 """)
 	st.code('''
 	 if prompt := st.chat.input("What's up?"):
 	 	#display user messgae in chat message container
@@ -1084,13 +1115,13 @@ def class1_ch9():
 def class1_ex10():
 	st.subheader("Exercise 10: Basic Prompt Engineering")
 	st.markdown("""
-	     Now, we are going to create a chatbot with a personality by creating a default prompt for our chatbot.\n
-	     Let's make it a chatbot that speaks like Yoda from Star Wars.\n
-	     Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
-	     Note the prompt inside the *role* that goes *Speak like Yoda ...*.\n
-	     This is the default prompt that will be used for every conversation.\n
-	     Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
-	     """)
+		 Now, we are going to create a chatbot with a personality by creating a default prompt for our chatbot.\n
+		 Let's make it a chatbot that speaks like Yoda from Star Wars.\n
+		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
+		 Note the prompt inside the *role* that goes *Speak like Yoda ...*.\n
+		 This is the default prompt that will be used for every conversation.\n
+		 Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
+		 """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
 #Exercise 10: Basic prompt engineering
@@ -1149,7 +1180,7 @@ def ch10():
 
 	openai.api_key = st.secrets["openapi_key"]
 
-	prompt_template = st.chat_input("Enter a prompt to make your bot speak like someone you know!")
+	prompt_template = st.chat_input("Enter a prompt for the system to make your bot speak like someone you know!")
 
 	if "openai_model" not in st.session_state:
 		st.session_state["openai_model"] = "gpt-3.5-turbo"

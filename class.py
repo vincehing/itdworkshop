@@ -160,6 +160,19 @@ def main():
 	
 	if cls == class1 and st.session_state.login_key == True:
 
+		# initialize session state, from ch4
+		if "name" not in st.session_state:
+			st.session_state.name = "Yoda"
+
+		if "age" not in st.session_state:
+			st.session_state.age = 999
+
+		if "gender" not in st.session_state:
+			st.session_state.gender = "male"
+
+		if "prompt_template" not in st.session_state:
+			st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+
 		if option == "Pre-workshop prep":
 			st.write("Welcome to the workshop! Please select a menu item on the left sidebar.")
 
