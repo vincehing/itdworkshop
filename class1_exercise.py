@@ -310,7 +310,7 @@ def main():
 	if option == "ex1":
 		with placeholder.container():
 			ex1()
-    
+	
 	elif option == "ex2":
 		with placeholder.container():
 			ex2()
@@ -321,7 +321,7 @@ def main():
 ''')
 
 
-def class1_ex3():
+def class1_ex3_old():
 	st.subheader("Exercise 3: Logical Conditioning ")
 	st.markdown("Append the following code to the ***main.py*** file.")
 	st.markdown("**:blue[Code]**")
@@ -347,67 +347,7 @@ def ex3():
 		st.write("You are not an adult")
 	pass
 
-def class1_ch3():
-	st.subheader("Challenge 3: Logical Conditioning")
-	st.markdown("""
-		Reference: [Streamlit documentation](https://docs.streamlit.io/en/stable/)\n\n
-		 In the ***main.py*** file, 
-		 create and append a new function called *ch3()* and call it in the main function.\n
-		 In *ch3()*, modify the code in Exercise 2 & 3 to include the following:
-		 * Get inputs on the gender and age of the user
-		 * The user can select 'Male' or 'Female' from a dropdown list
-		 * The user can take a picture of themselves using the st.camera_input() function
-		 * The output should be similar to the *Code Output* below
-
-		 Hint: Use *if / elif / else* statements for the logical conditions, > 21 is an adult, < 21 is a young person
-	""")
-	st.markdown("**:blue[Code]**")
-	with st.expander("Reveal Code"):
-		st.code('''
-# Challenge 3 : Logical Conditioning
-def ch3():
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = int(st.text_input("State your age", 18))
-	photo = st.camera_input("Smile! take a picture here.")
-
-	# conditional logic to run different statements
-	if age >= 21 and gender == "Male":
-		st.write("You are a male adult")
-	elif age < 21 and gender == "Male":
-		st.write("You are a young boy")
-	elif age >= 21 and gender == "Female":
-		st.write("You are a female adult")
-	elif age < 21 and gender == "Female":
-		st.write("You are a young girl")
-		
-	if photo:
-		st.write("Here is your photo: ")
-		st.image(photo)
-	else:
-		st.write("No photo taken")
-''')
-	st.markdown("**:red[Code Output]**")
-	gender = st.selectbox("State your gender", ["Male", "Female"])
-	age = int(st.text_input("State your age", 18))
-	photo = st.camera_input("Smile! take a picture here.")
-
-	# conditional logic to run different statements
-	if age >= 21 and gender == "Male":
-		st.write("You are a male adult")
-	elif age < 21 and gender == "Male":
-		st.write("You are a young boy")
-	elif age >= 21 and gender == "Female":
-		st.write("You are a female adult")
-	elif age < 21 and gender == "Female":
-		st.write("You are a young girl")
-		
-	if photo:
-		st.write("Here is your photo: ")
-		st.image(photo)
-	else:
-		st.write("No photo taken")
-
-def class1_ex4():
+def class1_ex3():
 	st.subheader("Exercise 4: Data and Loops ")
 	st.write("We can store data in a list or dictionary and display the data using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
@@ -419,16 +359,20 @@ def ex4():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
-	# Dictionary
-	person = {"name": "John", "age": 30, "city": "New York"}
-
 	# For loop to show list
 	st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
-	#for loop to show dictionary list
-	st.subheader("Person dictionary:")
+	# Dictionary
+	person = {"name": "John", "age": 30, "city": "New York"}
+		 
+	# Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
+	st.write(person)
+
+	# for loop to show dictionary list
+	st.write("You can also show individual items in the dictionary like this: ")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 ''')
@@ -436,16 +380,19 @@ def ex4():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
-	# Dictionary
-	person = {"name": "John", "age": 30, "city": "New York"}
-
 	# For loop to show list
-	st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
-	#for loop to show dictionary list
-	st.subheader("Person dictionary:")
+	# Dictionary
+	person = {"name": "John", "age": 30, "city": "New York"}
+
+	# Print out the items in the dictionary
+	st.write("Here is your dictionary: ")
+	st.write(person)
+
+	# for loop to show dictionary list
+	st.write("You can also show individual items in the dictionary like this: ")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
