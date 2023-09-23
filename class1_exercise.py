@@ -987,92 +987,110 @@ def ch8():
 		st.session_state.chat_msg.append({"role": "assistant", "content": reply})
 	pass
 
+#For exercise 9
+def chat_completion_stream(prompt):
+    openai.api_key = st.secrets["openapi_key"]
+    MODEL = "gpt-3.5-turbo"
+    response = openai.ChatCompletion.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0,  # temperature
+        stream=True,  # stream option
+    )
+    return response
+
+def ex9_basebot():
+    # Initialize chat history
+    if "chat_msg" not in st.session_state:
+        st.session_state.chat_msg = []
+
+    # Showing Chat history
+    for message in st.session_state.chat_msg:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+    try:
+        #
+        if prompt := st.chat_input("What is up?"):
+            # set user prompt in chat history
+            st.session_state.chat_msg.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.markdown(prompt)
+
+            with st.chat_message("assistant"):
+                message_placeholder = st.empty()
+                full_response = ""
+                # streaming function
+                for response in chat_completion_stream(prompt):
+                    full_response += response.choices[0].delta.get("content", "")
+                    message_placeholder.markdown(full_response + "▌")
+                message_placeholder.markdown(full_response)
+            st.session_state.chat_msg.append(
+                {"role": "assistant", "content": full_response}
+            )
+
+    except Exception as e:
+        st.error(e)
+
 def class1_ex9():
 	st.subheader("Exercise 9: Building a ChatGPT-like clone with streaming responses")
 	st.write("Now, we will incorporate a streaming response from the LLM API into our chatbot to mimic the behaviour of ChatGPT.")
 	st.write("Copy and run the code below to see the streaming responses.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 9 : Building a ChatGPT-like clone with streaming responses
-def ex9():
-	st.title("ChatGPT-like clone")
+# Exercise 9 : Using the OpenAI API with streaming option
+def chat_completion_stream(prompt):
 	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant"},
+			{"role": "user", "content": prompt},
+		],
+		temperature=0,  # temperature
+		stream=True,  # stream option
+	)
+	return response
 
-	if "openai_model" not in st.session_state:
-		st.session_state["openai_model"] = "gpt-3.5-turbo"
 
-	if "msg" not in st.session_state:
-		st.session_state.msg = []
+# integration API call into streamlit chat components
+def ex9_basebot():
+	# Initialize chat history
+	if "chat_msg" not in st.session_state:
+		st.session_state.chat_msg = []
 
-	for message in st.session_state.msg:
+	# Showing Chat history
+	for message in st.session_state.chat_msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
 	try:
+		#
 		if prompt := st.chat_input("What is up?"):
-			st.session_state.msg.append({"role": "user", "content": prompt})
+			# set user prompt in chat history
+			st.session_state.chat_msg.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
 				st.markdown(prompt)
 
 			with st.chat_message("assistant"):
 				message_placeholder = st.empty()
 				full_response = ""
-				for response in openai.ChatCompletion.create(
-					model=st.session_state["openai_model"],
-					messages=[
-						{"role": m["role"], "content": m["content"]}
-						for m in st.session_state.msg
-					],
-					stream=True,
-				):
+				# streaming function
+				for response in chat_completion_stream(prompt):
 					full_response += response.choices[0].delta.get("content", "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
-			st.session_state.msg.append({"role": "assistant", "content": full_response})
-	
+			st.session_state.chat_msg.append(
+				{"role": "assistant", "content": full_response}
+			)
+
 	except Exception as e:
 		st.error(e)
 ''')
 	st.markdown("**:red[Code Output]**")
-	st.title("ChatGPT-like clone")
-
-	openai.api_key = st.secrets["openapi_key"]
-
-	if "openai_model" not in st.session_state:
-		st.session_state["openai_model"] = "gpt-3.5-turbo"
-
-	if "msg" not in st.session_state:
-		st.session_state.msg = []
-
-	for message in st.session_state.msg:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
-	
-	try:
-
-		if prompt := st.chat_input("What is up?"):
-			st.session_state.msg.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
-
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				for response in openai.ChatCompletion.create(
-					model=st.session_state["openai_model"],
-					messages=[
-						{"role": m["role"], "content": m["content"]}
-						for m in st.session_state.msg
-					],
-					stream=True,
-				):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg.append({"role": "assistant", "content": full_response})
-
-	except Exception as e:
-		st.error(e)
-	pass
+	ex9_basebot()
 
 def class1_ch9():
 	pass
