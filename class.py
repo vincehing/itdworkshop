@@ -109,14 +109,14 @@ def main():
 					# 	MenuItem(prep, icon='journal-code'),
 					# 	MenuItem(hw1, icon='journal-code'),
 					# ]),
-					# MenuItem('Introduction', icon='journal-code', children=[
+					MenuItem('Introduction', icon='journal-code', children=[
 					# 	# MenuItem(obj, icon='journal-code'),
 					# 	# MenuItem(outline, icon='journal-code'),
-					# 	MenuItem(final, icon='journal-code'),
+					MenuItem(final, icon='journal-code'),
 					# 	# MenuItem(rules, icon='journal-code'),
 					# 	# MenuItem(intro, icon='journal-code'),
-					# 	MenuItem(res, icon='journal-code'),
-					# ]),
+					MenuItem(res, icon='journal-code'),
+				]),
 		      		MenuItem('Intro to Streamlit', icon='journal-code', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),
