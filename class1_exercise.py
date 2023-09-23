@@ -1101,7 +1101,7 @@ def class1_ex10():
 		 Now, we are going to create a chatbot with a personality by using a default prompt for our chatbot. \n
 		 This is the default prompt that will be used for every conversation.\n
 		 Let's make it a chatbot that speaks like Yoda from Star Wars.\n
-		 We will use the ***prompt_template*** that is already in our ***main()*** for this.
+		 We will use the ***prompt_template*** that is already in our ***main()*** for this.\n
 		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
 		 Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
 		 """)
@@ -1150,121 +1150,110 @@ def ex10():
 	st.markdown("**Total tokens:**")
 	st.write(str(response["usage"]["total_tokens"]))
 
+#Challenge 10
+#mod chat complete stream function by replacing system content to session_state prompt template
+def chat_completion_stream_prompt(prompt):
+	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo" #consider changing this to session_state
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": st.session_state.prompt_template},
+			{"role": "user", "content": prompt},
+		],
+		temperature= 0, # temperature
+		stream=True #stream option
+	)
+	return response
+
+# Challenge 10: Make the bot speak like someone you know
+def ch10_basebot():
+  #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+
+	except Exception as e:
+		st.error(e)
+
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
-	st.write("Now, let's create a variable to store a prompt to make your bot speak like someone you know! Get this prompt as an input from the user.")
-	st.write("You can adapt the code snippet below. Note the ***prompt_template*** variable.")
-	st.code('''
-	for response in openai.ChatCompletion.create(
-		model=st.session_state["openai_model"],
-		messages=[{"role":"system", "content":prompt_template}, {"role":"user", "content":prompt}],
-	''')
-	st.write("Try to create something similar to the code output below.")
-	st.write("Best prompt that gets the most votes win a prize!")
+	st.write("Now, let's create your own prompt to make your bot speak like someone you know! Modify the ***prompt_template*** in your ***main()*** to your own liking. Be imaginative!")
+	st.write("You can use the streaming chat_completion function you wrote earlier. Don't forget to replace the system prompt with your own prompt_template!")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
-def ch10():
-	#Challenge 10: Make the bot speak like someone you know
-	st.title("ChatGPT-like clone with Prompt Engineering")
-
+#Challenge 10
+#mod chat complete stream function by replacing system content to session_state prompt template
+def chat_completion_stream_prompt(prompt):
 	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo" #consider changing this to session_state
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": st.session_state.prompt_template},
+			{"role": "user", "content": prompt},
+		],
+		temperature= 0, # temperature
+		stream=True #stream option
+	)
+	return response
 
-	prompt_template = st.chat_input("Enter a prompt for the system to make your bot speak like someone you know!")
+# Challenge 10: Make the bot speak like someone you know
+def ch10_basebot():
+  #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
 
-	if "openai_model" not in st.session_state:
-		st.session_state["openai_model"] = "gpt-3.5-turbo"
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
 
-	if "msg_bot" not in st.session_state:
-		st.session_state.msg_bot = []
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
 
-	if prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!"):
-		st.session_state.msg_bot.append({"role": "user", "content": prompt_template})
-		with st.chat_message("user"):
-			st.markdown(prompt_template)
-
-		with st.chat_message("assistant"):
-			full_response = "Nice! Now, let's test out your prompt template. Enter a prompt below to see how your bot responds."
-			st.markdown(full_response)
-		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
-	
-		try:
-
-			if prompt := st.text_input("What is up?"):
-				st.session_state.msg_bot.append({"role": "user", "content": prompt})
-				with st.chat_message("user"):
-					st.markdown(prompt)
-
-				with st.chat_message("assistant"):
-					message_placeholder = st.empty()
-					full_response = ""
-					for response in openai.ChatCompletion.create(
-						model=st.session_state["openai_model"],
-						messages=[
-									{"role": "system", "content": prompt_template},
-									{"role": "user", "content": prompt},
-								],
-						stream=True,
-					):
-						full_response += response.choices[0].delta.get("content", "")
-						message_placeholder.markdown(full_response + "▌")
-					message_placeholder.markdown(full_response)
-				st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
-
-		except Exception as e:
-			st.error(e)
+	except Exception as e:
+		st.error(e)
 ''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone with Prompt Engineering")
 
-	openai.api_key = st.secrets["openapi_key"]
-
-	if "openai_model" not in st.session_state:
-		st.session_state["openai_model"] = "gpt-3.5-turbo"
-
-	if "msg_bot" not in st.session_state:
-		st.session_state.msg_bot = []
-
-	# for message in st.session_state.msg_bot:
-	# 	with st.chat_message(message["role"]):
-	# 		st.markdown(message["content"])
-		
-	# prompt_template = """
-	# 	Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars
-	# """
-
-	if prompt_template := st.text_input("Enter a prompt to make your bot speak like someone you know!"):
-		st.session_state.msg_bot.append({"role": "user", "content": prompt_template})
-		with st.chat_message("user"):
-			st.markdown(prompt_template)
-
-		with st.chat_message("assistant"):
-			full_response = "Nice! Now, let's test out your prompt template. Enter a prompt below to see how your bot responds."
-			st.markdown(full_response)
-		st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
-	
-		try:
-			if prompt := st.text_input("What is up? Test your prompt template here!"):
-				st.session_state.msg_bot.append({"role": "user", "content": prompt})
-				with st.chat_message("user"):
-					st.markdown(prompt)
-
-				with st.chat_message("assistant"):
-					message_placeholder = st.empty()
-					full_response = ""
-					for response in openai.ChatCompletion.create(
-						model=st.session_state["openai_model"],
-						messages=[
-									{"role": "system", "content": prompt_template},
-									{"role": "user", "content": prompt},
-								],
-						stream=True,
-					):
-						full_response += response.choices[0].delta.get("content", "")
-						message_placeholder.markdown(full_response + "▌")
-					message_placeholder.markdown(full_response)
-				st.session_state.msg_bot.append({"role": "assistant", "content": full_response})
-
-		except Exception as e:
-			st.error(e)
-	pass
+	ch10_basebot()
