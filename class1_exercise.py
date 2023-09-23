@@ -2,6 +2,25 @@ import streamlit as st
 import openai
 from PIL import Image
 
+def template():
+	st.subheader("Template")
+	st.write("Instruction lines.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+#Exercise X : Title
+def ex123():
+	#code here
+''')
+	st.markdown("**:red[Code Output]**")
+	# Actual code here
+
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+#challenge code
+''')
+
 def class1_prep():
 	# st.subheader("Course Slides")
 	# st.markdown("https://go.gov.sg/itdchatbotprototype")
@@ -320,7 +339,6 @@ def main():
 			ex3()
 ''')
 
-
 def class1_ex3_old():
 	st.subheader("Exercise 3: Logical Conditioning ")
 	st.markdown("Append the following code to the ***main.py*** file.")
@@ -397,7 +415,30 @@ def ex3():
 		st.write(key + ": " + str(value))
 
 def class1_ex4():
-	pass
+	st.subheader("Session Data")
+	st.write("We can create variables to store data in a user session. Session data persist within a user session.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+# Exercise 4: Session State
+def ex4():
+	st.subheader("Session Data:")
+	if "session_data" not in st.session_state:
+		st.session_state.session_data = ["alpha", "omega"]
+
+	# For loop to show list
+	for data in st.session_state.session_data:
+		st.write("session_data: ", data)
+''')
+		 
+	st.markdown("**:red[Code Output]**")
+	# Exercise 4: Session State
+	if "session_data" not in st.session_state:
+		st.session_state.session_data = ["alpha", "omega"]
+
+	# For loop to show list
+	for data in st.session_state.session_data:
+		st.write("session_data: ", data)
 
 def class1_ch4():
 	st.subheader("Challenge 4: Data and Loops ")
