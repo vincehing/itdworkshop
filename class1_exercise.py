@@ -308,14 +308,15 @@ def main():
 		option = st.selectbox("Code Exercises", ["", "ex1()", "ex2()", "ex3()"])
 	
 	if option == "ex1":
-        with placeholder.container():
-            ex1()
-    elif option == "ex2":
-        with placeholder.container():
-            ex2()
-    elif option == "ex3":
-        with placeholder.container():
-            ex3()
+		with placeholder.container():
+			ex1()
+    
+	elif option == "ex2":
+		with placeholder.container():
+			ex2()
+	elif option == "ex3":
+    	with placeholder.container():
+        	ex3()
 ''')
 
 
