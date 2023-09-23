@@ -62,6 +62,8 @@ ch8 = "Challenge 8"
 ex9 = "Exercise 9"
 ex10 = "Exercise 10"
 ch10 = "Challenge 10"
+ex11 = "Exercise 11"
+ch11 = "Challenge 11"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
@@ -150,9 +152,8 @@ def main():
 					MenuItem('LangChain', icon='journal-code', children=[
 					MenuItem(ex11, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
-    			]), dashed=True),
-					
-				MenuItem(type='divider'),
+    			]), 
+				MenuItem(type='divider',dashed=True),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
 			if option == 'Logout':
 				for key in st.session_state.keys():

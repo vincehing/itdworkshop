@@ -1,6 +1,34 @@
+from PIL import Image
 import streamlit as st
 import openai
-from PIL import Image
+from langchain.prompts import PromptTemplate
+#exercis 12
+from langchain.memory import ConversationBufferWindowMemory
+#exercise 13
+from langchain.document_loaders import TextLoader,PyPDFLoader
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import LanceDB
+import lancedb
+import os
+import tempfile
+#exercise 15
+import sqlite3
+import pandas as pd
+import datetime
+#exercise 16
+from langchain.agents import ConversationalChatAgent, AgentExecutor
+from langchain.callbacks import StreamlitCallbackHandler
+from langchain.chat_models import ChatOpenAI
+from langchain.memory import ConversationBufferMemory
+from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from langchain.tools import DuckDuckGoSearchRun
+#Exercise 17
+from langchain.agents import tool
+import json
+#Exercise 18
+from pandasai import SmartDataframe
+from pandasai.llm.openai import OpenAI
+import matplotlib.pyplot as plt
 
 def template():
 	st.subheader("Template")
