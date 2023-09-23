@@ -468,7 +468,7 @@ def ch4():
 		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
 
 	st.write("session_state.name: ", st.session_state.name)
-	st.write("session_state.ageprompt_template: ", st.session_state.age)
+	st.write("session_state.age: ", st.session_state.age)
 	st.write("session_state.gender: ", st.session_state.gender)
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 ''')
@@ -487,7 +487,7 @@ def ch4():
 		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
 
 	st.write("session_state.name: ", st.session_state.name)
-	st.write("session_state.ageprompt_template: ", st.session_state.age)
+	st.write("session_state.age: ", st.session_state.age)
 	st.write("session_state.gender: ", st.session_state.gender)
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 
