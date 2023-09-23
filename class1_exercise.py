@@ -1308,3 +1308,6 @@ def ex11():
 	prompt = PromptTemplate.from_template(fstring_template)
 	final_prompt = prompt.format(adjective="funny", content="chickens")
 	st.write(final_prompt)
+
+def class1_ch11():
+	pass
