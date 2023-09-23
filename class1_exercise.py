@@ -492,59 +492,61 @@ def ch4():
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 
 def class1_ex4_old():
-	st.subheader("Exercise 4: Functions")
-	st.write("For this exercise, we will rewrite our previous code to use functions.")
-	st.write("Append the following function to the ***main.py*** file.")
-	st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
-	st.markdown("**:blue[Code]**")
-	st.code('''
-	 	#Exercise 4: Functions
-		#function to check age and gender        
-		def check_age_gender(age, gender):
-			if age >= 21:
-				if gender == "male":
-					st.write("You are an adult male")
-				elif gender == "female":
-					st.write("You are an adult female")
-			else:
-				if gender == "male":
-					st.write("You are a young boy")
-				elif gender == "female":
-					st.write("You are a young girl")
+	# st.subheader("Exercise 4: Functions")
+	# st.write("For this exercise, we will rewrite our previous code to use functions.")
+	# st.write("Append the following function to the ***main.py*** file.")
+	# st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
+	# st.markdown("**:blue[Code]**")
+	# st.code('''
+	#  	#Exercise 4: Functions
+	# 	#function to check age and gender        
+	# 	def check_age_gender(age, gender):
+	# 		if age >= 21:
+	# 			if gender == "male":
+	# 				st.write("You are an adult male")
+	# 			elif gender == "female":
+	# 				st.write("You are an adult female")
+	# 		else:
+	# 			if gender == "male":
+	# 				st.write("You are a young boy")
+	# 			elif gender == "female":
+	# 				st.write("You are a young girl")
 				
-		def ex4():
+	# 	def ex4():
 				
-			st.title("Age and Gender Check")
-			#Note that age is converted from string to int
-			age = int(st.text_input("State your age", 18))
-			gender = st.selectbox("Select your gender:", ["male", "female"])
-			#calling function check_age_gender
-			check_age_gender(age, gender)
+	# 		st.title("Age and Gender Check")
+	# 		#Note that age is converted from string to int
+	# 		age = int(st.text_input("State your age", 18))
+	# 		gender = st.selectbox("Select your gender:", ["male", "female"])
+	# 		#calling function check_age_gender
+	# 		check_age_gender(age, gender)
 				
-		if __name__ == "__main__":
-			ex4()
+	# 	if __name__ == "__main__":
+	# 		ex4()
 
-	''')
-	st.markdown("**:red[Code Output]**")
-	st.markdown("**Age and Gender Check**")
-	age = int(st.text_input("State your age", 18))
-	gender = st.selectbox("Select your gender:", ["male", "female"])
-	#calling function check_age_gender
-	check_age_gender(age, gender)
+	# ''')
+	# st.markdown("**:red[Code Output]**")
+	# st.markdown("**Age and Gender Check**")
+	# age = int(st.text_input("State your age", 18))
+	# gender = st.selectbox("Select your gender:", ["male", "female"])
+	# #calling function check_age_gender
+	# check_age_gender(age, gender)
+	pass
 
 def my_list_func():
-	name = st.text_input("Enter your name")
-	gender = st.selectbox("State your gender", ["male", "female"])
-	age = int(st.text_input("State your age", 18))
+	pass
+	# name = st.text_input("Enter your name")
+	# gender = st.selectbox("State your gender", ["male", "female"])
+	# age = int(st.text_input("State your age", 18))
 
-	mydict = {}
-	mydict["name"] = name
-	mydict["gender"] = gender
-	mydict["age"] = age
+	# mydict = {}
+	# mydict["name"] = name
+	# mydict["gender"] = gender
+	# mydict["age"] = age
 
-	check_age_gender(age, gender)
-	st.write(mydict)
-	return mydict
+	# check_age_gender(age, gender)
+	# st.write(mydict)
+	# return mydict
 
 def class1_ch4_old():
 	st.subheader("Challenge 4: Functions ")
