@@ -111,7 +111,7 @@ def main():
 					# ]),
 					MenuItem('Introduction', icon='journal-code', children=[
 					# 	# MenuItem(obj, icon='journal-code'),
-					# 	# MenuItem(outline, icon='journal-code'),
+					MenuItem(outline, icon='journal-code'),
 					MenuItem(final, icon='journal-code'),
 					# 	# MenuItem(rules, icon='journal-code'),
 					# 	# MenuItem(intro, icon='journal-code'),
