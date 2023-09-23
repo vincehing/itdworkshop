@@ -32,6 +32,7 @@ import matplotlib.pyplot as plt
 #Exercise 1: Functions
 def ex1():
 	st.write("Hello World")
+	name = st.text_input("Enter your name")
 
 # Exercise 2a : Input , Output and Variables
 def ex2():

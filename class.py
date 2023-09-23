@@ -105,18 +105,18 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Pre-workshop prep', icon='journal-code', children=[
-						MenuItem(prep, icon='journal-code'),
-						MenuItem(hw1, icon='journal-code'),
-					]),
-					MenuItem('Introduction', icon='journal-code', children=[
-						# MenuItem(obj, icon='journal-code'),
-						# MenuItem(outline, icon='journal-code'),
-						MenuItem(final, icon='journal-code'),
-						# MenuItem(rules, icon='journal-code'),
-						# MenuItem(intro, icon='journal-code'),
-						MenuItem(res, icon='journal-code'),
-					]),
+					# MenuItem('Pre-workshop prep', icon='journal-code', children=[
+					# 	MenuItem(prep, icon='journal-code'),
+					# 	MenuItem(hw1, icon='journal-code'),
+					# ]),
+					# MenuItem('Introduction', icon='journal-code', children=[
+					# 	# MenuItem(obj, icon='journal-code'),
+					# 	# MenuItem(outline, icon='journal-code'),
+					# 	MenuItem(final, icon='journal-code'),
+					# 	# MenuItem(rules, icon='journal-code'),
+					# 	# MenuItem(intro, icon='journal-code'),
+					# 	MenuItem(res, icon='journal-code'),
+					# ]),
 		      		MenuItem('Intro to Streamlit', icon='journal-code', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),

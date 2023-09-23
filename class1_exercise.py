@@ -208,6 +208,9 @@ import streamlit as st
 #Exercise 1: Functions
 def ex1():
 	st.write("Hello World")
+	name = st.text_input("Enter your name")
+	if name:
+		st.write("Hello " + name)
 	 
 def main():
 	ex1()
@@ -221,11 +224,15 @@ if __name__ == "__main__":
 	st.markdown("**:red[Code Output]**")
 	# Exercise 1 : Functions
 	st.write("Hello World")
+	# only prints the Hello {name} if input box is not empty
+	name = st.text_input("Enter your name")
+	if name:
+		st.write("Hello " + name)
 
 def class1_ch1():
 	pass
 
-def class1_ex2():
+def class1_ex2_old():
 	st.subheader("Exercise 2: Input , Output and Variables ")
 	st.markdown("In your ***main.py***, copy the code below into the file.")
 	st.markdown("**:blue[Code]**")
@@ -252,6 +259,9 @@ if __name__ == "__main__":
 	# only prints the Hello {name} if input box is not empty
 	if name:
 		st.write("Hello " + name)
+
+def class1_ex2():
+	
 
 def class1_ch2():
 	st.subheader("Challenge 2: Input , Output and Variables ")
