@@ -17,7 +17,6 @@ from class1_exercise import (
 				class1_ex2, 
 				class1_ch2, 
 				class1_ex3, 
-				class1_ch3,
 				class1_ex4, 
 				class1_ch4, 
 				class1_ex5, 
