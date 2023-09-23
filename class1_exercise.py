@@ -989,50 +989,50 @@ def ch8():
 
 #For exercise 9
 def chat_completion_stream(prompt):
-    openai.api_key = st.secrets["openapi_key"]
-    MODEL = "gpt-3.5-turbo"
-    response = openai.ChatCompletion.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant"},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0,  # temperature
-        stream=True,  # stream option
-    )
-    return response
+	openai.api_key = st.secrets["openapi_key"]
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant"},
+			{"role": "user", "content": prompt},
+		],
+		temperature=0,  # temperature
+		stream=True,  # stream option
+	)
+	return response
 
 def ex9_basebot():
-    # Initialize chat history
-    if "chat_msg" not in st.session_state:
-        st.session_state.chat_msg = []
+	# Initialize chat history
+	if "chat_msg" not in st.session_state:
+		st.session_state.chat_msg = []
 
-    # Showing Chat history
-    for message in st.session_state.chat_msg:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    try:
-        #
-        if prompt := st.chat_input("What is up?"):
-            # set user prompt in chat history
-            st.session_state.chat_msg.append({"role": "user", "content": prompt})
-            with st.chat_message("user"):
-                st.markdown(prompt)
+	# Showing Chat history
+	for message in st.session_state.chat_msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			# set user prompt in chat history
+			st.session_state.chat_msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
 
-            with st.chat_message("assistant"):
-                message_placeholder = st.empty()
-                full_response = ""
-                # streaming function
-                for response in chat_completion_stream(prompt):
-                    full_response += response.choices[0].delta.get("content", "")
-                    message_placeholder.markdown(full_response + "▌")
-                message_placeholder.markdown(full_response)
-            st.session_state.chat_msg.append(
-                {"role": "assistant", "content": full_response}
-            )
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				# streaming function
+				for response in chat_completion_stream(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.chat_msg.append(
+				{"role": "assistant", "content": full_response}
+			)
 
-    except Exception as e:
-        st.error(e)
+	except Exception as e:
+		st.error(e)
 
 def class1_ex9():
 	st.subheader("Exercise 9: Building a ChatGPT-like clone with streaming responses")
@@ -1098,25 +1098,29 @@ def class1_ch9():
 def class1_ex10():
 	st.subheader("Exercise 10: Basic Prompt Engineering")
 	st.markdown("""
-		 Now, we are going to create a chatbot with a personality by creating a default prompt for our chatbot.\n
-		 Let's make it a chatbot that speaks like Yoda from Star Wars.\n
-		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
-		 Note the prompt inside the *role* that goes *Speak like Yoda ...*.\n
+		 Now, we are going to create a chatbot with a personality by using a default prompt for our chatbot. \n
 		 This is the default prompt that will be used for every conversation.\n
+		 Let's make it a chatbot that speaks like Yoda from Star Wars.\n
+		 We will use the ***prompt_template*** that is already in our ***main()*** for this.
+		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
 		 Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
 		 """)
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 10: Basic prompt engineering
+# Exercise 10: Basic prompt engineering
 def ex10():
+	#prompt_template in session state already set in main()
 	st.title("Api Call")
 	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
 		messages=[
-			{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
-			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
+			{"role": "system", "content": st.session_state.prompt_template},
+			{
+				"role": "user",
+				"content": "Tell me about Singapore in the 1970s in 50 words",
+			},
 		],
 		temperature=0,
 	)
@@ -1126,14 +1130,18 @@ def ex10():
 	st.write(str(response["usage"]["total_tokens"]))
 ''')
 	st.markdown("**:red[Code Output]**")
+	#prompt_template in session state already set in main()
 	st.title("Api Call")
 	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
 		messages=[
-			{"role": "system", "content": "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"},
-			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words"},
+			{"role": "system", "content": st.session_state.prompt_template},
+			{
+				"role": "user",
+				"content": "Tell me about Singapore in the 1970s in 50 words",
+			},
 		],
 		temperature=0,
 	)
@@ -1141,7 +1149,6 @@ def ex10():
 	st.write(response["choices"][0]["message"]["content"].strip())
 	st.markdown("**Total tokens:**")
 	st.write(str(response["usage"]["total_tokens"]))
-	pass
 
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
