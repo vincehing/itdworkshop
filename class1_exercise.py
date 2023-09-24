@@ -1330,7 +1330,6 @@ def ch11():
 	prompt = PromptTemplate.from_template(fstring_template)
 	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
 	st.write("new prompt template: ", final_prompt)
-	# set session_state.prompt_template = final_prompt
 	st.session_state.prompt_template = final_prompt
 	# call ch10_basebot
 	ch10_basebot()
@@ -1342,7 +1341,6 @@ def ch11():
 	prompt = PromptTemplate.from_template(fstring_template)
 	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
 	st.write("new prompt template: ", final_prompt)
-	# set session_state.prompt_template = final_prompt
 	st.session_state.prompt_template = final_prompt
 	# call ch10_basebot
 	ch10_basebot()
