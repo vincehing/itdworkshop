@@ -2107,17 +2107,6 @@ def ex16():
 			response = executor(prompt, callbacks=[st_cb])
 			st.write(response["output"])
 			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
-
-#agents ,vectorstores, wiki 
-#https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
-#note tool
-@tool("Document search")
-def document_search(query: str) ->str:
-	"Use this function first to search for documents pertaining to the query before going into the internet"
-	docs = st.session_state.vectorstore.similarity_search(query)
-	docs = docs[0].page_content
-	json_string = json.dumps(docs, ensure_ascii=False, indent=4)
-	return json_string
 ''')
 
 	st.markdown("**:red[Code Output]**")
