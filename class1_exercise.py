@@ -2159,3 +2159,80 @@ def ex16():
 			st.write(response["output"])
 			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
 
+def class1_ex17():
+	st.subheader("Exercise 17: Smart agent with vector store")
+	st.write("In this exercise, we will combine the vector store with the smart agent.")
+	st.write("This allows the chatbot to search for answers from the vector store and the internet.")
+	st.write("The @tool(\"Document search\") function is an enhancement to the chatbot. It allows for an initial internal document search based on the user query before resorting to external internet searches. ")
+	st.write("Copy and run the code below to see the chatbot in action.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+#agents ,vectorstores, wiki 
+#https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
+#note tool
+@tool("Document search")
+def document_search(query: str) ->str:
+	"Use this function first to search for documents pertaining to the query before going into the internet"
+	docs = st.session_state.vectorstore.similarity_search(query)
+	docs = docs[0].page_content
+	json_string = json.dumps(docs, ensure_ascii=False, indent=4)
+	return json_string
+
+def ex17():
+	vecstore_creator(False)
+	#st.session_state.vectorstore
+
+	st.title("🦜 LangChain: Chat with search")
+
+	openai_api_key = st.secrets["openapi_key"]
+
+	msgs = StreamlitChatMessageHistory()
+	memory = ConversationBufferMemory(
+		chat_memory=msgs, return_messages=True, memory_key="chat_history", output_key="output"
+	)
+	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
+		msgs.clear()
+		msgs.add_ai_message("How can I help you?")
+		st.session_state.steps = {}
+
+	avatars = {"human": "user", "ai": "assistant"}
+	for idx, msg in enumerate(msgs.messages):
+		with st.chat_message(avatars[msg.type]):
+			# Render intermediate steps if any were saved
+			for step in st.session_state.steps.get(str(idx), []):
+				if step[0].tool == "_Exception":
+					continue
+				with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
+					st.write(step[0].log)
+					st.write(step[1])
+			st.write(msg.content)
+
+	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
+		st.chat_message("user").write(prompt)
+
+		llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
+		tools = [DuckDuckGoSearchRun(name="Internet Search"), document_search]
+		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
+		executor = AgentExecutor.from_agent_and_tools(
+			agent=chat_agent,
+			tools=tools,
+			memory=memory,
+			return_intermediate_steps=True,
+			handle_parsing_errors=True,
+		)
+		with st.chat_message("assistant"):
+			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
+			response = executor(prompt, callbacks=[st_cb])
+			st.write(response["output"])
+			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
+''')
+
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+#challenge code here
+''')
+		  
+	st.markdown("**:red[Code Output]**")
+	# Actual code here

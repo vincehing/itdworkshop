@@ -37,6 +37,7 @@ from class1_exercise import (
 				class1_ex15,
 				class1_ch15,
 				class1_ex16,
+				class1_ex17,
 				final_product
 				)
 
@@ -78,6 +79,7 @@ ex14 = "Exercise 14"
 ex15 = "Exercise 15"
 ch15 = "Challenge 15"
 ex16 = "Exercise 16"
+ex17 = "Exercise 17"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
@@ -183,6 +185,9 @@ def main():
     			]), 
 				MenuItem('Smart Agent', icon='journal-code', children=[
 					MenuItem(ex16, icon='journal-code'),
+    			]), 
+				MenuItem('Smart Agent&Vector store', icon='journal-code', children=[
+					MenuItem(ex17, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
@@ -356,6 +361,10 @@ def main():
 		elif option == ex16:
 			with placeholder2.container():
 				class1_ex16()
+		
+		elif option == ex17:
+			with placeholder2.container():
+				class1_ex17()
 		
 if __name__ == "__main__":
 	main()
