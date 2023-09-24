@@ -1484,3 +1484,144 @@ def ch12():
 	except Exception as e:
 		st.error(e)
 	pass
+
+#exercise 13 - loading
+#pip install pypdf
+#pip install lancedb
+def upload_file_streamlit():
+
+	def get_file_extension(file_name):
+		return os.path.splitext(file_name)[1]
+
+	st.subheader("Upload your docs")
+
+	# Streamlit file uploader to accept file input
+	uploaded_file = st.file_uploader("Choose a file", type=['docx', 'txt', 'pdf'])
+
+	if uploaded_file:
+
+		# Reading file content
+		file_content = uploaded_file.read()
+
+		# Determine the suffix based on uploaded file's name
+		file_suffix = get_file_extension(uploaded_file.name)
+
+		# Saving the uploaded file temporarily to process it
+		with tempfile.NamedTemporaryFile(delete=False, suffix=file_suffix) as temp_file:
+			temp_file.write(file_content)
+			temp_file.flush()  # Ensure the data is written to the file
+			temp_file_path = temp_file.name
+		return temp_file_path
+	
+#exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
+def vecstore_creator(query):
+	if "vectorstore" not in st.session_state:
+		st.session_state.vectorstore = False
+	
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
+	embeddings = OpenAIEmbeddings()
+	db = lancedb.connect("/tmp/lancedb")
+	table = db.create_table(
+		"my_table",
+		data=[
+			{
+				"vector": embeddings.embed_query("Hello World"),
+				"text": "Hello World",
+				"id": "1",
+			}
+		],
+		mode="overwrite",
+	)
+	#st.write(temp_file_path)
+	temp_file_path = upload_file_streamlit()
+	if temp_file_path:
+		loader = PyPDFLoader(temp_file_path )
+		documents = loader.load_and_split()
+		vectorestore = LanceDB.from_documents(documents, OpenAIEmbeddings(), connection=table)
+		st.session_state.vectorstore = vectorestore
+		if query:
+			docs = vectorestore.similarity_search(query)
+			st.write(docs[0].page_content)
+
+def ex13_vectorstore_creator():
+	query = st.text_input("Enter a query")
+	vecstore_creator(query)
+
+def class1_ex13():
+	st.subheader("Exercise 13: Vector store")
+	st.write("Now, we will create a vector store to store the user's document.")
+	st.write("The chatbot will then be able to reference the document to respond to the user's query.")
+	st.write("This process uses OpenAI to generate embeddings and LanceDB for storing these embeddings.")
+	st.write("You will need to run the following commands in terminal to install new libaries:")
+	st.code('''
+pip install pypdf
+pip install lancedb
+''')
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+#exercise 13 - loading
+def upload_file_streamlit():
+
+	def get_file_extension(file_name):
+		return os.path.splitext(file_name)[1]
+
+	st.subheader("Upload your docs")
+
+	# Streamlit file uploader to accept file input
+	uploaded_file = st.file_uploader("Choose a file", type=['docx', 'txt', 'pdf'])
+
+	if uploaded_file:
+
+		# Reading file content
+		file_content = uploaded_file.read()
+
+		# Determine the suffix based on uploaded file's name
+		file_suffix = get_file_extension(uploaded_file.name)
+
+		# Saving the uploaded file temporarily to process it
+		with tempfile.NamedTemporaryFile(delete=False, suffix=file_suffix) as temp_file:
+			temp_file.write(file_content)
+			temp_file.flush()  # Ensure the data is written to the file
+			temp_file_path = temp_file.name
+		return temp_file_path
+	
+#exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
+def vecstore_creator(query):
+	if "vectorstore" not in st.session_state:
+		st.session_state.vectorstore = False
+	
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
+	embeddings = OpenAIEmbeddings()
+	db = lancedb.connect("/tmp/lancedb")
+	table = db.create_table(
+		"my_table",
+		data=[
+			{
+				"vector": embeddings.embed_query("Hello World"),
+				"text": "Hello World",
+				"id": "1",
+			}
+		],
+		mode="overwrite",
+	)
+	#st.write(temp_file_path)
+	temp_file_path = upload_file_streamlit()
+	if temp_file_path:
+		loader = PyPDFLoader(temp_file_path )
+		documents = loader.load_and_split()
+		vectorestore = LanceDB.from_documents(documents, OpenAIEmbeddings(), connection=table)
+		st.session_state.vectorstore = vectorestore
+		if query:
+			docs = vectorestore.similarity_search(query)
+			st.write(docs[0].page_content)
+
+def ex13_vectorstore_creator():
+	query = st.text_input("Enter a query")
+	vecstore_creator(query)
+''')
+		  
+	st.markdown("**:red[Code Output]**")
+	ex13_vectorstore_creator()

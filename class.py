@@ -32,6 +32,7 @@ from class1_exercise import (
 				class1_ch11,
 				class1_ex12,
 				class1_ch12,
+				class1_ex13,
 				final_product
 				)
 
@@ -68,6 +69,7 @@ ex11 = "Exercise 11"
 ch11 = "Challenge 11"
 ex12 = "Exercise 12"
 ch12 = "Challenge 12"
+ex13 = "Exercise 13"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
@@ -160,6 +162,9 @@ def main():
 				MenuItem('Memory', icon='journal-code', children=[
 					MenuItem(ex12, icon='journal-code'),
 					MenuItem(ch12, icon='journal-code'),
+    			]), 
+				MenuItem('Vectorstore creator', icon='journal-code', children=[
+					MenuItem(ex13, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
@@ -314,6 +319,10 @@ def main():
 		elif option == ch12:
 			with placeholder2.container():
 				class1_ch12()
+		
+		elif option == ex13:
+			with placeholder2.container():
+				class1_ex13()
 		
 if __name__ == "__main__":
 	main()
