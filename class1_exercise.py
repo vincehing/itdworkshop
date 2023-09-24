@@ -2057,7 +2057,6 @@ def class1_ex16():
 	st.subheader("Exercise 16: Smart agent")
 	st.write("In this exercise, we will configure a chatbot with an internet search tool that shows all intermediate steps and tool logs.")
 	st.write("This overcomes the limitation of the training data that is only up to a certain point in time, by being able to access the current internet to search for answers.")
-	st.write("In addition, the chatbot is able to use a vector store to search for initial document searching.")
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
