@@ -1547,9 +1547,8 @@ def ex13_vectorstore_creator():
 	vecstore_creator(query)
 
 def class1_ex13():
-	st.subheader("Exercise 13: Vector store")
+	st.subheader("Exercise 13: Create a vector store")
 	st.write("Now, we will create a vector store to store the user's document.")
-	st.write("The chatbot will then be able to reference the document to respond to the user's query.")
 	st.write("This process uses OpenAI to generate embeddings and LanceDB for storing these embeddings.")
 	st.write("You will need to run the following commands in terminal to install new libaries:")
 	st.code('''
@@ -1623,3 +1622,136 @@ def ex13_vectorstore_creator():
 		  
 	st.markdown("**:red[Code Output]**")
 	ex13_vectorstore_creator()
+
+def class1_ex14():
+	st.subheader("Exercise 14: Semantic search")
+	st.write("In this exercise. we will integrate the vector store into our chatbot.")
+	st.write("The vector store will be used to perform semantic search on the user's query.")
+	st.write("The search result will be used as a prompt for the chatbot to respond to the user.")
+	st.write("The chatbot will also save the user's query and the chatbot's response into the memory.")
+	st.write("The memory will be used as a prompt for the chatbot to respond to the user.")
+	st.write("Copy and run the code below to see the chatbot in action.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+#save the vectorstore in st.session_state
+#add semantic search prompt into memory prompt
+#integrate back into your chatbot
+def ex14():
+
+	vecstore_creator(False)
+	
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write("memory_data: ", memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content 
+				#add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+                                {docs}
+				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			#add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+
+	except Exception as e:
+		st.error(e)
+''')
+
+	st.markdown("**:red[Code Output]**")
+	#save the vectorstore in st.session_state
+	#add semantic search prompt into memory prompt
+	#integrate back into your chatbot
+	vecstore_creator(False)
+	
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write("memory_data: ", memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content 
+				#add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+                                {docs}
+				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			#add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+
+	except Exception as e:
+		st.error(e)
