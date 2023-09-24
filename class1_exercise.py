@@ -1926,6 +1926,7 @@ def class1_ch15():
 	st.subheader("Challenge 15: Using a database")
 	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
 	st.write("Copy the code from ***ex14()*** and use the ***ex15_display()*** function before the user interaction to view the the conversation data in a local database.")
+	st.write("Call ***ex15() first to create the local database and table.")
 	st.write("Use the ***ex15_collect()*** function to collect and store data in the local database after each user conversation interaction.")
 
 	st.markdown("**:blue[Code]**")
