@@ -66,6 +66,8 @@ ex10 = "Exercise 10"
 ch10 = "Challenge 10"
 ex11 = "Exercise 11"
 ch11 = "Challenge 11"
+ex12 = "Exercise 12"
+ch12 = "Challenge 12"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
