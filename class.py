@@ -180,7 +180,6 @@ def main():
 			pass
 		else:#not login yet
 			cls = menu([MenuItem(class1, icon='laptop')])
-			pass
 	
 	if cls == class1 and st.session_state.login_key == True:
 
