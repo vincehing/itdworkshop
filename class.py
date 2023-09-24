@@ -182,8 +182,9 @@ def main():
 		if option == "Pre-workshop prep":
 			st.write("Welcome to the workshop! Please select a menu item on the left sidebar.")
 
+		placeholder2 = st.empty()
+
 		if option == prep:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_prep()
 
@@ -258,7 +259,7 @@ def main():
 				class1_ch2()
 		
 		elif option == ex3:
-			placeholder2 = st.empty()
+			# placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex3()
 
