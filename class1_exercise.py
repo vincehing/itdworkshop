@@ -1310,4 +1310,39 @@ def ex11():
 	st.write(final_prompt)
 
 def class1_ch11():
-	pass
+	st.subheader("Challenge 11: Prompt Template with LangChain")
+	st.write("Now, let's incorporate the prompt template into our chatbot from the previous exercise.")
+	st.write("Create a ***fstring_template*** with the following prompt:")
+	st.code('''
+fstring_template = """Speak like {personality} from {film}"""
+''')
+	st.write("Update the ***st.session_state.prompt_template*** with a new promp, using the ***fstring_template*** and the ***prompt.format()*** method.")
+	st.write("Think of your own personality and film to use for the prompt. E.g. Yoda from Star Wars")
+	st.write("Call ***ch10_basebot()*** to run your chatbot.")
+	st.write("Your chatbot would have a new personality now!")
+
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+def ch11():
+	# put in basebot
+	fstring_template = """Speak like {personality} from {film}"""
+	prompt = PromptTemplate.from_template(fstring_template)
+	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
+	st.write("new prompt template: ", final_prompt)
+	# set session_state.prompt_template = final_prompt
+	st.session_state.prompt_template = final_prompt
+	# call ch10_basebot
+	ch10_basebot()
+''')
+		  
+	st.markdown("**:red[Code Output]**")
+	# put in basebot
+	fstring_template = """Speak like {personality} from {film}"""
+	prompt = PromptTemplate.from_template(fstring_template)
+	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
+	st.write("new prompt template: ", final_prompt)
+	# set session_state.prompt_template = final_prompt
+	st.session_state.prompt_template = final_prompt
+	# call ch10_basebot
+	ch10_basebot()
