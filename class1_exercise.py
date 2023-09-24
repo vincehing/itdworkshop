@@ -1316,7 +1316,7 @@ def class1_ch11():
 	st.code('''
 fstring_template = """Speak like {personality} from {film}"""
 ''')
-	st.write("Update the ***st.session_state.prompt_template*** with a new promp, using the ***fstring_template*** and the ***prompt.format()*** method.")
+	st.write("Update the ***st.session_state.prompt_template*** with a new prompt, using the ***fstring_template*** and the ***prompt.format()*** method.")
 	st.write("Think of your own personality and film to use for the prompt. E.g. Yoda from Star Wars")
 	st.write("Call ***ch10_basebot()*** to run your chatbot.")
 	st.write("Your chatbot would have a new personality now!")
@@ -1344,3 +1344,38 @@ def ch11():
 	st.session_state.prompt_template = final_prompt
 	# call ch10_basebot
 	ch10_basebot()
+
+def class1_ex12():
+	st.subheader("Exercise 12: Chatbot with memory")
+	st.write("Now, we will create a chatbot with memory.")
+	st.write("You can determine the number of previous messages to remember by setting the ***k*** parameter.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+def ex12():
+	memory = ConversationBufferWindowMemory(k=1)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
+   
+
+	memory = ConversationBufferWindowMemory( k=1, return_messages=True)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+''')  
+	st.markdown("**:red[Code Output]**")
+	memory = ConversationBufferWindowMemory(k=1)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
+
+	memory = ConversationBufferWindowMemory( k=1, return_messages=True)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
+
+def class1_ch12():
+	pass

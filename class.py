@@ -30,6 +30,8 @@ from class1_exercise import (
 				class1_ch10,
 				class1_ex11, 
 				class1_ch11,
+				class1_ex12,
+				class1_ch12,
 				final_product
 				)
 
@@ -152,6 +154,10 @@ def main():
 					MenuItem('LangChain', icon='journal-code', children=[
 					MenuItem(ex11, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
+    			]), 
+				MenuItem('Memory', icon='journal-code', children=[
+					MenuItem(ex12, icon='journal-code'),
+					MenuItem(ch12, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
@@ -298,7 +304,14 @@ def main():
 		elif option == ch11:
 			with placeholder2.container():
 				class1_ch11()
-		
 
+		elif option == ex12:
+			with placeholder2.container():
+				class1_ex12()
+
+		elif option == ch12:
+			with placeholder2.container():
+				class1_ch12()
+		
 if __name__ == "__main__":
 	main()
