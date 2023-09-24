@@ -1848,6 +1848,36 @@ def ex15_collect(username, chatbot, prompt):
 	#st.markdown("**:red[Code Output]**")
 	# Actual code here
 
+#collecting data using sql server
+def ex15():
+	# Create or check for the 'database' directory in the current working directory
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+
+	# Connect to the SQLite database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+
+	# Conversation data table
+	cursor.execute('''
+		CREATE TABLE IF NOT EXISTS data_table (
+			id INTEGER PRIMARY KEY,
+			date TEXT NOT NULL UNIQUE,
+			username TEXT NOT NULL,
+			chatbot_ans TEXT NOT NULL,
+			user_prompt TEXT NOT NULL,
+			tokens TEXT
+		)
+	''')
+	conn.commit()
+	conn.close()
+
 #implementing data collection and displaying 
 def ex15_display():
 #display data
@@ -1891,7 +1921,7 @@ def ex15_collect(username, chatbot, prompt):
 	''', (now, username, chatbot, prompt, tokens))
 	conn.commit()
 	conn.close()
-	
+
 def class1_ch15():
 	st.subheader("Challenge 15: Using a database")
 	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
@@ -1964,6 +1994,7 @@ def ch15_chatbot():
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 	vecstore_creator(False)
+	ex15()
 	ex15_display()
 	if "memory" not in st.session_state:
 		st.session_state.memory = ConversationBufferWindowMemory(k=5)
