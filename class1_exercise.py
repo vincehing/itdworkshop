@@ -1625,11 +1625,9 @@ def ex13_vectorstore_creator():
 
 def class1_ex14():
 	st.subheader("Exercise 14: Semantic search")
-	st.write("In this exercise. we will integrate the vector store into our chatbot.")
-	st.write("The vector store will be used to perform semantic search on the user's query.")
-	st.write("The search result will be used as a prompt for the chatbot to respond to the user.")
-	st.write("The chatbot will also save the user's query and the chatbot's response into the memory.")
-	st.write("The memory will be used as a prompt for the chatbot to respond to the user.")
+	st.write("In this exercise. we will do a semantic search on the vector store in our chatbot.")
+	st.write("At the same time, the chatbot is able to remember its conversation history to some extent.")
+	st.write("This code integrates advanced features like semantic search and context-aware prompts to provide a more engaging and helpful conversational experience.")
 	st.write("Copy and run the code below to see the chatbot in action.")
 
 	st.markdown("**:blue[Code]**")
