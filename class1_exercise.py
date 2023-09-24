@@ -1486,8 +1486,6 @@ def ch12():
 	pass
 
 #exercise 13 - loading
-#pip install pypdf
-#pip install lancedb
 def upload_file_streamlit():
 
 	def get_file_extension(file_name):

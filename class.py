@@ -163,7 +163,7 @@ def main():
 					MenuItem(ex12, icon='journal-code'),
 					MenuItem(ch12, icon='journal-code'),
     			]), 
-				MenuItem('Vectorstore creator', icon='journal-code', children=[
+				MenuItem('Vector store', icon='journal-code', children=[
 					MenuItem(ex13, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
