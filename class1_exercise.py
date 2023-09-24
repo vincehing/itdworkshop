@@ -1359,7 +1359,6 @@ def ex12():
 
 	st.write(memory.load_memory_variables({}))
    
-
 	memory = ConversationBufferWindowMemory( k=1, return_messages=True)
 	memory.save_context({"input": "hi"}, {"output": "whats up?"})
 	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
@@ -1378,4 +1377,113 @@ def ex12():
 	st.write(memory.load_memory_variables({}))
 
 def class1_ch12():
+	st.subheader("Challenge 12: Chatbot with memory")
+	st.write("Now, let's incorporate the memory into the session state prompt template.")
+	st.write("The chatbot should remember the previous user input and use it as the prompt template for the next conversation.")
+	st.write("Start with the following code and modify ex12() to create a chatbot with memory.")
+	
+	st.markdown("**:blue[Code]**")
+	st.code('''
+if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+''')
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+def ch12():
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+
+	except Exception as e:
+		st.error(e)
+	pass
+''')
+		  
+	st.markdown("**:red[Code Output]**")
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+
+	except Exception as e:
+		st.error(e)
 	pass
