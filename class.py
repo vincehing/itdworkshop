@@ -189,141 +189,113 @@ def main():
 				class1_prep()
 
 		elif option == obj:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				objectives()
 
 		elif option == outline:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				workshop_outline()
 		
 		elif option == intro:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				team_introduction()
 		
 		elif option == hw1:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_hw1()
 
 		elif option == rules:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				workshop_rules()
 
 		elif option == res:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				resources()
 
 		elif option == ui:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				vscode_ui()
 
 		elif option == indent:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				command_palette_indent()
 
 		elif option == final:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				final_product()
 
 		elif option == part1_1:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				part1_intro1()
 	
 		elif option == ex1:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex1()
 
 		elif option == ch1:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch1()
 
 		elif option == ex2:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex2()
 
 		elif option == ch2:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch2()
 		
 		elif option == ex3:
-			# placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex3()
 
 		elif option == ex4:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex4()
 
 		elif option == ch4:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch4()
 		elif option == ex5:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex5()
 
 		elif option == ch6:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch6()
 
 		elif option == ex6:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex6()
 
 		elif option == ex7:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex7()
 
 		elif option == ex8:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex8()
 
 		elif option == ch8:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch8()
 		
 		elif option == ex9:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex9()
 
 		elif option == ex10:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex10()
 
 		elif option == ch10:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch10()
 
 		elif option == ex11:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ex11()
 
 		elif option == ch11:
-			placeholder2 = st.empty()
 			with placeholder2.container():
 				class1_ch11()
 		
