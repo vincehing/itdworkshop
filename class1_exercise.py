@@ -1847,3 +1847,176 @@ def ex15_collect(username, chatbot, prompt):
 """)
 	#st.markdown("**:red[Code Output]**")
 	# Actual code here
+
+#implementing data collection and displaying 
+def ex15_display():
+#display data
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+	# Connect to the specified database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+
+	# Fetch all data from data_table
+	cursor.execute("SELECT * FROM data_table")
+	rows = cursor.fetchall()
+	column_names = [description[0] for description in cursor.description]
+	df = pd.DataFrame(rows, columns=column_names)
+	st.dataframe(df)
+	conn.close()
+
+def ex15_collect(username, chatbot, prompt):
+#collect data from bot and store in sql database
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+	conn = sqlite3.connect("database")
+	cursor = conn.cursor()
+	now = datetime.now() # Using ISO format for date
+	tokens = len(chatbot)*1.3
+	cursor.execute('''
+		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
+		VALUES (?, ?, ?, ?, ?, ?)
+	''', (now, username, chatbot, prompt, tokens))
+	conn.commit()
+	conn.close()
+	
+def class1_ch15():
+	st.subheader("Challenge 15: Using a database")
+	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
+	st.write("Copy the code from ***ex14()*** and use the ***ex15_display()*** function before the user interaction to view the the conversation data in a local database.")
+	st.write("Use the ***ex15_collect()*** function to collect and store data in the local database after each user conversation interaction.")
+
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+def ch15_chatbot():
+	vecstore_creator(False)
+	ex15_display()
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write("memory data: ", memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content
+				#add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+								{docs}
+								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			#add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+			#collect data
+			ex15_collect("username", full_response, prompt)
+
+	except Exception as e:
+		st.error(e)
+''')
+		  
+	st.markdown("**:red[Code Output]**")
+	# Actual code here
+	vecstore_creator(False)
+	ex15_display()
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	#step 1 save the memory from your chatbot 
+	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write("memory data: ", memory_data)
+	st.session_state.prompt_template = f"""You are a helpful assistant
+										This is the last conversation history
+										{memory_data}
+										"""
+	 #call the function in your base bot
+	#Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	#Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			#query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content
+				#add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+								{docs}
+								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			#add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
+			#set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				#streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+			#collect data
+			ex15_collect("username", full_response, prompt)
+
+	except Exception as e:
+		st.error(e)
