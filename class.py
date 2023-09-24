@@ -35,6 +35,7 @@ from class1_exercise import (
 				class1_ex13,
 				class1_ex14,
 				class1_ex15,
+				class1_ch15,
 				final_product
 				)
 
@@ -74,6 +75,7 @@ ch12 = "Challenge 12"
 ex13 = "Exercise 13"
 ex14 = "Exercise 14"
 ex15 = "Exercise 15"
+ch15 = "Challenge 15"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
@@ -175,6 +177,7 @@ def main():
     			]), 
 				MenuItem('Database', icon='journal-code', children=[
 					MenuItem(ex15, icon='journal-code'),
+					MenuItem(ch15, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
 				MenuItem('Logout', icon='box-arrow-right'),],open_all=False)
@@ -340,6 +343,10 @@ def main():
 		elif option == ex15:
 			with placeholder2.container():
 				class1_ex15()
+	
+		elif option == ch15:
+			with placeholder2.container():
+				class1_ch15()
 		
 if __name__ == "__main__":
 	main()
