@@ -1753,3 +1753,97 @@ def ex14():
 
 	except Exception as e:
 		st.error(e)
+
+def class1_ex15():
+	st.subheader("Exercise 15: Using a database")
+	st.write("In this exercise, we will demonstrate how to create a database, as well as how to store and retrieve data from it.")
+	st.write("There are three code sections in this exercise.")
+	st.write("1. The following piece of code creates a local SQLite database and a specific table to store the conversation data.")
+
+	st.markdown("**:blue[Code]**")
+	st.code("""
+def ex15():
+	# Create or check for the 'database' directory in the current working directory
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+
+	# Connect to the SQLite database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+
+	# Conversation data table
+	cursor.execute('''
+		CREATE TABLE IF NOT EXISTS data_table (
+			id INTEGER PRIMARY KEY,
+			date TEXT NOT NULL UNIQUE,
+			username TEXT NOT NULL,
+			chatbot_ans TEXT NOT NULL,
+			user_prompt TEXT NOT NULL,
+			tokens TEXT
+		)
+	''')
+	conn.commit()
+	conn.close()
+""")
+	st.write("2. The following piece of code connects to a local SQLite database, fetches all records from a specific table, and displays them as a DataFrame.")
+	st.write("This function is useful for viewing stored conversational data.")
+
+	st.markdown("**:blue[Code]**")
+	st.code("""
+#implementing data collection and displaying 
+def ex15_display():
+#display data
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+	# Connect to the specified database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+
+	# Fetch all data from data_table
+	cursor.execute("SELECT * FROM data_table")
+	rows = cursor.fetchall()
+	column_names = [description[0] for description in cursor.description]
+	df = pd.DataFrame(rows, columns=column_names)
+	st.dataframe(df)
+	conn.close()
+""")
+	st.write("3.. The following piece of code collects real time data from a chatbot and stores the data in a local database.")
+	st.write("This function is useful for performing data analytics and user behaviour understanding.")
+
+	st.markdown("**:blue[Code]**")
+	st.code("""
+def ex15_collect(username, chatbot, prompt):
+#collect data from bot and store in sql database
+	cwd = os.getcwd()
+	database_path = os.path.join(cwd, "database")
+
+	if not os.path.exists(database_path):
+		os.makedirs(database_path)
+
+	# Set DB_NAME to be within the 'database' directory
+	DB_NAME = os.path.join(database_path, "default_db")
+	conn = sqlite3.connect("database")
+	cursor = conn.cursor()
+	now = datetime.now() # Using ISO format for date
+	tokens = len(chatbot)*1.3
+	cursor.execute('''
+		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
+		VALUES (?, ?, ?, ?, ?, ?)
+	''', (now, username, chatbot, prompt, tokens))
+	conn.commit()
+	conn.close()
+""")
+	#st.markdown("**:red[Code Output]**")
+	# Actual code here
