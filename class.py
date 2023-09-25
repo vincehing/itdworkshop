@@ -167,7 +167,7 @@ def main():
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			]), 
-					MenuItem('LangChain', icon='journal-code', children=[
+					MenuItem('Prompt Template', icon='journal-code', children=[
 					MenuItem(ex11, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
     			]), 
