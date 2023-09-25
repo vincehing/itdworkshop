@@ -1129,7 +1129,13 @@ def class1_ex10():
 		 Now, we are going to create a chatbot with a personality by using a default prompt for our chatbot. \n
 		 This is the default prompt that will be used for every conversation.\n
 		 Let's make it a chatbot that speaks like Yoda from Star Wars.\n
-		 We will use the ***prompt_template*** that is already in our ***main()*** for this.\n
+		 We will use the ***prompt_template*** that is already in our ***main()*** for this.
+		 """)
+	st.code('''
+if "prompt_template" not in st.session_state:
+	st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+	''')
+	st.markdown("""
 		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
 		 Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
 		 """)
@@ -1196,6 +1202,10 @@ def chat_completion_stream_prompt(prompt):
 
 # Challenge 10: Make the bot speak like someone you know
 def ch10_basebot():
+	if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
+		st.session_state.prompt_template = my_prompt_template
+		st.write("new prompt template set! ", st.session_state.prompt_template)
+
   #call the function in your base bot
 	#Initialize chat history
 	if "msg" not in st.session_state:
@@ -1254,12 +1264,16 @@ def chat_completion_stream_prompt(prompt):
 
 # Challenge 10: Make the bot speak like someone you know
 def ch10_basebot():
-  #call the function in your base bot
-	#Initialize chat history
+	if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
+		st.session_state.prompt_template = my_prompt_template
+		st.write("new prompt template set! ", st.session_state.prompt_template)
+
+	# call the function in your base bot
+	# Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
 
-	#Showing Chat history
+	# Showing Chat history
 	for message in st.session_state.msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
@@ -1668,7 +1682,7 @@ def ex14():
 				docs = docs[0].page_content 
 				#add your query prompt
 				vs_prompt = f"""You should reference this search result to help your answer,
-                                {docs}
+								{docs}
 				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
 			else:
 				vs_prompt = ""
@@ -1729,7 +1743,7 @@ def ex14():
 				docs = docs[0].page_content 
 				#add your query prompt
 				vs_prompt = f"""You should reference this search result to help your answer,
-                                {docs}
+								{docs}
 				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
 			else:
 				vs_prompt = ""
@@ -2328,7 +2342,7 @@ def ex18():
 				llm = OpenAI(api_token=st.session_state.openai_key)
 				df = SmartDataframe(st.session_state.df, config={"llm": llm})
 				response = df.chat(question)  # Using 'chat' method based on your context.
-            
+			
 				# After generating the chart (if applicable), display it:
 				chart_path = os.path.join("exports/charts", "temp_chart.png")
 				if os.path.exists(chart_path):
@@ -2398,7 +2412,7 @@ def ex18():
 				llm = OpenAI(api_token=st.session_state.openai_key)
 				df = SmartDataframe(st.session_state.df, config={"llm": llm})
 				response = df.chat(question)  # Using 'chat' method based on your context.
-            
+			
 				# After generating the chart (if applicable), display it:
 				chart_path = os.path.join("exports/charts", "temp_chart.png")
 				if os.path.exists(chart_path):
