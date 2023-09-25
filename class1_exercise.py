@@ -2290,3 +2290,139 @@ def ex17():
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 	ex17()
+
+#Pandai - A smart agent that can do visual analytics
+def ex18():
+	st.title("pandas-ai streamlit interface")
+
+	# Upload CSV file using st.file_uploader
+	uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+	if "openai_key" not in st.session_state:
+		st.session_state.openai_key = st.secrets["openapi_key"]
+		st.session_state.prompt_history = []
+		st.session_state.df = None
+	
+	if st.session_state.df is None:
+		# If a file is uploaded, read it with pandas and display the DataFrame
+		if uploaded_file is not None:
+			try:
+				df = pd.read_csv(uploaded_file)
+				st.session_state.df = df
+			except Exception as e:
+				st.write("There was an error processing the CSV file.")
+				st.write(e)
+
+	# Check if df is a DataFrame instance
+	if  st.session_state.df is None:
+		st.session_state.df = pd.DataFrame({
+			"country": ["United States", "United Kingdom", "France", "Germany", "Italy", "Spain", "Canada", "Australia", "Japan", "China"],
+			"gdp": [19294482071552, 2891615567872, 2411255037952, 3435817336832, 1745433788416, 1181205135360, 1607402389504, 1490967855104, 4380756541440, 14631844184064],
+			"happiness_index": [6.94, 7.16, 6.66, 7.07, 6.38, 6.4, 7.23, 7.22, 5.87, 5.12]
+		})
+	
+	with st.form("Question"):
+		question = st.text_input("Question", value="", type="default")
+		submitted = st.form_submit_button("Submit")
+		if submitted:
+			with st.spinner():
+				llm = OpenAI(api_token=st.session_state.openai_key)
+				df = SmartDataframe(st.session_state.df, config={"llm": llm})
+				response = df.chat(question)  # Using 'chat' method based on your context.
+            
+				# After generating the chart (if applicable), display it:
+				chart_path = os.path.join("exports/charts", "temp_chart.png")
+				if os.path.exists(chart_path):
+					plt.savefig(chart_path)
+					st.image(chart_path, caption="Generated Chart", use_column_width=True)
+				
+				# Display the textual response (if any):
+				if response:
+					st.write(response)
+				
+				# Append the question to the history:
+				st.session_state.prompt_history.append(question)
+
+	if st.session_state.df is not None:
+		st.subheader("Current dataframe:")
+		st.write(st.session_state.df)
+
+	st.subheader("Prompt history:")
+	st.write(st.session_state.prompt_history)
+
+	if st.button("Clear"):
+		st.session_state.prompt_history = []
+		st.session_state.df = None
+
+def class1_ex18():
+	st.subheader("Exercise 18: Data Analytics")
+	st.write("In this exercise, we will use the Pandas AI library to perform data analytics.")
+	st.write("The Pandas AI library is a smart agent that can perform data analytics on a dataframe.")
+	st.write("Copy and run the code below to see the chatbot in action.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+#Pandai - A smart agent that can do visual analytics
+def ex18():
+	st.title("pandas-ai streamlit interface")
+
+	# Upload CSV file using st.file_uploader
+	uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+	if "openai_key" not in st.session_state:
+		st.session_state.openai_key = st.secrets["openapi_key"]
+		st.session_state.prompt_history = []
+		st.session_state.df = None
+	
+	if st.session_state.df is None:
+		# If a file is uploaded, read it with pandas and display the DataFrame
+		if uploaded_file is not None:
+			try:
+				df = pd.read_csv(uploaded_file)
+				st.session_state.df = df
+			except Exception as e:
+				st.write("There was an error processing the CSV file.")
+				st.write(e)
+
+	# Check if df is a DataFrame instance
+	if  st.session_state.df is None:
+		st.session_state.df = pd.DataFrame({
+			"country": ["United States", "United Kingdom", "France", "Germany", "Italy", "Spain", "Canada", "Australia", "Japan", "China"],
+			"gdp": [19294482071552, 2891615567872, 2411255037952, 3435817336832, 1745433788416, 1181205135360, 1607402389504, 1490967855104, 4380756541440, 14631844184064],
+			"happiness_index": [6.94, 7.16, 6.66, 7.07, 6.38, 6.4, 7.23, 7.22, 5.87, 5.12]
+		})
+	
+	with st.form("Question"):
+		question = st.text_input("Question", value="", type="default")
+		submitted = st.form_submit_button("Submit")
+		if submitted:
+			with st.spinner():
+				llm = OpenAI(api_token=st.session_state.openai_key)
+				df = SmartDataframe(st.session_state.df, config={"llm": llm})
+				response = df.chat(question)  # Using 'chat' method based on your context.
+            
+				# After generating the chart (if applicable), display it:
+				chart_path = os.path.join("exports/charts", "temp_chart.png")
+				if os.path.exists(chart_path):
+					plt.savefig(chart_path)
+					st.image(chart_path, caption="Generated Chart", use_column_width=True)
+				
+				# Display the textual response (if any):
+				if response:
+					st.write(response)
+				
+				# Append the question to the history:
+				st.session_state.prompt_history.append(question)
+
+	if st.session_state.df is not None:
+		st.subheader("Current dataframe:")
+		st.write(st.session_state.df)
+
+	st.subheader("Prompt history:")
+	st.write(st.session_state.prompt_history)
+
+	if st.button("Clear"):
+		st.session_state.prompt_history = []
+		st.session_state.df = None
+''')
+	  
+	st.markdown("**:red[Code Output]**")
+	ex18()
