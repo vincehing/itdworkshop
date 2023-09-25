@@ -1385,7 +1385,7 @@ def class1_ch12():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 if "memory" not in st.session_state:
-		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+	st.session_state.memory = ConversationBufferWindowMemory(k=5)
 
 	#step 1 save the memory from your chatbot 
 	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
