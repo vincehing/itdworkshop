@@ -175,10 +175,8 @@ def main():
 					MenuItem(ex12, icon='journal-code'),
 					MenuItem(ch12, icon='journal-code'),
     			]), 
-				MenuItem('Vector store', icon='journal-code', children=[
+				MenuItem('Vector store&Semantic search', icon='journal-code', children=[
 					MenuItem(ex13, icon='journal-code'),
-    			]), 
-				MenuItem('Semantic search', icon='journal-code', children=[
 					MenuItem(ex14, icon='journal-code'),
     			]), 
 				MenuItem('Database', icon='journal-code', children=[
