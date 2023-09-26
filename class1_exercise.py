@@ -38,13 +38,11 @@ def template():
 	st.code('''
 #exercise code here
 ''')
-
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
 #challenge code here
-''')
-		  
+''')	  
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 
@@ -463,25 +461,68 @@ def ex4a():
 	st.write("age: ", st.session_state.age)
 	st.write("gender: ", st.session_state.gender)
 
-def class1_ex4():
+def class1_ex4a():
 	st.subheader("Exercise 4: Session Data")
 	st.write("We can create variables to store data in a user session. Session data persist within a user session.")
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
 # Exercise 4: Session State
-def ex4():
+def ex4a():
 	st.subheader("Session Data:")
 	if "session_data" not in st.session_state:
 		st.session_state.session_data = ["alpha", "omega"]
+	
+	if "name" not in st.session_state:
+		st.session_state.name = ""
+	
+	if "age" not in st.session_state:
+		st.session_state.age = ""
 
+	if "gender" not in st.session_state:
+		st.session_state.gender = ""
+	
 	# For loop to show list
 	for data in st.session_state.session_data:
 		st.write("session_data: ", data)
+
+	st.write("name: ", st.session_state.name)
+	st.write("age: ", st.session_state.age)
+	st.write("gender: ", st.session_state.gender)
 ''')
 		 
 	st.markdown("**:red[Code Output]**")
-	ex4a();
+	ex4a()
+
+def ex4b():
+	st.subheader("Session Data:")
+	st.session_state.name = st.text_input("Enter your name")
+	st.session_state.gender = st.selectbox("State your gender", ["Male", "Female"])
+	st.session_state.age = int(st.text_input("State your age"))
+
+	st.write("name: ", st.session_state.name)
+	st.write("age: ", st.session_state.age)
+	st.write("gender: ", st.session_state.gender)
+
+def class1_ex4b():
+	st.subheader("Session Data")
+	st.write("Lets now get input from the user and store it in the session data.")
+	st.write("Now run *ex4a()* again to check the session data. Note that it persists.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+def ex4b():
+	st.subheader("Session Data:")
+	st.session_state.name = st.text_input("Enter your name")
+	st.session_state.gender = st.selectbox("State your gender", ["Male", "Female"])
+	st.session_state.age = int(st.text_input("State your age"))
+
+	st.write("name: ", st.session_state.name)
+	st.write("age: ", st.session_state.age)
+	st.write("gender: ", st.session_state.gender)
+''')
+	st.markdown("**:red[Code Output]**")
+	ex4b()
 
 def class1_ch4():
 	st.subheader("Challenge 4: Session Data")

@@ -17,7 +17,8 @@ from class1_exercise import (
 				class1_ex2, 
 				class1_ch2, 
 				class1_ex3, 
-				class1_ex4, 
+				class1_ex4a, 
+				class1_ex4b, 
 				class1_ch4, 
 				class1_ex5, 
 				class1_ch6, 
@@ -60,7 +61,8 @@ ex2 = "Exercise 2"
 ch2 = "Challenge 2"
 ex3 = "Exercise 3"
 ch3 = "Challenge 3"
-ex4 = "Exercise 4"
+ex4a = "Exercise 4a"
+ex4b = "Exercise 4b"
 ch4 = "Challenge 4"
 ex5 = "Exercise 5"
 ch6 = "Challenge 6"
@@ -148,7 +150,8 @@ def main():
 					MenuItem(ch2, icon='journal-code'),
 					MenuItem(ex3, icon='journal-code'),
 					# MecnuItem(ch3, icon='journal-code'),
-					MenuItem(ex4, icon='journal-code'),
+					MenuItem(ex4a, icon='journal-code'),
+					MenuItem(ex4b, icon='journal-code'),
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
@@ -286,9 +289,13 @@ def main():
 			with placeholder2.container():
 				class1_ex3()
 
-		elif option == ex4:
+		elif option == ex4a:
 			with placeholder2.container():
-				class1_ex4()
+				class1_ex4a()
+
+		elif option == ex4b:
+			with placeholder2.container():
+				class1_ex4b()
 
 		elif option == ch4:
 			with placeholder2.container():
