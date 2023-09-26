@@ -466,7 +466,7 @@ def ex11b():
 
 def ch11():
 	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
-	#ssg
+	#ss
 	prompt_template = PromptTemplate(
 				input_variables=["occupation", "topic", "age"],
 				template="""Imagine you are a {occupation} who is an expert on the  topic of {subject} , you are going to help , teach and provide information

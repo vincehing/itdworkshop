@@ -1477,7 +1477,7 @@ def prompt_inputs_form(): #Using st.form, create the starting prompt to your pro
 		}
 
 def ex11b():
-	#create your template
+	#create your template 
 	prompt_template = PromptTemplate(
 				input_variables=["occupation", "topic", "age"],
 				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
