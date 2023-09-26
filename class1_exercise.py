@@ -1,7 +1,10 @@
 from PIL import Image
 import streamlit as st
 import openai
+#exercise 11
+from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 #exercis 12
 from langchain.memory import ConversationBufferWindowMemory
 #exercise 13
