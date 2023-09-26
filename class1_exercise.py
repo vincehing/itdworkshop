@@ -1731,9 +1731,9 @@ def ch12():
 	st.write("Memory Data: ", memory_data)
 	st.session_state.prompt_template = f"""{input_prompt}
 										
-		  Below is the conversation history between the AI and Users so far
-		
-		  								{memory_data}
+										Below is the conversation history between the AI and Users so far
+										
+										{memory_data}
 										"""
 
 	st.write("New prompt template: ", st.session_state.prompt_template)
