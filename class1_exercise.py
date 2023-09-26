@@ -1449,8 +1449,86 @@ def ex11a(): #change in ex11a
 	#actual code here
 	ex11a()
 
+def prompt_inputs_form(): #Using st.form, create the starting prompt to your prompt template, this is an expert on a topic that is talking to a user of a certain age
+	#langchain prompt template
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	with st.form("Prompt Template"):
+		occupation = st.text_input("Enter the occupation:")
+		topic = st.text_input("Enter the topic:")
+		age = st.text_input("Enter the age:")
+
+	# Every form must have a submit button.
+		submitted = st.form_submit_button("Submit")
+	#return a dictionary of the values
+	if submitted:
+		return {
+			'occupation': occupation,
+			'topic': topic,
+			'age': age
+		}
+
+def ex11b():
+	#create your template
+	prompt_template = PromptTemplate(
+				input_variables=["occupation", "topic", "age"],
+				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
+				)
+	#create a langchain function call to openai
+	openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)	#create a LLM chain with the langchain call and prompt template 
+	chain = LLMChain(llm=llm, prompt=prompt_template)
+	#call the prompt_inputs_form()
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		st.write(chain.run(dict_inputs))
+
 def class1_ex11b():
-	pass
+	st.subheader("Exercise 11b")
+	st.write("Now, we will create a chatbot with a prompt template that is more complex.")
+	st.write("We will use the ***prompt_inputs_form()*** function to get the user's input for the prompt template.")
+	st.write("Copy and run the code below to see the chatbot in action.")
+
+	st.markdown("**:blue[Code]**")
+	st.code('''
+def prompt_inputs_form(): #Using st.form, create the starting prompt to your prompt template, this is an expert on a topic that is talking to a user of a certain age
+	#langchain prompt template
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	with st.form("Prompt Template"):
+		occupation = st.text_input("Enter the occupation:")
+		topic = st.text_input("Enter the topic:")
+		age = st.text_input("Enter the age:")
+
+	# Every form must have a submit button.
+		submitted = st.form_submit_button("Submit")
+	#return a dictionary of the values
+	if submitted:
+		return {
+			'occupation': occupation,
+			'topic': topic,
+			'age': age
+		}
+
+def ex11b():
+	#create your template
+	prompt_template = PromptTemplate(
+				input_variables=["occupation", "topic", "age"],
+				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
+				)
+	#create a langchain function call to openai
+	openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)	#create a LLM chain with the langchain call and prompt template 
+	chain = LLMChain(llm=llm, prompt=prompt_template)
+	#call the prompt_inputs_form()
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		st.write(chain.run(dict_inputs))
+''')
+	
+	st.markdown("**:red[Code Output]**")
+	# Actual code here
+	ex11b()
 
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")
