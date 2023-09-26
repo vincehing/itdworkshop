@@ -1585,6 +1585,19 @@ def ch11():
 	# actual code here
 	ch11()
 
+def ex12():
+	memory = ConversationBufferWindowMemory(k=3)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
+   
+	memory = ConversationBufferWindowMemory( k=3, return_messages=True)
+	memory.save_context({"input": "hi"}, {"output": "whats up?"})
+	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
+
 def class1_ex12():
 	st.subheader("Exercise 12: Chatbot with memory")
 	st.write("Now, we will create a chatbot with memory.")
@@ -1593,28 +1606,21 @@ def class1_ex12():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 def ex12():
-	memory = ConversationBufferWindowMemory(k=1)
+	memory = ConversationBufferWindowMemory(k=3)
 	memory.save_context({"input": "hi"}, {"output": "whats up?"})
 	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
 
 	st.write(memory.load_memory_variables({}))
    
-	memory = ConversationBufferWindowMemory( k=1, return_messages=True)
+	memory = ConversationBufferWindowMemory( k=3, return_messages=True)
 	memory.save_context({"input": "hi"}, {"output": "whats up?"})
 	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
+
+	st.write(memory.load_memory_variables({}))
 ''')  
 	st.markdown("**:red[Code Output]**")
-	memory = ConversationBufferWindowMemory(k=1)
-	memory.save_context({"input": "hi"}, {"output": "whats up?"})
-	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
-
-	st.write(memory.load_memory_variables({}))
-
-	memory = ConversationBufferWindowMemory( k=1, return_messages=True)
-	memory.save_context({"input": "hi"}, {"output": "whats up?"})
-	memory.save_context({"input": "not much"}, {"output": "what can I help you with?"})
-
-	st.write(memory.load_memory_variables({}))
+	#actual code here
+	ex12()
 
 def class1_ch12():
 	st.subheader("Challenge 12: Chatbot with memory")
