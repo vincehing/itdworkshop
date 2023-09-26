@@ -1559,7 +1559,7 @@ def class1_ch11():
 	st.write("Now, let's incorporate the prompt template into our chatbot from the previous exercise.")
 	st.write("We will use the ***prompt_inputs_form()*** function to get the user's input for the prompt template.")
 	st.write("You can use the ***ch10_basebot()*** function from the previous exercise to do the llm api call with the updated session_state.prompt_template.")
-	st.write("Ignore the text input field for a new prompt template from ch10_basebot(), since we will be using the prompt template from the user's input.")
+	st.write("Ignore the text input field that asks for a system prompt template from ch10_basebot(), since we will be using the prompt template from the user's input.")
 	st.write("As you interact with the chatbot, observe that the prompt template is updated with the latest user input as seen from the code output.")
 
 	st.markdown("**:blue[Code]**")
