@@ -521,7 +521,7 @@ def ex4b():
 	st.subheader("Session Data:")
 	userName = st.text_input("Enter your name")
 	userAge = st.text_input("State your age")
-	userGender = st.selectbox("State your gender", ["Male", "Female"])
+	userGender = st.selectbox("State your gender", ["", "Male", "Female"])
 
 	if userName:
 		st.session_state.name = userName
@@ -540,7 +540,7 @@ def class1_ch4():
 	st.subheader("Challenge 4: Session Data")
 	st.markdown("""
 		 Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
-		 In *ch4()*, modify the code in Exercise 4 to include the following:
+		 In *ch4()*, modify the code in Exercise 4b to include the following:
 		 * Create session data for ***name***, ***age*** and ***gender***
 		 * Create session data for ***prompt_template*** with the following value:
 			 "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
@@ -568,6 +568,22 @@ def ch4():
 	st.write("session_state.age: ", st.session_state.age)
 	st.write("session_state.gender: ", st.session_state.gender)
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
+
+def main():
+	# initialize session state, from ch4
+	if "name" not in st.session_state:
+		st.session_state.name = "Yoda"
+
+	if "age" not in st.session_state:
+		st.session_state.age = 999
+
+	if "gender" not in st.session_state:
+		st.session_state.gender = "male"
+
+	if "prompt_template" not in st.session_state:
+		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+		  
+	#the rest of your code is below
 ''')
 		  
 	st.markdown("**:red[Code Output]**")
