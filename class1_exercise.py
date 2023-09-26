@@ -1388,25 +1388,63 @@ def ch10_basebot():
 
 	ch10_basebot()
 
-def class1_ex11():
-	st.subheader("Exercise 11: Prompt Template with LangChain")
+#https://python.langchain.com/docs/modules/chains/
+def ex11a(): #change in ex11a
+	#langchain prompt template
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	prompt = PromptTemplate(
+		input_variables=["subject", "topic"],
+		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students"""
+		)
+	
+	openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)
+	
+	#creating a LLM chain with the langchain call and prompt template
+	chain = LLMChain(llm=llm, prompt=prompt)
+	if st.button("Run my chain"):
+		input_prompt = prompt.format(subject="English", topic="Verbs")
+		#Showing what is sent to LLM Chain
+		st.write("Input prompt: ", input_prompt)
+		#Showing the output from LLM Chain
+		st.write(chain.run({
+							'subject': "English",
+							'topic': "Verbs"
+							}))
+		
+def class1_ex11a():
+	st.subheader("Exercise 11a: Prompt Template with LangChain")
 	st.write("LangChain helps you to create a more complext prompt template for your chatbot.")
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-def ex11():
+#https://python.langchain.com/docs/modules/chains/
+def ex11a(): #change in ex11a
 	#langchain prompt template
-	fstring_template = """Tell me a {adjective} story about {content}"""
-	prompt = PromptTemplate.from_template(fstring_template)
-	final_prompt = prompt.format(adjective="funny", content="chickens")
-	st.write(final_prompt)
+	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+	prompt = PromptTemplate(
+		input_variables=["subject", "topic"],
+		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students"""
+		)
+	
+	openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)
+	
+	#creating a LLM chain with the langchain call and prompt template
+	chain = LLMChain(llm=llm, prompt=prompt)
+	if st.button("Run my chain"):
+		input_prompt = prompt.format(subject="English", topic="Verbs")
+		#Showing what is sent to LLM Chain
+		st.write("Input prompt: ", input_prompt)
+		#Showing the output from LLM Chain
+		st.write(chain.run({
+							'subject': "English",
+							'topic': "Verbs"
+							}))
 ''')
 	st.markdown("**:red[Code Output]**")
-	#langchain prompt template
-	fstring_template = """Tell me a {adjective} story about {content}"""
-	prompt = PromptTemplate.from_template(fstring_template)
-	final_prompt = prompt.format(adjective="funny", content="chickens")
-	st.write(final_prompt)
+	#actual code here
+	ex11a()
 
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")

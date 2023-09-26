@@ -33,6 +33,7 @@ from pandasai.llm.openai import OpenAI
 import matplotlib.pyplot as plt
 
 #Global ex 13
+cwd = os.getcwd()
 WORKING_DIRECTORY = os.path.join(cwd, "database")
 
 if not os.path.exists(WORKING_DIRECTORY):
