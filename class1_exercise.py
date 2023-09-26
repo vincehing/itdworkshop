@@ -497,14 +497,17 @@ def ex4a():
 def ex4b():
 	st.subheader("Session Data:")
 	userName = st.text_input("Enter your name")
-	userAge = int(st.text_input("State your age"))
+	userAge = st.text_input("State your age")
 	userGender = st.selectbox("State your gender", ["Male", "Female"])
 
 	if userName:
+		st.session_state.name = userName
 		st.write("name: ", st.session_state.name)
-	if userGender:
+	if userAge:
+		st.session_state.age = int(userAge)
 		st.write("age: ", st.session_state.age)
 	if userGender:
+		st.session_state = userGender
 		st.write("gender: ", st.session_state.gender)
 
 def class1_ex4b():
