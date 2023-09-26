@@ -128,11 +128,11 @@ def main():
 		if st.session_state.login_key == True:
 			option = menu([
 					MenuItem('Part 1', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
-					MenuItem('Pre-workshop prep', icon='journal-code', children=[
+					MenuItem('Pre-workshop prep', icon='', children=[
 					MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
 				]),
-					MenuItem('Introduction', icon='journal-code', children=[
+					MenuItem('Introduction', icon='', children=[
 					# 	MenuItem(obj, icon='journal-code'),
 					#	MenuItem(outline, icon='journal-code'),
 					MenuItem(final, icon='journal-code'),
@@ -140,7 +140,7 @@ def main():
 					# 	MenuItem(intro, icon='journal-code'),
 					MenuItem(res, icon='journal-code'),
 				]),
-		      		MenuItem('Intro to Streamlit', icon='journal-code', children=[
+		      		MenuItem('Intro to Streamlit', icon='', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),
 					# MenuItem(part1_1, icon='journal-code'),
@@ -155,47 +155,47 @@ def main():
 					MenuItem(ch4, icon='journal-code'),
     			]),
 					
-		      		MenuItem('Rule-based chatbot', icon='journal-code', children=[
+		      		MenuItem('Rule-based chatbot', icon='', children=[
 					MenuItem(ex5, icon='journal-code'),
 					MenuItem(ex6, icon='journal-code'),
 					MenuItem(ch6, icon='journal-code'),
     			]),
-		      		MenuItem('Integrate OpenAI API', icon='journal-code', children=[
+		      		MenuItem('Integrate OpenAI API', icon='', children=[
 					MenuItem(ex7, icon='journal-code'),
 					MenuItem(ex8, icon='journal-code'),
 					MenuItem(ch8, icon='journal-code'),
 					MenuItem(ex9, icon='journal-code'),
     			]),
-		      		MenuItem('Prompt Engineering', icon='journal-code', children=[
+		      		MenuItem('Prompt Engineering', icon='', children=[
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			]), 
 					MenuItem('Part 2', icon='file-slides', href='https://docs.google.com/presentation/d/1yNb4WmWDvQfdu05_5M8aEl5g-2evSK_fCdybJGupdKA/edit?usp=drive_link'),
-					MenuItem('Prompt Template', icon='journal-code', children=[
+					MenuItem('Prompt Template', icon='', children=[
 					MenuItem(ex11, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
     			]), 
-				MenuItem('Memory', icon='journal-code', children=[
+				MenuItem('Memory', icon='', children=[
 					MenuItem(ex12, icon='journal-code'),
 					MenuItem(ch12, icon='journal-code'),
     			]), 
-				MenuItem('Vector Store', icon='journal-code', children=[
+				MenuItem('Vector Store', icon='', children=[
 					MenuItem(ex13, icon='journal-code'),
 					MenuItem(ex14, icon='journal-code'),
     			]), 
-				MenuItem('Database', icon='journal-code', children=[
+				MenuItem('Database', icon='', children=[
 					MenuItem(ex15, icon='journal-code'),
 					MenuItem(ch15, icon='journal-code'),
     			]), 
 				MenuItem('Part 3', icon='file-slides', href='https://docs.google.com/presentation/d/1fvMGaUC-K49ws1NaCdENB3CC4L7WZr337yTcsLqak1k/edit?usp=sharing'),
-				MenuItem('Smart Agent', icon='journal-code', children=[
+				MenuItem('Smart Agent', icon='', children=[
 					MenuItem(ex16, icon='journal-code'),
     			]), 
-				MenuItem('Smart Agent&Vector store', icon='journal-code', children=[
+				MenuItem('Smart Agent&Vector store', icon='', children=[
 					MenuItem(ex17, icon='journal-code'),
     			]), 
 				MenuItem('Part 4', icon='file-slides', href='https://docs.google.com/presentation/d/16j8UJOVTj06oU93CCZjioE7zlipZs36GbTgEMaECVuE/edit?usp=sharing'),
-				MenuItem('Data Analytics', icon='journal-code', children=[
+				MenuItem('Data Analytics', icon='', children=[
 					MenuItem(ex18, icon='journal-code'),
     			]), 
 				MenuItem(type='divider',dashed=True),
