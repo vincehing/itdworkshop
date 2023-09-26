@@ -33,6 +33,15 @@ from pandasai import SmartDataframe
 from pandasai.llm.openai import OpenAI
 import matplotlib.pyplot as plt
 
+#Global ex 13
+cwd = os.getcwd()
+WORKING_DIRECTORY = os.path.join(cwd, "database")
+
+if not os.path.exists(WORKING_DIRECTORY):
+	os.makedirs(WORKING_DIRECTORY)
+#ex15
+DB_NAME = os.path.join(WORKING_DIRECTORY, "default_db")
+
 def template():
 	st.subheader("Template")
 	st.write("Instruction lines.")

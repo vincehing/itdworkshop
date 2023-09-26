@@ -61,7 +61,6 @@ def ch2():
 	if name and gender and age:
 		st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")
 
-
 #Exercise 3 : Logical Conditioning
 def ex3(): 
 	age = st.text_input("State your age", 18)
@@ -94,7 +93,6 @@ def ex4a():
 	st.subheader("Session Data:")
 	for data in st.session_state.session_data:
 		st.write(data)
-
 
 #Exercise 4a : session_state
 def ex4b():
@@ -257,7 +255,6 @@ def ex8():
 	st.markdown("**Total tokens used:**")
 	st.write(s)
 
-
 #Challenge 8: Incorporating the API into your chatbot
 def chat_completion(prompt):
 	openai.api_key = st.secrets["openapi_key"]
@@ -296,7 +293,6 @@ def ch8():
 			st.markdown(reply)
 		# Add assistant response to chat history
 		st.session_state.msg.append({"role": "assistant", "content": reply})
-
 
 #Exercise 9 : Using the OpenAI API
 #Modify exercise 9 - include streaming option
@@ -383,7 +379,6 @@ def chat_completion_stream_prompt(prompt):
 	)
 	return response
 
-
 def ch10_basebot():
   #call the function in your base bot
 	#Initialize chat history
@@ -468,7 +463,6 @@ def ex11b():
 	#call the prompt_inputs_form()
 	dict_inputs = prompt_inputs_form()
 	st.write(chain.run(dict_inputs))
-
 
 def ch11():
 	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
