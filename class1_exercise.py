@@ -444,14 +444,14 @@ def ex4a():
 	if "session_data" not in st.session_state:
 		st.session_state.session_data = ["alpha", "omega"]
 	
-	# if "name" not in st.session_state:
-	st.session_state.name = ""
+	if "name" not in st.session_state:
+		st.session_state.name = ""
 	
-	# if "age" not in st.session_state:
-	st.session_state.age = ""
+	if "age" not in st.session_state:
+		st.session_state.age = ""
 
-	# if "gender" not in st.session_state:
-	st.session_state.gender = ""
+	if "gender" not in st.session_state:
+		st.session_state.gender = ""
 	
 	# For loop to show list
 	for data in st.session_state.session_data:
