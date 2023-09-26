@@ -1644,11 +1644,7 @@ def ch12():
 	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write("Memory Data: ", memory_data)
-	st.session_state.prompt_template = f"""{input_prompt}
-										
-										Below is the conversation history between the AI and Users so far
-										
-										{memory_data}
+	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
 										"""
 
 	st.write("New prompt template: ", st.session_state.prompt_template)
@@ -1729,11 +1725,7 @@ def ch12():
 	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write("Memory Data: ", memory_data)
-	st.session_state.prompt_template = f"""{input_prompt}
-										
-										Below is the conversation history between the AI and Users so far
-										
-										{memory_data}
+	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
 										"""
 
 	st.write("New prompt template: ", st.session_state.prompt_template)
