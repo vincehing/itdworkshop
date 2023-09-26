@@ -91,9 +91,8 @@ st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023") 
-	divider(label='One Day Workshop - Exploring Generative AI using LLMs', icon='journal-code', align='left')
-	st.markdown("[Workshop slide deck](https://docs.google.com/presentation/d/1ufBVDyLuys2Daz9xOsOlUrW4bXZPVdB3fL6Z_PeMdAg/edit?usp=sharing)")
-	
+	divider(label='One Day Workshop - Exploring Generative AI and LLMs', icon='journal-code', align='left')
+
 	if 'login_key' not in st.session_state:
 		st.session_state.login_key = False
 	
