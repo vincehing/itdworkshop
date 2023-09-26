@@ -127,7 +127,7 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Part 1', icon='', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
+					MenuItem('Part 1', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 					MenuItem('Pre-workshop prep', icon='journal-code', children=[
 					MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
@@ -223,7 +223,7 @@ def main():
 		if "prompt_template" not in st.session_state:
 			st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
 
-		if option == "Part 1" or option == "Part 2" or option == "Part 3" or option == "Part 4":
+		if option == "Part 1":
 			st.write("Welcome to the workshop! Link to slide decks and code exercises are on the left.")
 
 		placeholder2 = st.empty()
