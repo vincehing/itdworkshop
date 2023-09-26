@@ -128,6 +128,7 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
+					MenuItem('Part 1', icon='', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 					MenuItem('Pre-workshop prep', icon='journal-code', children=[
 					MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
