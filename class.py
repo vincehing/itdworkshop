@@ -29,7 +29,8 @@ from class1_exercise import (
 				class1_ex9,  
 				class1_ex10, 
 				class1_ch10,
-				class1_ex11, 
+				class1_ex11a, 
+				class1_ex11b, 
 				class1_ch11,
 				class1_ex12,
 				class1_ch12,
@@ -73,7 +74,8 @@ ch8 = "Challenge 8"
 ex9 = "Exercise 9"
 ex10 = "Exercise 10"
 ch10 = "Challenge 10"
-ex11 = "Exercise 11"
+ex11a = "Exercise 11a"
+ex11b = "Exercise 11b"
 ch11 = "Challenge 11"
 ex12 = "Exercise 12"
 ch12 = "Challenge 12"
@@ -172,7 +174,8 @@ def main():
     			]), 
 					MenuItem('Part 2 deck', icon='file-slides', href='https://docs.google.com/presentation/d/1yNb4WmWDvQfdu05_5M8aEl5g-2evSK_fCdybJGupdKA/edit?usp=drive_link'),
 					MenuItem('Prompt Template', icon='', children=[
-					MenuItem(ex11, icon='journal-code'),
+					MenuItem(ex11a, icon='journal-code'),
+					MenuItem(ex11b, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
     			]), 
 				MenuItem('Memory', icon='', children=[
@@ -339,9 +342,13 @@ def main():
 			with placeholder2.container():
 				class1_ch10()
 
-		elif option == ex11:
+		elif option == ex11a:
 			with placeholder2.container():
-				class1_ex11()
+				class1_ex11a()
+	
+		elif option == ex11b:
+			with placeholder2.container():
+				class1_ex11b()
 
 		elif option == ch11:
 			with placeholder2.container():

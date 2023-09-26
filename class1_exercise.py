@@ -1446,6 +1446,9 @@ def ex11a(): #change in ex11a
 	#actual code here
 	ex11a()
 
+def class1_ex11b():
+	pass
+
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")
 	st.write("Now, let's incorporate the prompt template into our chatbot from the previous exercise.")
