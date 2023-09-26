@@ -441,6 +441,28 @@ def ex3():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
+def ex4a():
+	st.subheader("Session Data:")
+	if "session_data" not in st.session_state:
+		st.session_state.session_data = ["alpha", "omega"]
+	
+	if "name" not in st.session_state:
+		st.session_state.name = ""
+	
+	if "age" not in st.session_state:
+		st.session_state.age = ""
+
+	if "gender" not in st.session_state:
+		st.session_state.gender = ""
+	
+	# For loop to show list
+	for data in st.session_state.session_data:
+		st.write("session_data: ", data)
+
+	st.write("name: ", st.session_state.name)
+	st.write("age: ", st.session_state.age)
+	st.write("gender: ", st.session_state.gender)
+
 def class1_ex4():
 	st.subheader("Exercise 4: Session Data")
 	st.write("We can create variables to store data in a user session. Session data persist within a user session.")
@@ -459,13 +481,7 @@ def ex4():
 ''')
 		 
 	st.markdown("**:red[Code Output]**")
-	# Exercise 4: Session State
-	if "session_data" not in st.session_state:
-		st.session_state.session_data = ["alpha", "omega"]
-
-	# For loop to show list
-	for data in st.session_state.session_data:
-		st.write("session_data: ", data)
+	ex4a();
 
 def class1_ch4():
 	st.subheader("Challenge 4: Session Data")
