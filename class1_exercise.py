@@ -1647,7 +1647,7 @@ def ch12():
 	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
 										"""
 
-	st.write("New prompt template: ", st.session_state.prompt_template)
+	st.write("New prompt template: \n", st.session_state.prompt_template)
 	#call the function in your base bot
 	#Initialize chat history
 	if "msg" not in st.session_state:
@@ -1685,6 +1685,7 @@ def class1_ch12():
 	st.write("Now, let's incorporate the memory into the session state prompt template.")
 	st.write("The chatbot should remember the previous user input and use it as the prompt template for the next conversation.")
 	st.write("Start with the following code and modify ex12() to create a chatbot with memory.")
+	st.write("Get the *{input_prompt}* using *prompt_inputs_form()*")
 	st.write("As you interact with the chatbot, observe that the memory is updated with the latest k number of user input and output as seen from the code output.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
@@ -1695,9 +1696,7 @@ if "memory" not in st.session_state:
 	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write(memory_data)
-	st.session_state.prompt_template = f"""You are a helpful assistant
-										This is the last conversation history
-										{memory_data}
+	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
 										"""
 ''')
 	st.markdown("**:blue[Code]**")
