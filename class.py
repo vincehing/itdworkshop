@@ -87,8 +87,7 @@ ex18 = "Exercise 18"
 final = "Yoda Chatbot"
 
 st.set_page_config(layout="wide")
-if 'login_key' not in st.session_state:
-	st.session_state.login_key = True
+st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023") 
