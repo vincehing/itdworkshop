@@ -1539,41 +1539,52 @@ def ex11b():
 	# Actual code here
 	ex11b()
 
+def ch11():
+	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
+	prompt_template = PromptTemplate(
+				input_variables=["occupation", "topic", "age"],
+				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
+				)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(occupation=dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
+		# set session_state.prompt_template 
+		st.session_state.prompt_template = input_prompt
+		st.write("New session_state.prompt_template: ", input_prompt)
+	# call ch10_basebot() with the new session_state.prompt_template
+	ch10_basebot()
+
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")
 	st.write("Now, let's incorporate the prompt template into our chatbot from the previous exercise.")
-	st.write("Create a ***fstring_template*** with the following prompt:")
-	st.code('''
-fstring_template = """Speak like {personality} from {film}"""
-''')
-	st.write("Update the ***st.session_state.prompt_template*** with a new prompt, using the ***fstring_template*** and the ***prompt.format()*** method.")
-	st.write("Think of your own personality and film to use for the prompt. E.g. Yoda from Star Wars")
-	st.write("Call ***ch10_basebot()*** to run your chatbot.")
-	st.write("Your chatbot would have a new personality now!")
+	st.write("We will use the ***prompt_inputs_form()*** function to get the user's input for the prompt template.")
+	st.write("The chatbot should use the user's input to generate the prompt template for the next conversation.")
+	st.write("Start with the following code and modify ex11b() to create a chatbot with a prompt template.")
+	st.write("You can use the ***ch10_basebot()*** function from the previous exercise.")
+	st.write("As you interact with the chatbot, observe that the prompt template is updated with the latest user input as seen from the code output.")
 
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
 def ch11():
-	# put in basebot
-	fstring_template = """Speak like {personality} from {film}"""
-	prompt = PromptTemplate.from_template(fstring_template)
-	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
-	st.write("new prompt template: ", final_prompt)
-	st.session_state.prompt_template = final_prompt
-	# call ch10_basebot
+	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
+	prompt_template = PromptTemplate(
+				input_variables=["occupation", "topic", "age"],
+				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
+				)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(occupation=dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
+		# set session_state.prompt_template 
+		st.session_state.prompt_template = input_prompt
+		st.write("New session_state.prompt_template: ", input_prompt)
+	# call ch10_basebot() with the new session_state.prompt_template
 	ch10_basebot()
 ''')
 		  
 	st.markdown("**:red[Code Output]**")
-	# put in basebot
-	fstring_template = """Speak like {personality} from {film}"""
-	prompt = PromptTemplate.from_template(fstring_template)
-	final_prompt = prompt.format(personality="Yoda", film="Star Wars")
-	st.write("new prompt template: ", final_prompt)
-	st.session_state.prompt_template = final_prompt
-	# call ch10_basebot
-	ch10_basebot()
+	# actual code here
+	ch11()
 
 def class1_ex12():
 	st.subheader("Exercise 12: Chatbot with memory")
