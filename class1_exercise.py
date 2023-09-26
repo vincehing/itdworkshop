@@ -507,7 +507,7 @@ def ex4b():
 		st.session_state.age = int(userAge)
 		st.write("age: ", st.session_state.age)
 	if userGender:
-		st.session_state = userGender
+		st.session_state.gender = userGender
 		st.write("gender: ", st.session_state.gender)
 
 def class1_ex4b():
