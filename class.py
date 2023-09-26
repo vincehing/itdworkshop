@@ -127,7 +127,7 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Part 1', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
+					MenuItem('Part 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 					MenuItem('Pre-workshop prep', icon='', children=[
 					MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
@@ -170,7 +170,7 @@ def main():
 					MenuItem(ex10, icon='journal-code'),
 					MenuItem(ch10, icon='journal-code'),
     			]), 
-					MenuItem('Part 2', icon='file-slides', href='https://docs.google.com/presentation/d/1yNb4WmWDvQfdu05_5M8aEl5g-2evSK_fCdybJGupdKA/edit?usp=drive_link'),
+					MenuItem('Part 2 deck', icon='file-slides', href='https://docs.google.com/presentation/d/1yNb4WmWDvQfdu05_5M8aEl5g-2evSK_fCdybJGupdKA/edit?usp=drive_link'),
 					MenuItem('Prompt Template', icon='', children=[
 					MenuItem(ex11, icon='journal-code'),
 					MenuItem(ch11, icon='journal-code'),
@@ -187,14 +187,14 @@ def main():
 					MenuItem(ex15, icon='journal-code'),
 					MenuItem(ch15, icon='journal-code'),
     			]), 
-				MenuItem('Part 3', icon='file-slides', href='https://docs.google.com/presentation/d/1fvMGaUC-K49ws1NaCdENB3CC4L7WZr337yTcsLqak1k/edit?usp=sharing'),
+				MenuItem('Part 3 deck', icon='file-slides', href='https://docs.google.com/presentation/d/1fvMGaUC-K49ws1NaCdENB3CC4L7WZr337yTcsLqak1k/edit?usp=sharing'),
 				MenuItem('Smart Agent', icon='', children=[
 					MenuItem(ex16, icon='journal-code'),
     			]), 
 				MenuItem('Smart Agent&Vector store', icon='', children=[
 					MenuItem(ex17, icon='journal-code'),
     			]), 
-				MenuItem('Part 4', icon='file-slides', href='https://docs.google.com/presentation/d/16j8UJOVTj06oU93CCZjioE7zlipZs36GbTgEMaECVuE/edit?usp=sharing'),
+				MenuItem('Part 4 deck', icon='file-slides', href='https://docs.google.com/presentation/d/16j8UJOVTj06oU93CCZjioE7zlipZs36GbTgEMaECVuE/edit?usp=sharing'),
 				MenuItem('Data Analytics', icon='', children=[
 					MenuItem(ex18, icon='journal-code'),
     			]), 
