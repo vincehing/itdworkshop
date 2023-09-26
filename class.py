@@ -223,8 +223,7 @@ def main():
 		if "prompt_template" not in st.session_state:
 			st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
 
-		st.write("option: ", option)
-		if option == "":
+		if option == "Part 1" or option == "Part 2" or option == "Part 3" or option == "Part 4":
 			st.write("Welcome to the workshop! Link to slide decks and code exercises are on the left.")
 
 		placeholder2 = st.empty()
