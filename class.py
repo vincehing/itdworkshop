@@ -129,7 +129,7 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Part 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
+					MenuItem('Workshop deck', icon='file-slides', href='https://docs.google.com/presentation/d/1aomXduB3xgy7EkXmp5INmZnX0zdloCgoCa9BZ78-NJk/edit?usp=share_link'),
 					MenuItem('Pre-workshop prep', icon='', children=[
 					MenuItem(prep, icon='journal-code'),
 					MenuItem(hw1, icon='journal-code'),
@@ -141,7 +141,8 @@ def main():
 					# 	MenuItem(rules, icon='journal-code'),
 					# 	MenuItem(intro, icon='journal-code'),
 					MenuItem(res, icon='journal-code'),
-				]),
+				]), 
+					MenuItem('Part 0 & 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 		      		MenuItem('Intro to Streamlit', icon='', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),
@@ -194,7 +195,7 @@ def main():
 				MenuItem('Smart Agent', icon='', children=[
 					MenuItem(ex16, icon='journal-code'),
     			]), 
-				MenuItem('Smart Agent&Vector store', icon='', children=[
+				MenuItem('Document Search', icon='', children=[
 					MenuItem(ex17, icon='journal-code'),
     			]), 
 				MenuItem('Part 4 deck', icon='file-slides', href='https://docs.google.com/presentation/d/16j8UJOVTj06oU93CCZjioE7zlipZs36GbTgEMaECVuE/edit?usp=sharing'),
