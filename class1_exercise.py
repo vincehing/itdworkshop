@@ -951,6 +951,7 @@ def class1_ex7():
 os.environ["OPENAI_API_KEY"] = st.secrets["openapi_key"]
 openai.api_key = st.secrets["openapi_key"]
 ''')
+	st.write("Create a .gitignore file and add .streamlit into it")
 	#st.markdown("**:red[Code Output]**")
 	pass
 
