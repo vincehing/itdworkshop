@@ -33,6 +33,9 @@ from pandasai import SmartDataframe
 from pandasai.llm.openai import OpenAI
 import matplotlib.pyplot as plt
 
+os.environ["OPENAI_API_KEY"] = st.secrets["openapi_key"]
+openai.api_key = st.secrets["openapi_key"]
+
 #Global ex 13
 cwd = os.getcwd()
 WORKING_DIRECTORY = os.path.join(cwd, "database")
@@ -285,36 +288,38 @@ if __name__ == "__main__":
 	if name:
 		st.write("Hello " + name)
 
-def class1_ch1():
-	pass
+def ch1():
+	name = st.text_input("Enter your name")
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	age = st.text_input("State your age", 18)
 
-def class1_ex2_old():
-	st.subheader("Exercise 2: Input , Output and Variables ")
-	st.markdown("In your ***main.py***, copy the code below into the file.")
+	if name and gender and age:
+		st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")
+
+def class1_ch1():
+	st.subheader("Challenge 1: Input, Output and Variables")
+	st.write("Create a new function called ***ch1()*** and call it in the main function.")
+	st.write("Create three variables *name*, *age* and *gender*, and obtain these from the user.")
+	st.write("Once the user filled up the input boxes, display back the information to the user.")
+	st.write("Code hint: the following piece of code checks if *name* has been filled, and if so, displays it back to the user.")
+	st.code('''
+if name:
+	st.text(f"Hello {name}")
+''')
 	st.markdown("**:blue[Code]**")
-	st.code('''
-# Exercise 2 : Input , Output and Variables
-def ex2():
-	name = st.text_input("Enter your name")
-	# only prints the Hello {name} if input box is not empty
-	if name:
-		st.write("Hello " + name)
-''')
-	st.write("We will now call the function *ex2()* in the main function.")
-	st.code('''
-def main():
-	ex2()
-	 
-if __name__ == "__main__":
-	main()
-''')
-	st.markdown("You should see the following behaviour in your browser window:")
+	with st.expander("Reveal Code"):
+		st.code('''
+def ch1():
+        name = st.text_input("Enter your name")
+        gender = st.selectbox("State your gender", ["Male", "Female"])
+        age = st.text_input("State your age", 18)
+
+        if name and gender and age:
+            st.text(f"Hello {name}, you are {gender} and this year you are {age} years old")
+''')	  
 	st.markdown("**:red[Code Output]**")
-	# Exercise 2 : Input , Output and Variables
-	name = st.text_input("Enter your name")
-	# only prints the Hello {name} if input box is not empty
-	if name:
-		st.write("Hello " + name)
+	# Actual code here
+	ch1()
 
 def class1_ex2():
 	st.subheader("Exercise 2: The Streamlit sidebar")
@@ -376,80 +381,132 @@ def main():
 			ex3()
 ''')
 
-def class1_ex3_old():
-	st.subheader("Exercise 3: Logical Conditioning ")
-	st.markdown("Append the following code to the ***main.py*** file.")
+def ex3a():
+    gender = st.selectbox("State your gender", ["Male", "Female"])
+    age = int(st.text_input("State your age", 18))
+    photo = st.camera_input("Smile! take a picture here.")
+
+    # conditional logic to run different statements
+    if age >= 21 and gender == "Male":
+        st.write("You are a male adult")
+    elif age < 21 and gender == "Male":
+        st.write("You are a young boy")
+    elif age >= 21 and gender == "Female":
+        st.write("You are a female adult")
+    elif age < 21 and gender == "Female":
+        st.write("You are a young girl")
+
+    if photo:
+        st.write("Here is your photo: ")
+        st.image(photo)
+    else:
+        st.write("No photo taken")
+
+def class1_ex3a():
+	st.subheader("Exercise 3: If-else logical conditionals")
+	st.markdown("If-else statements help control the flow and logic of our application.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 3 : Logical Conditioning
-def ex3(): 
-	age = st.text_input("State your age", 18)
-	#if else statement
-	age = int(age)
-	if age >= 21:
-		st.write("You are an adult")
-	else:
-		st.write("You are not an adult")
+def ex3a():
+    gender = st.selectbox("State your gender", ["Male", "Female"])
+    age = int(st.text_input("State your age", 18))
+    photo = st.camera_input("Smile! take a picture here.")
+
+    # conditional logic to run different statements
+    if age >= 21 and gender == "Male":
+        st.write("You are a male adult")
+    elif age < 21 and gender == "Male":
+        st.write("You are a young boy")
+    elif age >= 21 and gender == "Female":
+        st.write("You are a female adult")
+    elif age < 21 and gender == "Female":
+        st.write("You are a young girl")
+
+    if photo:
+        st.write("Here is your photo: ")
+        st.image(photo)
+    else:
+        st.write("No photo taken")
 ''')
 	st.markdown("**:red[Code Output]**")
-	#Exercise 2 : Logical Conditioning
-	age = st.text_input("State your age", 18)
-	#if else statement
-	age = int(age)
-	if age >= 21:
-		st.write("You are an adult")
-	else:
-		st.write("You are not an adult")
-	pass
+	#actual code here
+	ex3a()
 
-def class1_ex3():
+def ex3b():
+	# Data list
+	fruits = ["apple", "banana", "orange"]
+
+	# For loop to show list
+	for fruit in fruits:
+		st.write(fruit)
+
+	# Dictionary
+	person = {"name": "John", "age": 30, "gender": "Male", "city": "New York"}
+
+	# Print out the items in the dictionary
+	st.write("Here is your *person* dictionary: ")
+	st.write(person)
+
+	# for loop to show dictionary list
+	st.write("You can also show individual items in the dictionary like this: ")
+	for key, value in person.items():
+		st.write(key + ": " + str(value))
+
+	name = st.text_input("Enter your name", "John")
+	age = st.text_input("State your age", 30)
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	city = st.text_input("State your city", "New York")
+	person["name"] = name
+	person["age"] = age
+	person["gender"] = gender
+	person["city"] = city
+	
+	st.write("Here is your updated *person* dictionary: ")
+	st.write(person)
+
+def class1_ex3b():
 	st.subheader("Exercise 3: Data and Loops ")
 	st.write("We can store data in a list or dictionary and display the data using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
 	st.write("You should see output similar to the *Code Output* below.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Exercise 3 : Data and Loops 
-def ex3():
+#Data and Loops
+def ex3b():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
 	# For loop to show list
-	st.subheader("Fruits list:")
 	for fruit in fruits:
 		st.write(fruit)
 
 	# Dictionary
 	person = {"name": "John", "age": 30, "city": "New York"}
-		 
+
 	# Print out the items in the dictionary
-	st.write("Here is your dictionary: ")
+	st.write("Here is your *person* dictionary: ")
 	st.write(person)
 
 	# for loop to show dictionary list
 	st.write("You can also show individual items in the dictionary like this: ")
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
+
+	name = st.text_input("Enter your name", John)
+	age = st.text_input("State your age", 30)
+	gender = st.selectbox("State your gender", ["Male", "Female"])
+	city = st.text_input("State your city", "New York")
+	person["name"] = name
+	person["age"] = age
+	person["gender"] = gender
+	person["city"] = city
+	
+	st.write("Here is your updated *person* dictionary: ")
+	st.write(person)
 ''')
 	st.markdown("**:red[Code Output]**")
-	# Data list
-	fruits = ["apple", "banana", "orange"]
-
-	# For loop to show list
-	for fruit in fruits:
-		st.write(fruit)
-
-	# Dictionary
-	person = {"name": "John", "age": 30, "city": "New York"}
-
-	# Print out the items in the dictionary
-	st.write("Here is your dictionary: ")
-	st.write(person)
-
-	# for loop to show dictionary list
-	st.write("You can also show individual items in the dictionary like this: ")
-	for key, value in person.items():
-		st.write(key + ": " + str(value))
+	#actual code here
+	ex3b()
 
 def ex4a():
 	st.subheader("Session Data:")
@@ -615,99 +672,6 @@ def main():
 	st.write("session_state.age: ", st.session_state.age)
 	st.write("session_state.gender: ", st.session_state.gender)
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
-
-def class1_ex4_old():
-	# st.subheader("Exercise 4: Functions")
-	# st.write("For this exercise, we will rewrite our previous code to use functions.")
-	# st.write("Append the following function to the ***main.py*** file.")
-	# st.write("Don't forget to call the new function in your code. Refresh the browser to see the changes.")
-	# st.markdown("**:blue[Code]**")
-	# st.code('''
-	#  	#Exercise 4: Functions
-	# 	#function to check age and gender        
-	# 	def check_age_gender(age, gender):
-	# 		if age >= 21:
-	# 			if gender == "male":
-	# 				st.write("You are an adult male")
-	# 			elif gender == "female":
-	# 				st.write("You are an adult female")
-	# 		else:
-	# 			if gender == "male":
-	# 				st.write("You are a young boy")
-	# 			elif gender == "female":
-	# 				st.write("You are a young girl")
-				
-	# 	def ex4():
-				
-	# 		st.title("Age and Gender Check")
-	# 		#Note that age is converted from string to int
-	# 		age = int(st.text_input("State your age", 18))
-	# 		gender = st.selectbox("Select your gender:", ["male", "female"])
-	# 		#calling function check_age_gender
-	# 		check_age_gender(age, gender)
-				
-	# 	if __name__ == "__main__":
-	# 		ex4()
-
-	# ''')
-	# st.markdown("**:red[Code Output]**")
-	# st.markdown("**Age and Gender Check**")
-	# age = int(st.text_input("State your age", 18))
-	# gender = st.selectbox("Select your gender:", ["male", "female"])
-	# #calling function check_age_gender
-	# check_age_gender(age, gender)
-	pass
-
-def my_list_func():
-	pass
-	# name = st.text_input("Enter your name")
-	# gender = st.selectbox("State your gender", ["male", "female"])
-	# age = int(st.text_input("State your age", 18))
-
-	# mydict = {}
-	# mydict["name"] = name
-	# mydict["gender"] = gender
-	# mydict["age"] = age
-
-	# check_age_gender(age, gender)
-	# st.write(mydict)
-	# return mydict
-
-def class1_ch4_old():
-	st.subheader("Challenge 4: Functions ")
-	st.write("For this challenge, we will rearrange our code from the previous exercise to use functions.")
-	st.markdown("""
-		 Remember our previous code that gets input for the user's name, gender and age, enter them into a dictionary and display the dictionary?\n
-		 Remember our previous ***check_age_gender()*** function?
-		 Put all the above code in a new function called ***ch4()*** and call this function as your first running function.\n
-		 Run the code to see if it works. Refresh the browser to see the changes.\n
-		 """)
-	st.markdown("**:blue[Code]**")
-	with st.expander("Reveal Code"):
-		st.code('''
-		# Challenge 4: Functions
-		def my_list_func():
-			name = st.text_input("Enter your name")
-			gender = st.selectbox("State your gender", ["male", "female"])
-			age = int(st.text_input("State your age", 18))
-
-			mydict = {}
-			mydict["name"] = name
-			mydict["gender"] = gender
-			mydict["age"] = age
-	  
-			check_age_gender(mydict["age"], mydict["gender"])
-			st.write(mydict)
-
-		def ch4():
-			my_list_func()
-
-		if __name__ == "__main__":
-			ch4()
-		
-		''')
-	st.markdown("**:red[Code Output]**")
-	my_list_func()
 
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
@@ -973,7 +937,6 @@ import openai
 #Exercise 8 : Using the OpenAI API
 def ex8():
 	st.title("Api Call")
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 
 	response = openai.ChatCompletion.create(
@@ -995,7 +958,6 @@ def ex8():
 ''')
 	st.markdown("**:red[Code Output]**")
 	st.title("Api Call")
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1012,10 +974,8 @@ def ex8():
 	s = str(response["usage"]["total_tokens"])
 	st.markdown("**Total tokens used:**")
 	st.write(s)
-	pass
 
 def chat_completion(prompt):
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1025,7 +985,6 @@ def chat_completion(prompt):
 		],
 		temperature=0,
 	)
-
 	return response["choices"][0]["message"]["content"].strip()
 
 def class1_ch8():
@@ -1055,7 +1014,6 @@ def class1_ch8():
 		st.code('''	
 #Challenge 8: Incorporating the API into your chatbot
 def chat_completion(prompt):
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1116,11 +1074,8 @@ def ch8():
 			st.markdown(reply)
 		# Add assistant response to chat history
 		st.session_state.chat_msg.append({"role": "assistant", "content": reply})
-	pass
 
-#For exercise 9
 def chat_completion_stream(prompt):
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1161,7 +1116,6 @@ def ex9_basebot():
 			st.session_state.chat_msg.append(
 				{"role": "assistant", "content": full_response}
 			)
-
 	except Exception as e:
 		st.error(e)
 
@@ -1226,6 +1180,25 @@ def ex9_basebot():
 def class1_ch9():
 	pass
 
+def ex10():
+	# prompt_template in session state already set in main()
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": st.session_state.prompt_template},
+			{
+				"role": "user",
+				"content": "Tell me about Singapore in the 1970s in 50 words",
+			},
+		],
+		temperature=0,
+	)
+	st.markdown("**LLM Response:**")
+	st.write(response["choices"][0]["message"]["content"].strip())
+	st.markdown("**Total tokens:**")
+	st.write(str(response["usage"]["total_tokens"]))
+
 def class1_ex10():
 	st.subheader("Exercise 10: Basic Prompt Engineering")
 	st.markdown("""
@@ -1247,8 +1220,6 @@ if "prompt_template" not in st.session_state:
 # Exercise 10: Basic prompt engineering
 def ex10():
 	#prompt_template in session state already set in main()
-	st.title("Api Call")
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1267,30 +1238,12 @@ def ex10():
 	st.write(str(response["usage"]["total_tokens"]))
 ''')
 	st.markdown("**:red[Code Output]**")
-	#prompt_template in session state already set in main()
-	st.title("Api Call")
-	openai.api_key = st.secrets["openapi_key"]
-	MODEL = "gpt-3.5-turbo"
-	response = openai.ChatCompletion.create(
-		model=MODEL,
-		messages=[
-			{"role": "system", "content": st.session_state.prompt_template},
-			{
-				"role": "user",
-				"content": "Tell me about Singapore in the 1970s in 50 words",
-			},
-		],
-		temperature=0,
-	)
-	st.markdown("**LLM Response:**")
-	st.write(response["choices"][0]["message"]["content"].strip())
-	st.markdown("**Total tokens:**")
-	st.write(str(response["usage"]["total_tokens"]))
+	#actual code here
+	ex10()
 
 #Challenge 10
 #mod chat complete stream function by replacing system content to session_state prompt template
 def chat_completion_stream_prompt(prompt):
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo" #consider changing this to session_state
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1304,12 +1257,8 @@ def chat_completion_stream_prompt(prompt):
 	return response
 
 # Challenge 10: Make the bot speak like someone you know
-def ch10_basebot():
-	if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
-		st.session_state.prompt_template = my_prompt_template
-		st.write("new prompt template set! ", st.session_state.prompt_template)
-
-  #call the function in your base bot
+def ch10():
+	#call the function in your base bot
 	#Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
@@ -1346,13 +1295,18 @@ def class1_ch10():
 	st.write("Be imaginative!")
 	st.write("You can use the streaming chat_completion function you wrote earlier.")
 	st.write("Don't forget to replace the system prompt with your own prompt_template!")
+	st.write("Optionally, you can get a new prompt from the user like this:")
+	st.code('''
+if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
+	st.session_state.prompt_template = my_prompt_template
+	st.write("new prompt template set! ", st.session_state.prompt_template)
+''')
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
 #Challenge 10
 #mod chat complete stream function by replacing system content to session_state prompt template
 def chat_completion_stream_prompt(prompt):
-	openai.api_key = st.secrets["openapi_key"]
 	MODEL = "gpt-3.5-turbo" #consider changing this to session_state
 	response = openai.ChatCompletion.create(
 		model=MODEL,
@@ -1366,11 +1320,7 @@ def chat_completion_stream_prompt(prompt):
 	return response
 
 # Challenge 10: Make the bot speak like someone you know
-def ch10_basebot():
-	if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
-		st.session_state.prompt_template = my_prompt_template
-		st.write("new prompt template set! ", st.session_state.prompt_template)
-
+def ch10():
 	# call the function in your base bot
 	# Initialize chat history
 	if "msg" not in st.session_state:
@@ -1403,32 +1353,28 @@ def ch10_basebot():
 ''')
 	st.markdown("**:red[Code Output]**")
 	st.title("ChatGPT-like clone with Prompt Engineering")
-
-	ch10_basebot()
+	ch10()
 
 #https://python.langchain.com/docs/modules/chains/
-def ex11a(): #change in ex11a
-	#langchain prompt template
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+def ex11a():  # change in ex11a
+	# langchain prompt template
 	prompt = PromptTemplate(
 		input_variables=["subject", "topic"],
-		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students"""
-		)
-	
-	openai_api_key = st.secrets["openapi_key"]
-	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)
-	
-	#creating a LLM chain with the langchain call and prompt template
+		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students""",
+	)
+
+	# openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
+
+	# creating a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt)
 	if st.button("Run my chain"):
-		input_prompt = prompt.format(subject="English", topic="Verbs")
-		#Showing what is sent to LLM Chain
-		st.write("Input prompt: ", input_prompt)
-		#Showing the output from LLM Chain
-		st.write(chain.run({
-							'subject': "English",
-							'topic': "Verbs"
-							}))
+		with st.status("Running Chain"):
+			input_prompt = prompt.format(subject="English", topic="Verbs")
+			# Showing what is sent to LLM Chain
+			st.write("Input prompt: ", input_prompt)
+			# Showing the output from LLM Chain
+			st.write(chain.run({"subject": "English", "topic": "Verbs"}))
 		
 def class1_ex11a():
 	st.subheader("Exercise 11a: Prompt Template with LangChain")
@@ -1437,28 +1383,25 @@ def class1_ex11a():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 #https://python.langchain.com/docs/modules/chains/
-def ex11a(): #change in ex11a
-	#langchain prompt template
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+def ex11a():  # change in ex11a
+	# langchain prompt template
 	prompt = PromptTemplate(
 		input_variables=["subject", "topic"],
-		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students"""
-		)
-	
-	openai_api_key = st.secrets["openapi_key"]
-	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)
-	
-	#creating a LLM chain with the langchain call and prompt template
+		template="""Design a lesson plan on {subject} on the topic of {topic} for primary 1 students""",
+	)
+
+	# openai_api_key = st.secrets["openapi_key"]
+	llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
+
+	# creating a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt)
 	if st.button("Run my chain"):
-		input_prompt = prompt.format(subject="English", topic="Verbs")
-		#Showing what is sent to LLM Chain
-		st.write("Input prompt: ", input_prompt)
-		#Showing the output from LLM Chain
-		st.write(chain.run({
-							'subject': "English",
-							'topic': "Verbs"
-							}))
+		with st.status("Running Chain"):
+			input_prompt = prompt.format(subject="English", topic="Verbs")
+			# Showing what is sent to LLM Chain
+			st.write("Input prompt: ", input_prompt)
+			# Showing the output from LLM Chain
+			st.write(chain.run({"subject": "English", "topic": "Verbs"}))
 ''')
 	st.markdown("**:red[Code Output]**")
 	#actual code here
@@ -1466,7 +1409,6 @@ def ex11a(): #change in ex11a
 
 def prompt_inputs_form(): #Using st.form, create the starting prompt to your prompt template, this is an expert on a topic that is talking to a user of a certain age
 	#langchain prompt template
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
 	with st.form("Prompt Template"):
 		occupation = st.text_input("Enter the occupation:")
 		topic = st.text_input("Enter the topic:")
@@ -1483,17 +1425,19 @@ def prompt_inputs_form(): #Using st.form, create the starting prompt to your pro
 		}
 
 def ex11b():
-	#create your template 
+	# create your template
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
-						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
-	#create a langchain function call to openai
-	openai_api_key = st.secrets["openapi_key"]
-	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)	#create a LLM chain with the langchain call and prompt template 
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	# create a langchain function call to openai
+	llm = ChatOpenAI(
+		model_name="gpt-3.5-turbo",
+		temperature=0.9,
+	)
+	# create a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt_template)
-	#call the prompt_inputs_form()
+	# call the prompt_inputs_form()
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
 		st.write(chain.run(dict_inputs))
@@ -1506,36 +1450,33 @@ def class1_ex11b():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-def prompt_inputs_form(): #Using st.form, create the starting prompt to your prompt template, this is an expert on a topic that is talking to a user of a certain age
-	#langchain prompt template
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+def prompt_inputs_form():  # Using st.form, create the starting prompt to your prompt template, this is an expert on a topic that is talking to a user of a certain age
+	# langchain prompt template
 	with st.form("Prompt Template"):
 		occupation = st.text_input("Enter the occupation:")
 		topic = st.text_input("Enter the topic:")
 		age = st.text_input("Enter the age:")
 
-	# Every form must have a submit button.
+		# Every form must have a submit button.
 		submitted = st.form_submit_button("Submit")
-	#return a dictionary of the values
+	# return a dictionary of the values
 	if submitted:
-		return {
-			'occupation': occupation,
-			'topic': topic,
-			'age': age
-		}
+		return {"occupation": occupation, "topic": topic, "age": age}
 
 def ex11b():
-	#create your template
+	# create your template
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
-						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
-	#create a langchain function call to openai
-	openai_api_key = st.secrets["openapi_key"]
-	llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True, max_tokens=100, temperature=0.9)	#create a LLM chain with the langchain call and prompt template 
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	# create a langchain function call to openai
+	llm = ChatOpenAI(
+		model_name="gpt-3.5-turbo",
+		temperature=0.9,
+	)
+	# create a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt_template)
-	#call the prompt_inputs_form()
+	# call the prompt_inputs_form()
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
 		st.write(chain.run(dict_inputs))
@@ -1546,19 +1487,23 @@ def ex11b():
 	ex11b()
 
 def ch11():
-	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
+	# instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
-		input_prompt = prompt_template.format(occupation=dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
-		# set session_state.prompt_template 
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		# set session_state.prompt_template
 		st.session_state.prompt_template = input_prompt
 		st.write("New session_state.prompt_template: ", input_prompt)
 	# call ch10_basebot() with the new session_state.prompt_template
-	ch10_basebot()
+	ch10()
 
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")
@@ -1572,21 +1517,24 @@ def class1_ch11():
 	with st.expander("Reveal Code"):
 		st.code('''
 def ch11():
-	#instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
+	# instead of running of the langchain, we are going to use the prompt template and run it the chatbot using format
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
-		input_prompt = prompt_template.format(occupation=dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
-		# set session_state.prompt_template 
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		# set session_state.prompt_template
 		st.session_state.prompt_template = input_prompt
 		st.write("New session_state.prompt_template: ", input_prompt)
 	# call ch10_basebot() with the new session_state.prompt_template
-	ch10_basebot()
+	ch10()
 ''')
-		  
 	st.markdown("**:red[Code Output]**")
 	# actual code here
 	ch11()
@@ -1629,15 +1577,19 @@ def ex12():
 	ex12()
 
 def ch12():
-	#Prompt_template form from ex11
+	# Prompt_template form from ex11
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
-						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
-		input_prompt = prompt_template.format(occupation =dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
 	else:
 		input_prompt = "You are a helpful assistant. "
 
@@ -1646,27 +1598,31 @@ def ch12():
 	if "memory" not in st.session_state:
 		st.session_state.memory = ConversationBufferWindowMemory(k=3)
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write("Memory Data: ", memory_data)
-	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
+	st.session_state.prompt_template = f"""{input_prompt}
+										
+										Below is the conversation history between the AI and Users so far
+										
+										{memory_data}
 										"""
 
 	st.write("New prompt template: \n", st.session_state.prompt_template)
-	#call the function in your base bot
-	#Initialize chat history
+	# call the function in your base bot
+	# Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
 
-	#Showing Chat history
+	# Showing Chat history
 	for message in st.session_state.msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
 	try:
 		#
 		if prompt := st.chat_input("What is up?"):
-			#set user prompt in chat history
+			# set user prompt in chat history
 			st.session_state.msg.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
 				st.markdown(prompt)
@@ -1674,17 +1630,17 @@ def ch12():
 			with st.chat_message("assistant"):
 				message_placeholder = st.empty()
 				full_response = ""
-				#streaming function
+				# streaming function
 				for response in chat_completion_stream_prompt(prompt):
 					full_response += response.choices[0].delta.get("content", "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
 			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
-
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
 	except Exception as e:
 		st.error(e)
-	pass
 
 def class1_ch12():
 	st.subheader("Challenge 12: Chatbot with memory")
@@ -1708,15 +1664,19 @@ if "memory" not in st.session_state:
 	with st.expander("Reveal Code"):
 		st.code('''
 def ch12():
-	#Prompt_template form from ex11
+	# Prompt_template form from ex11
 	prompt_template = PromptTemplate(
-				input_variables=["occupation", "topic", "age"],
-				template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
-						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up"""
-				)
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
 	dict_inputs = prompt_inputs_form()
 	if dict_inputs:
-		input_prompt = prompt_template.format(occupation =dict_inputs["occupation"], topic=dict_inputs["topic"], age=dict_inputs["age"])
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
 	else:
 		input_prompt = "You are a helpful assistant. "
 
@@ -1725,27 +1685,31 @@ def ch12():
 	if "memory" not in st.session_state:
 		st.session_state.memory = ConversationBufferWindowMemory(k=3)
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write("Memory Data: ", memory_data)
-	st.session_state.prompt_template = f"""{input_prompt}\n\nBelow is the conversation history between the AI and Users so far\n\n{memory_data}
+	st.session_state.prompt_template = f"""{input_prompt}
+										
+										Below is the conversation history between the AI and Users so far
+										
+										{memory_data}
 										"""
 
-	st.write("New prompt template: ", st.session_state.prompt_template)
-	#call the function in your base bot
-	#Initialize chat history
+	st.write("New prompt template: \n", st.session_state.prompt_template)
+	# call the function in your base bot
+	# Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
 
-	#Showing Chat history
+	# Showing Chat history
 	for message in st.session_state.msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
 	try:
 		#
 		if prompt := st.chat_input("What is up?"):
-			#set user prompt in chat history
+			# set user prompt in chat history
 			st.session_state.msg.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
 				st.markdown(prompt)
@@ -1753,36 +1717,33 @@ def ch12():
 			with st.chat_message("assistant"):
 				message_placeholder = st.empty()
 				full_response = ""
-				#streaming function
+				# streaming function
 				for response in chat_completion_stream_prompt(prompt):
 					full_response += response.choices[0].delta.get("content", "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
 			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
-
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
 	except Exception as e:
 		st.error(e)
-	pass
 ''')
-		  
 	st.markdown("**:red[Code Output]**")
 	#actual code here
 	ch12()
 
 #exercise 13 - loading
 def upload_file_streamlit():
-
 	def get_file_extension(file_name):
 		return os.path.splitext(file_name)[1]
 
 	st.subheader("Upload your docs")
 
 	# Streamlit file uploader to accept file input
-	uploaded_file = st.file_uploader("Choose a file", type=['docx', 'txt', 'pdf'])
+	uploaded_file = st.file_uploader("Choose a file", type=["docx", "txt", "pdf"])
 
 	if uploaded_file:
-
 		# Reading file content
 		file_content = uploaded_file.read()
 
@@ -1797,39 +1758,41 @@ def upload_file_streamlit():
 		return temp_file_path
 	
 #exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
-def vecstore_creator(query):
-	if "vectorstore" not in st.session_state:
-		st.session_state.vectorstore = False
-	
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+def vectorstore_creator(query):
+	# WORKING_DIRECTORY set above in the main.py
 	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
 	embeddings = OpenAIEmbeddings()
-	db = lancedb.connect("/tmp/lancedb")
+	db = lancedb.connect(WORKING_DIRECTORY)
 	table = db.create_table(
 		"my_table",
 		data=[
 			{
-				"vector": embeddings.embed_query("Hello World"),
-				"text": "Hello World",
+				"vector": embeddings.embed_query("Query unsuccessful"),
+				"text": "Query unsuccessful",
 				"id": "1",
 			}
 		],
 		mode="overwrite",
 	)
-	#st.write(temp_file_path)
+	# st.write(temp_file_path)
 	temp_file_path = upload_file_streamlit()
 	if temp_file_path:
-		loader = PyPDFLoader(temp_file_path )
+		loader = PyPDFLoader(temp_file_path)
 		documents = loader.load_and_split()
-		vectorestore = LanceDB.from_documents(documents, OpenAIEmbeddings(), connection=table)
-		st.session_state.vectorstore = vectorestore
-		if query:
-			docs = vectorestore.similarity_search(query)
-			st.write(docs[0].page_content)
+		db = LanceDB.from_documents(documents, embeddings, connection=table)
+		return db
 
 def ex13_vectorstore_creator():
-	query = st.text_input("Enter a query")
-	vecstore_creator(query)
+	if "vectorstore" not in st.session_state:
+		st.session_state.vectorstore = False
+	db = vectorstore_creator()
+	st.session_state.vectorstore = db
+	if st.session_state.vectorstore:
+		query = st.text_input("Enter a query")
+		if query:
+			st.session_state.vectorstore = db
+			docs = db.similarity_search(query)
+			st.write(docs[0].page_content)
 
 def class1_ex13():
 	st.subheader("Exercise 13: Create a vector store")
@@ -1840,22 +1803,19 @@ def class1_ex13():
 pip install pypdf
 pip install lancedb
 ''')
-
 	st.markdown("**:blue[Code]**")
 	st.code('''
 #exercise 13 - loading
 def upload_file_streamlit():
-
 	def get_file_extension(file_name):
 		return os.path.splitext(file_name)[1]
 
 	st.subheader("Upload your docs")
 
 	# Streamlit file uploader to accept file input
-	uploaded_file = st.file_uploader("Choose a file", type=['docx', 'txt', 'pdf'])
+	uploaded_file = st.file_uploader("Choose a file", type=["docx", "txt", "pdf"])
 
 	if uploaded_file:
-
 		# Reading file content
 		file_content = uploaded_file.read()
 
@@ -1870,43 +1830,128 @@ def upload_file_streamlit():
 		return temp_file_path
 	
 #exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
-def vecstore_creator(query):
-	if "vectorstore" not in st.session_state:
-		st.session_state.vectorstore = False
-	
-	os.environ['OPENAI_API_KEY'] = st.secrets["openapi_key"]
+def vectorstore_creator(query):
+	# WORKING_DIRECTORY set above in the main.py
 	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
 	embeddings = OpenAIEmbeddings()
-	db = lancedb.connect("/tmp/lancedb")
+	db = lancedb.connect(WORKING_DIRECTORY)
 	table = db.create_table(
 		"my_table",
 		data=[
 			{
-				"vector": embeddings.embed_query("Hello World"),
-				"text": "Hello World",
+				"vector": embeddings.embed_query("Query unsuccessful"),
+				"text": "Query unsuccessful",
 				"id": "1",
 			}
 		],
 		mode="overwrite",
 	)
-	#st.write(temp_file_path)
+	# st.write(temp_file_path)
 	temp_file_path = upload_file_streamlit()
 	if temp_file_path:
-		loader = PyPDFLoader(temp_file_path )
+		loader = PyPDFLoader(temp_file_path)
 		documents = loader.load_and_split()
-		vectorestore = LanceDB.from_documents(documents, OpenAIEmbeddings(), connection=table)
-		st.session_state.vectorstore = vectorestore
-		if query:
-			docs = vectorestore.similarity_search(query)
-			st.write(docs[0].page_content)
+		db = LanceDB.from_documents(documents, embeddings, connection=table)
+		return db
 
 def ex13_vectorstore_creator():
-	query = st.text_input("Enter a query")
-	vecstore_creator(query)
+	if "vectorstore" not in st.session_state:
+		st.session_state.vectorstore = False
+	db = vectorstore_creator()
+	st.session_state.vectorstore = db
+	if st.session_state.vectorstore:
+		query = st.text_input("Enter a query")
+		if query:
+			st.session_state.vectorstore = db
+			docs = db.similarity_search(query)
+			st.write(docs[0].page_content)
 ''')
 		  
 	st.markdown("**:red[Code Output]**")
 	ex13_vectorstore_creator()
+
+# save the vectorstore in st.session_state
+# add semantic search prompt into memory prompt
+# integrate back into your chatbot
+def ex14():
+	# Prompt_template form from ex11
+	prompt_template = PromptTemplate(
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		st.session_state.input_prompt = input_prompt
+
+	if "input_prompt" not in st.session_state:
+		st.session_state.input_prompt = "Speak like Yoda from Star Wars"
+
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
+										This is the last conversation history
+										{memory_data}
+										"""
+	st.write("new prompt template: ", st.session_state.prompt_template)
+
+	st.session_state.vectorstore = vectorstore_creator()
+
+	# Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	# Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			# query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content
+				# add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+								{docs}
+								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			# add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = (
+				st.session_state.prompt_template + vs_prompt
+			)
+			# set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				# streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
+
+	except Exception as e:
+		st.error(e)
 
 def class1_ex14():
 	st.subheader("Exercise 14: Semantic search")
@@ -1917,49 +1962,69 @@ def class1_ex14():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#save the vectorstore in st.session_state
-#add semantic search prompt into memory prompt
-#integrate back into your chatbot
+# save the vectorstore in st.session_state
+# add semantic search prompt into memory prompt
+# integrate back into your chatbot
 def ex14():
+	# Prompt_template form from ex11
+	prompt_template = PromptTemplate(
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		st.session_state.input_prompt = input_prompt
 
-	vecstore_creator(False)
-	
+	if "input_prompt" not in st.session_state:
+		st.session_state.input_prompt = "Speak like Yoda from Star Wars"
+
 	if "memory" not in st.session_state:
 		st.session_state.memory = ConversationBufferWindowMemory(k=5)
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
-	st.write("memory_data: ", memory_data)
-	st.session_state.prompt_template = f"""You are a helpful assistant
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
 										This is the last conversation history
 										{memory_data}
 										"""
-	 #call the function in your base bot
-	#Initialize chat history
+	st.write("new prompt template: ", st.session_state.prompt_template)
+
+	st.session_state.vectorstore = vectorstore_creator()
+
+	# Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
 
-	#Showing Chat history
+	# Showing Chat history
 	for message in st.session_state.msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
 	try:
 		#
 		if prompt := st.chat_input("What is up?"):
-			#query information
+			# query information
 			if st.session_state.vectorstore:
 				docs = st.session_state.vectorstore.similarity_search(prompt)
-				docs = docs[0].page_content 
-				#add your query prompt
+				docs = docs[0].page_content
+				# add your query prompt
 				vs_prompt = f"""You should reference this search result to help your answer,
 								{docs}
-				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
 			else:
 				vs_prompt = ""
-			#add query prompt to your memory prompt and send it to LLM
-			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
-			#set user prompt in chat history
+			# add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = (
+				st.session_state.prompt_template + vs_prompt
+			)
+			# set user prompt in chat history
 			st.session_state.msg.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
 				st.markdown(prompt)
@@ -1967,103 +2032,97 @@ def ex14():
 			with st.chat_message("assistant"):
 				message_placeholder = st.empty()
 				full_response = ""
-				#streaming function
+				# streaming function
 				for response in chat_completion_stream_prompt(prompt):
 					full_response += response.choices[0].delta.get("content", "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
 			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
 
 	except Exception as e:
 		st.error(e)
 ''')
 
 	st.markdown("**:red[Code Output]**")
-	#save the vectorstore in st.session_state
-	#add semantic search prompt into memory prompt
-	#integrate back into your chatbot
-	vecstore_creator(False)
-	
-	if "memory" not in st.session_state:
-		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+	#actual code here
+	ex14()
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
-	memory_data = st.session_state.memory.load_memory_variables({})
-	st.write("memory_data: ", memory_data)
-	st.session_state.prompt_template = f"""You are a helpful assistant
-										This is the last conversation history
-										{memory_data}
-										"""
-	 #call the function in your base bot
-	#Initialize chat history
-	if "msg" not in st.session_state:
-		st.session_state.msg = []
+def ex15_initialise():
+	# Create or check for the 'database' directory in the current working directory
+	# Set DB_NAME to be within the 'database' directory at the top of main.py
+	# Connect to the SQLite database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
 
-	#Showing Chat history
-	for message in st.session_state.msg:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
-	try:
-		#
-		if prompt := st.chat_input("What is up?"):
-			#query information
-			if st.session_state.vectorstore:
-				docs = st.session_state.vectorstore.similarity_search(prompt)
-				docs = docs[0].page_content 
-				#add your query prompt
-				vs_prompt = f"""You should reference this search result to help your answer,
-								{docs}
-				if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
-			else:
-				vs_prompt = ""
-			#add query prompt to your memory prompt and send it to LLM
-			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
-			#set user prompt in chat history
-			st.session_state.msg.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
+	# Conversation data table
+	cursor.execute(
+		"""
+		CREATE TABLE IF NOT EXISTS data_table (
+			id INTEGER PRIMARY KEY,
+			date TEXT NOT NULL UNIQUE,
+			username TEXT NOT NULL,
+			chatbot_ans TEXT NOT NULL,
+			user_prompt TEXT NOT NULL,
+			tokens TEXT
+		)
+	"""
+	)
+	conn.commit()
+	conn.close()
 
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				#streaming function
-				for response in chat_completion_stream_prompt(prompt):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
+def ex15_collect(username, chatbot_response, prompt):
+	# collect data from bot
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+	now = datetime.now()  # Using ISO format for date
+	tokens = len(chatbot_response) * 1.3
+	cursor.execute(
+		"""
+		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
+		VALUES (?, ?, ?, ?, ?)
+	""",
+		(now, username, chatbot_response, prompt, tokens),
+	)
+	conn.commit()
+	conn.close()
 
-	except Exception as e:
-		st.error(e)
+# implementing data collection and displaying
+def ex15():
+	# initialise database first
+	ex15_initialise()
+	# collect some data
+	ex15_collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
+	# display data
+	# Connect to the specified database
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+
+	# Fetch all data from data_table
+	cursor.execute("SELECT * FROM data_table")
+	rows = cursor.fetchall()
+	column_names = [description[0] for description in cursor.description]
+	df = pd.DataFrame(rows, columns=column_names)
+	st.dataframe(df)
+	conn.close()
 
 def class1_ex15():
 	st.subheader("Exercise 15: Using a database")
 	st.write("In this exercise, we will demonstrate how to create a database, as well as how to store and retrieve data from it.")
-	st.write("There are three code sections in this exercise.")
-	st.write("1. The following piece of code creates a local SQLite database and a specific table to store the conversation data.")
-
 	st.markdown("**:blue[Code]**")
-	st.code("""
-def ex15():
+	st.code('''
+def ex15_initialise():
 	# Create or check for the 'database' directory in the current working directory
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
-
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
-
+	# Set DB_NAME to be within the 'database' directory at the top of main.py
 	# Connect to the SQLite database
 	conn = sqlite3.connect(DB_NAME)
 	cursor = conn.cursor()
 
 	# Conversation data table
-	cursor.execute('''
+	cursor.execute(
+		"""
 		CREATE TABLE IF NOT EXISTS data_table (
 			id INTEGER PRIMARY KEY,
 			date TEXT NOT NULL UNIQUE,
@@ -2072,26 +2131,34 @@ def ex15():
 			user_prompt TEXT NOT NULL,
 			tokens TEXT
 		)
-	''')
+	"""
+	)
 	conn.commit()
 	conn.close()
-""")
-	st.write("2. The following piece of code connects to a local SQLite database, fetches all records from a specific table, and displays them as a DataFrame.")
-	st.write("This function is useful for viewing stored conversational data.")
 
-	st.markdown("**:blue[Code]**")
-	st.code("""
-#implementing data collection and displaying 
-def ex15_display():
-#display data
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
+def ex15_collect(username, chatbot_response, prompt):
+	# collect data from bot
+	conn = sqlite3.connect(DB_NAME)
+	cursor = conn.cursor()
+	now = datetime.now()  # Using ISO format for date
+	tokens = len(chatbot_response) * 1.3
+	cursor.execute(
+		"""
+		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
+		VALUES (?, ?, ?, ?, ?)
+	""",
+		(now, username, chatbot_response, prompt, tokens),
+	)
+	conn.commit()
+	conn.close()
 
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
+# implementing data collection and displaying
+def ex15():
+	# initialise database first
+	ex15_initialise()
+	# collect some data
+	ex15_collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
+	# display data
 	# Connect to the specified database
 	conn = sqlite3.connect(DB_NAME)
 	cursor = conn.cursor()
@@ -2103,159 +2170,71 @@ def ex15_display():
 	df = pd.DataFrame(rows, columns=column_names)
 	st.dataframe(df)
 	conn.close()
-""")
-	st.write("3.. The following piece of code collects real time data from a chatbot and stores the data in a local database.")
-	st.write("This function is useful for performing data analytics and user behaviour understanding.")
-
-	st.markdown("**:blue[Code]**")
-	st.code("""
-def ex15_collect(username, chatbot, prompt):
-#collect data from bot and store in sql database
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
-
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
-	conn = sqlite3.connect("database")
-	cursor = conn.cursor()
-	now = datetime.now() # Using ISO format for date
-	tokens = len(chatbot)*1.3
-	cursor.execute('''
-		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
-		VALUES (?, ?, ?, ?, ?, ?)
-	''', (now, username, chatbot, prompt, tokens))
-	conn.commit()
-	conn.close()
-""")
-	#st.markdown("**:red[Code Output]**")
+''')
+	st.markdown("**:red[Code Output]**")
 	# Actual code here
+	ex15()
 
-#collecting data using sql server
-def ex15():
-	# Create or check for the 'database' directory in the current working directory
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
-
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
-
-	# Connect to the SQLite database
-	conn = sqlite3.connect(DB_NAME)
-	cursor = conn.cursor()
-
-	# Conversation data table
-	cursor.execute('''
-		CREATE TABLE IF NOT EXISTS data_table (
-			id INTEGER PRIMARY KEY,
-			date TEXT NOT NULL UNIQUE,
-			username TEXT NOT NULL,
-			chatbot_ans TEXT NOT NULL,
-			user_prompt TEXT NOT NULL,
-			tokens TEXT
-		)
-	''')
-	conn.commit()
-	conn.close()
-
-#implementing data collection and displaying 
-def ex15_display():
-#display data
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
-
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
-	# Connect to the specified database
-	conn = sqlite3.connect(DB_NAME)
-	cursor = conn.cursor()
-
-	# Fetch all data from data_table
-	cursor.execute("SELECT * FROM data_table")
-	rows = cursor.fetchall()
-	column_names = [description[0] for description in cursor.description]
-	df = pd.DataFrame(rows, columns=column_names)
-	st.dataframe(df)
-	conn.close()
-
-def ex15_collect(username, chatbot, prompt):
-#collect data from bot and store in sql database
-	cwd = os.getcwd()
-	database_path = os.path.join(cwd, "database")
-
-	if not os.path.exists(database_path):
-		os.makedirs(database_path)
-
-	# Set DB_NAME to be within the 'database' directory
-	DB_NAME = os.path.join(database_path, "default_db")
-	conn = sqlite3.connect("database")
-	cursor = conn.cursor()
-	now = datetime.now() # Using ISO format for date
-	tokens = len(chatbot)*1.3
-	cursor.execute('''
-		INSERT INTO data_table (date, username,chatbot_ans, user_prompt, tokens)
-		VALUES (?, ?, ?, ?, ?, ?)
-	''', (now, username, chatbot, prompt, tokens))
-	conn.commit()
-	conn.close()
-
-def class1_ch15():
-	st.subheader("Challenge 15: Using a database")
-	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
-	st.write("Copy the code from ***ex14()*** and use the ***ex15_display()*** function before the user interaction to view the the conversation data in a local database.")
-	st.write("Call ***ex15() first to create the local database and table.")
-	st.write("Use the ***ex15_collect()*** function to collect and store data in the local database after each user conversation interaction.")
-
-	st.markdown("**:blue[Code]**")
-	with st.expander("Reveal Code"):
-		st.code('''
 def ch15_chatbot():
-	vecstore_creator(False)
-	ex15_display()
+	# Prompt_template form from ex11
+	prompt_template = PromptTemplate(
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		st.session_state.input_prompt = input_prompt
+
+	if "input_prompt" not in st.session_state:
+		st.session_state.input_prompt = "Speak like Yoda from Star Wars"
+
 	if "memory" not in st.session_state:
 		st.session_state.memory = ConversationBufferWindowMemory(k=5)
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
-	st.write("memory data: ", memory_data)
-	st.session_state.prompt_template = f"""You are a helpful assistant
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
 										This is the last conversation history
 										{memory_data}
 										"""
-	 #call the function in your base bot
-	#Initialize chat history
+	st.write("new prompt template: ", st.session_state.prompt_template)
+
+	st.session_state.vectorstore = vectorstore_creator()
+
+	# Initialize chat history
 	if "msg" not in st.session_state:
 		st.session_state.msg = []
 
-	#Showing Chat history
+	# Showing Chat history
 	for message in st.session_state.msg:
 		with st.chat_message(message["role"]):
 			st.markdown(message["content"])
 	try:
 		#
 		if prompt := st.chat_input("What is up?"):
-			#query information
+			# query information
 			if st.session_state.vectorstore:
 				docs = st.session_state.vectorstore.similarity_search(prompt)
 				docs = docs[0].page_content
-				#add your query prompt
+				# add your query prompt
 				vs_prompt = f"""You should reference this search result to help your answer,
 								{docs}
 								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
 			else:
 				vs_prompt = ""
-			#add query prompt to your memory prompt and send it to LLM
-			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
-			#set user prompt in chat history
+			# add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = (
+				st.session_state.prompt_template + vs_prompt
+			)
+			# set user prompt in chat history
 			st.session_state.msg.append({"role": "user", "content": prompt})
 			with st.chat_message("user"):
 				st.markdown(prompt)
@@ -2263,15 +2242,107 @@ def ch15_chatbot():
 			with st.chat_message("assistant"):
 				message_placeholder = st.empty()
 				full_response = ""
-				#streaming function
+				# streaming function
 				for response in chat_completion_stream_prompt(prompt):
 					full_response += response.choices[0].delta.get("content", "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
 			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
-			#collect data
-			ex15_collect("username", full_response, prompt)
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
+
+			ex15_collect(st.session_state.name, full_response, prompt)
+
+	except Exception as e:
+		st.error(e)
+
+def class1_ch15():
+	st.subheader("Challenge 15: Using a database")
+	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
+	st.write("Copy the code from ***ex14()*** and use the ***ex15()*** to collect and display the data.")
+
+	st.markdown("**:blue[Code]**")
+	with st.expander("Reveal Code"):
+		st.code('''
+def ch15_chatbot():
+	# Prompt_template form from ex11
+	prompt_template = PromptTemplate(
+		input_variables=["occupation", "topic", "age"],
+		template="""Imagine you are a {occupation} who is an expert on the  topic of {topic} , you are going to help , teach and provide information
+						to the person who is {age} years old, if you do not not know the answer, you must tell the person , do not make any answer up""",
+	)
+	dict_inputs = prompt_inputs_form()
+	if dict_inputs:
+		input_prompt = prompt_template.format(
+			occupation=dict_inputs["occupation"],
+			topic=dict_inputs["topic"],
+			age=dict_inputs["age"],
+		)
+		st.session_state.input_prompt = input_prompt
+
+	if "input_prompt" not in st.session_state:
+		st.session_state.input_prompt = "Speak like Yoda from Star Wars"
+
+	if "memory" not in st.session_state:
+		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+
+	# step 1 save the memory from your chatbot
+	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
+	memory_data = st.session_state.memory.load_memory_variables({})
+	st.write(memory_data)
+	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
+										This is the last conversation history
+										{memory_data}
+										"""
+	st.write("new prompt template: ", st.session_state.prompt_template)
+
+	st.session_state.vectorstore = vectorstore_creator()
+
+	# Initialize chat history
+	if "msg" not in st.session_state:
+		st.session_state.msg = []
+
+	# Showing Chat history
+	for message in st.session_state.msg:
+		with st.chat_message(message["role"]):
+			st.markdown(message["content"])
+	try:
+		#
+		if prompt := st.chat_input("What is up?"):
+			# query information
+			if st.session_state.vectorstore:
+				docs = st.session_state.vectorstore.similarity_search(prompt)
+				docs = docs[0].page_content
+				# add your query prompt
+				vs_prompt = f"""You should reference this search result to help your answer,
+								{docs}
+								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+			else:
+				vs_prompt = ""
+			# add query prompt to your memory prompt and send it to LLM
+			st.session_state.prompt_template = (
+				st.session_state.prompt_template + vs_prompt
+			)
+			# set user prompt in chat history
+			st.session_state.msg.append({"role": "user", "content": prompt})
+			with st.chat_message("user"):
+				st.markdown(prompt)
+
+			with st.chat_message("assistant"):
+				message_placeholder = st.empty()
+				full_response = ""
+				# streaming function
+				for response in chat_completion_stream_prompt(prompt):
+					full_response += response.choices[0].delta.get("content", "")
+					message_placeholder.markdown(full_response + "▌")
+				message_placeholder.markdown(full_response)
+			st.session_state.msg.append({"role": "assistant", "content": full_response})
+			st.session_state.memory.save_context(
+				{"input": prompt}, {"output": full_response}
+			)
+
+			ex15_collect(st.session_state.name, full_response, prompt)
 
 	except Exception as e:
 		st.error(e)
@@ -2279,64 +2350,61 @@ def ch15_chatbot():
 		  
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
-	vecstore_creator(False)
-	ex15()
-	ex15_display()
-	if "memory" not in st.session_state:
-		st.session_state.memory = ConversationBufferWindowMemory(k=5)
+	ch15_chatbot()
 
-	#step 1 save the memory from your chatbot 
-	#step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) 
-	memory_data = st.session_state.memory.load_memory_variables({})
-	st.write("memory data: ", memory_data)
-	st.session_state.prompt_template = f"""You are a helpful assistant
-										This is the last conversation history
-										{memory_data}
-										"""
-	 #call the function in your base bot
-	#Initialize chat history
-	if "msg" not in st.session_state:
-		st.session_state.msg = []
+# smart agents accessing the internet for free
+# https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/search_and_chat.py
+def ex16():
+	st.title("🦜 LangChain: Chat with internet search")
 
-	#Showing Chat history
-	for message in st.session_state.msg:
-		with st.chat_message(message["role"]):
-			st.markdown(message["content"])
-	try:
-		#
-		if prompt := st.chat_input("What is up?"):
-			#query information
-			if st.session_state.vectorstore:
-				docs = st.session_state.vectorstore.similarity_search(prompt)
-				docs = docs[0].page_content
-				#add your query prompt
-				vs_prompt = f"""You should reference this search result to help your answer,
-								{docs}
-								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
-			else:
-				vs_prompt = ""
-			#add query prompt to your memory prompt and send it to LLM
-			st.session_state.prompt_template = st.session_state.prompt_template + vs_prompt
-			#set user prompt in chat history
-			st.session_state.msg.append({"role": "user", "content": prompt})
-			with st.chat_message("user"):
-				st.markdown(prompt)
+	msgs = StreamlitChatMessageHistory()
+	memory = ConversationBufferMemory(
+		chat_memory=msgs,
+		return_messages=True,
+		memory_key="chat_history",
+		output_key="output",
+	)
+	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
+		msgs.clear()
+		msgs.add_ai_message("How can I help you?")
+		st.session_state.steps = {}
 
-			with st.chat_message("assistant"):
-				message_placeholder = st.empty()
-				full_response = ""
-				#streaming function
-				for response in chat_completion_stream_prompt(prompt):
-					full_response += response.choices[0].delta.get("content", "")
-					message_placeholder.markdown(full_response + "▌")
-				message_placeholder.markdown(full_response)
-			st.session_state.msg.append({"role": "assistant", "content": full_response})
-			st.session_state.memory.save_context({"input": prompt}, {"output": full_response})
-			#collect data
-			ex15_collect("username", full_response, prompt)
+	avatars = {"human": "user", "ai": "assistant"}
+	for idx, msg in enumerate(msgs.messages):
+		with st.chat_message(avatars[msg.type]):
+			# Render intermediate steps if any were saved
+			for step in st.session_state.steps.get(str(idx), []):
+				if step[0].tool == "_Exception":
+					continue
+				with st.status(
+					f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
+				):
+					st.write(step[0].log)
+					st.write(step[1])
+			st.write(msg.content)
 
-	except Exception as e:
-		st.error(e)
+	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
+		st.chat_message("user").write(prompt)
+
+		llm = ChatOpenAI(
+			model_name="gpt-3.5-turbo", openai_api_key=openai.api_key, streaming=True
+		)
+		tools = [DuckDuckGoSearchRun(name="Search")]
+		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
+		executor = AgentExecutor.from_agent_and_tools(
+			agent=chat_agent,
+			tools=tools,
+			memory=memory,
+			return_intermediate_steps=True,
+			handle_parsing_errors=True,
+		)
+		with st.chat_message("assistant"):
+			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
+			response = executor(prompt, callbacks=[st_cb])
+			st.write(response["output"])
+			st.session_state.steps[str(len(msgs.messages) - 1)] = response[
+				"intermediate_steps"
+			]
 
 def class1_ex16():
 	st.subheader("Exercise 16: Smart agent")
@@ -2345,16 +2413,17 @@ def class1_ex16():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#smart agents accessing the internet for free
-#https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/search_and_chat.py
+# smart agents accessing the internet for free
+# https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/search_and_chat.py
 def ex16():
-	st.title("🦜 LangChain: Chat with search")
-
-	openai_api_key = st.secrets["openapi_key"]
+	st.title("🦜 LangChain: Chat with internet search")
 
 	msgs = StreamlitChatMessageHistory()
 	memory = ConversationBufferMemory(
-		chat_memory=msgs, return_messages=True, memory_key="chat_history", output_key="output"
+		chat_memory=msgs,
+		return_messages=True,
+		memory_key="chat_history",
+		output_key="output",
 	)
 	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
 		msgs.clear()
@@ -2368,7 +2437,9 @@ def ex16():
 			for step in st.session_state.steps.get(str(idx), []):
 				if step[0].tool == "_Exception":
 					continue
-				with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
+				with st.status(
+					f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
+				):
 					st.write(step[0].log)
 					st.write(step[1])
 			st.write(msg.content)
@@ -2376,7 +2447,9 @@ def ex16():
 	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
 		st.chat_message("user").write(prompt)
 
-		llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
+		llm = ChatOpenAI(
+			model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True
+		)
 		tools = [DuckDuckGoSearchRun(name="Search")]
 		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
 		executor = AgentExecutor.from_agent_and_tools(
@@ -2390,82 +2463,38 @@ def ex16():
 			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
 			response = executor(prompt, callbacks=[st_cb])
 			st.write(response["output"])
-			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
+			st.session_state.steps[str(len(msgs.messages) - 1)] = response[
+				"intermediate_steps"
+			]
 ''')
-
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 	ex16()
 
-#smart agents accessing the internet for free
-#https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/search_and_chat.py
-def ex16():
-	st.title("🦜 LangChain: Chat with search")
-
-	openai_api_key = st.secrets["openapi_key"]
-
-	msgs = StreamlitChatMessageHistory()
-	memory = ConversationBufferMemory(
-		chat_memory=msgs, return_messages=True, memory_key="chat_history", output_key="output"
-	)
-	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
-		msgs.clear()
-		msgs.add_ai_message("How can I help you?")
-		st.session_state.steps = {}
-
-	avatars = {"human": "user", "ai": "assistant"}
-	for idx, msg in enumerate(msgs.messages):
-		with st.chat_message(avatars[msg.type]):
-			# Render intermediate steps if any were saved
-			for step in st.session_state.steps.get(str(idx), []):
-				if step[0].tool == "_Exception":
-					continue
-				with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
-					st.write(step[0].log)
-					st.write(step[1])
-			st.write(msg.content)
-
-	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
-		st.chat_message("user").write(prompt)
-
-		llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
-		tools = [DuckDuckGoSearchRun(name="Search")]
-		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
-		executor = AgentExecutor.from_agent_and_tools(
-			agent=chat_agent,
-			tools=tools,
-			memory=memory,
-			return_intermediate_steps=True,
-			handle_parsing_errors=True,
-		)
-		with st.chat_message("assistant"):
-			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
-			response = executor(prompt, callbacks=[st_cb])
-			st.write(response["output"])
-			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
-
-#agents ,vectorstores, wiki 
-#https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
-#note tool
+# agents ,vectorstores, wiki
+# https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
+# note tool
 @tool("Document search")
-def document_search(query: str) ->str:
+def document_search(query: str) -> str:
+	# this is the prompt to the tool itself
 	"Use this function first to search for documents pertaining to the query before going into the internet"
 	docs = st.session_state.vectorstore.similarity_search(query)
 	docs = docs[0].page_content
 	json_string = json.dumps(docs, ensure_ascii=False, indent=4)
 	return json_string
 
+# combine vector store and internet search
 def ex17():
-	vecstore_creator(False)
-	#st.session_state.vectorstore
+	st.title("🦜 LangChain: Chat with internet search")
 
-	st.title("🦜 LangChain: Chat with search")
-
-	openai_api_key = st.secrets["openapi_key"]
+	st.session_state.vectorstore = vectorstore_creator()
 
 	msgs = StreamlitChatMessageHistory()
 	memory = ConversationBufferMemory(
-		chat_memory=msgs, return_messages=True, memory_key="chat_history", output_key="output"
+		chat_memory=msgs,
+		return_messages=True,
+		memory_key="chat_history",
+		output_key="output",
 	)
 	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
 		msgs.clear()
@@ -2479,7 +2508,9 @@ def ex17():
 			for step in st.session_state.steps.get(str(idx), []):
 				if step[0].tool == "_Exception":
 					continue
-				with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
+				with st.status(
+					f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
+				):
 					st.write(step[0].log)
 					st.write(step[1])
 			st.write(msg.content)
@@ -2487,8 +2518,10 @@ def ex17():
 	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
 		st.chat_message("user").write(prompt)
 
-		llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
-		tools = [DuckDuckGoSearchRun(name="Internet Search"), document_search]
+		llm = ChatOpenAI(
+			model_name="gpt-3.5-turbo", openai_api_key=openai.api_key, streaming=True
+		)
+		tools = [document_search, DuckDuckGoSearchRun(name="Internet Search")]
 		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
 		executor = AgentExecutor.from_agent_and_tools(
 			agent=chat_agent,
@@ -2501,7 +2534,9 @@ def ex17():
 			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
 			response = executor(prompt, callbacks=[st_cb])
 			st.write(response["output"])
-			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
+			st.session_state.steps[str(len(msgs.messages) - 1)] = response[
+				"intermediate_steps"
+			]
 
 def class1_ex17():
 	st.subheader("Exercise 17: Smart agent with vector store")
@@ -2512,28 +2547,30 @@ def class1_ex17():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#agents ,vectorstores, wiki 
-#https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
-#note tool
+# agents ,vectorstores, wiki
+# https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval
+# note tool
 @tool("Document search")
-def document_search(query: str) ->str:
+def document_search(query: str) -> str:
+	# this is the prompt to the tool itself
 	"Use this function first to search for documents pertaining to the query before going into the internet"
 	docs = st.session_state.vectorstore.similarity_search(query)
 	docs = docs[0].page_content
 	json_string = json.dumps(docs, ensure_ascii=False, indent=4)
 	return json_string
 
+# combine vector store and internet search
 def ex17():
-	vecstore_creator(False)
-	#st.session_state.vectorstore
+	st.title("🦜 LangChain: Chat with internet search")
 
-	st.title("🦜 LangChain: Chat with search")
-
-	openai_api_key = st.secrets["openapi_key"]
+	st.session_state.vectorstore = vectorstore_creator()
 
 	msgs = StreamlitChatMessageHistory()
 	memory = ConversationBufferMemory(
-		chat_memory=msgs, return_messages=True, memory_key="chat_history", output_key="output"
+		chat_memory=msgs,
+		return_messages=True,
+		memory_key="chat_history",
+		output_key="output",
 	)
 	if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
 		msgs.clear()
@@ -2547,7 +2584,9 @@ def ex17():
 			for step in st.session_state.steps.get(str(idx), []):
 				if step[0].tool == "_Exception":
 					continue
-				with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
+				with st.status(
+					f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
+				):
 					st.write(step[0].log)
 					st.write(step[1])
 			st.write(msg.content)
@@ -2555,8 +2594,10 @@ def ex17():
 	if prompt := st.chat_input(placeholder="Enter a query on the Internet"):
 		st.chat_message("user").write(prompt)
 
-		llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
-		tools = [DuckDuckGoSearchRun(name="Internet Search"), document_search]
+		llm = ChatOpenAI(
+			model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True
+		)
+		tools = [document_search, DuckDuckGoSearchRun(name="Internet Search")]
 		chat_agent = ConversationalChatAgent.from_llm_and_tools(llm=llm, tools=tools)
 		executor = AgentExecutor.from_agent_and_tools(
 			agent=chat_agent,
@@ -2569,14 +2610,15 @@ def ex17():
 			st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
 			response = executor(prompt, callbacks=[st_cb])
 			st.write(response["output"])
-			st.session_state.steps[str(len(msgs.messages) - 1)] = response["intermediate_steps"]
+			st.session_state.steps[str(len(msgs.messages) - 1)] = response[
+				"intermediate_steps"
+			]
 ''')
-		  
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 	ex17()
 
-#Pandai - A smart agent that can do visual analytics
+# PandasAI- A smart agent that can do visual analytics
 def ex18():
 	st.title("pandas-ai streamlit interface")
 
@@ -2586,44 +2628,84 @@ def ex18():
 		st.session_state.openai_key = st.secrets["openapi_key"]
 		st.session_state.prompt_history = []
 		st.session_state.df = None
-	
-	if st.session_state.df is None:
-		# If a file is uploaded, read it with pandas and display the DataFrame
-		if uploaded_file is not None:
-			try:
-				df = pd.read_csv(uploaded_file)
-				st.session_state.df = df
-			except Exception as e:
-				st.write("There was an error processing the CSV file.")
-				st.write(e)
 
-	# Check if df is a DataFrame instance
-	if  st.session_state.df is None:
-		st.session_state.df = pd.DataFrame({
-			"country": ["United States", "United Kingdom", "France", "Germany", "Italy", "Spain", "Canada", "Australia", "Japan", "China"],
-			"gdp": [19294482071552, 2891615567872, 2411255037952, 3435817336832, 1745433788416, 1181205135360, 1607402389504, 1490967855104, 4380756541440, 14631844184064],
-			"happiness_index": [6.94, 7.16, 6.66, 7.07, 6.38, 6.4, 7.23, 7.22, 5.87, 5.12]
-		})
-	
+	if uploaded_file is not None:
+		try:
+			df = pd.read_csv(uploaded_file)
+			st.session_state.df = df
+		except Exception as e:
+			st.write("There was an error processing the CSV file.")
+			st.write(e)
+
+	else:
+		st.session_state.df = pd.DataFrame(
+			{
+				"country": [
+					"United States",
+					"United Kingdom",
+					"France",
+					"Germany",
+					"Italy",
+					"Spain",
+					"Canada",
+					"Australia",
+					"Japan",
+					"China",
+				],
+				"gdp": [
+					19294482071552,
+					2891615567872,
+					2411255037952,
+					3435817336832,
+					1745433788416,
+					1181205135360,
+					1607402389504,
+					1490967855104,
+					4380756541440,
+					14631844184064,
+				],
+				"happiness_index": [
+					6.94,
+					7.16,
+					6.66,
+					7.07,
+					6.38,
+					6.4,
+					7.23,
+					7.22,
+					5.87,
+					5.12,
+				],
+			}
+		)
+	chart_path = os.path.join("exports/charts")
 	with st.form("Question"):
 		question = st.text_input("Question", value="", type="default")
 		submitted = st.form_submit_button("Submit")
 		if submitted:
 			with st.spinner():
 				llm = OpenAI(api_token=st.session_state.openai_key)
-				df = SmartDataframe(st.session_state.df, config={"llm": llm})
-				response = df.chat(question)  # Using 'chat' method based on your context.
-			
-				# After generating the chart (if applicable), display it:
-				chart_path = os.path.join("exports/charts", "temp_chart.png")
-				if os.path.exists(chart_path):
-					plt.savefig(chart_path)
-					st.image(chart_path, caption="Generated Chart", use_column_width=True)
-				
+				df = SmartDataframe(
+					st.session_state.df,
+					config={
+						"llm": llm,
+						"save_charts_path": chart_path,
+						"save_charts": True,
+						"verbose": True,
+					},
+				)
+				response = df.chat(
+					question
+				)  # Using 'chat' method based on your context
+
 				# Display the textual response (if any):
 				if response:
 					st.write(response)
-				
+				chart_path = os.path.join("exports/charts", "temp_chart.png")
+				if os.path.exists(chart_path):
+					st.image(
+						chart_path, caption="Generated Chart", use_column_width=True
+					)
 				# Append the question to the history:
 				st.session_state.prompt_history.append(question)
 
@@ -2646,7 +2728,7 @@ def class1_ex18():
 
 	st.markdown("**:blue[Code]**")
 	st.code('''
-#Pandai - A smart agent that can do visual analytics
+# PandasAI- A smart agent that can do visual analytics
 def ex18():
 	st.title("pandas-ai streamlit interface")
 
@@ -2656,44 +2738,84 @@ def ex18():
 		st.session_state.openai_key = st.secrets["openapi_key"]
 		st.session_state.prompt_history = []
 		st.session_state.df = None
-	
-	if st.session_state.df is None:
-		# If a file is uploaded, read it with pandas and display the DataFrame
-		if uploaded_file is not None:
-			try:
-				df = pd.read_csv(uploaded_file)
-				st.session_state.df = df
-			except Exception as e:
-				st.write("There was an error processing the CSV file.")
-				st.write(e)
 
-	# Check if df is a DataFrame instance
-	if  st.session_state.df is None:
-		st.session_state.df = pd.DataFrame({
-			"country": ["United States", "United Kingdom", "France", "Germany", "Italy", "Spain", "Canada", "Australia", "Japan", "China"],
-			"gdp": [19294482071552, 2891615567872, 2411255037952, 3435817336832, 1745433788416, 1181205135360, 1607402389504, 1490967855104, 4380756541440, 14631844184064],
-			"happiness_index": [6.94, 7.16, 6.66, 7.07, 6.38, 6.4, 7.23, 7.22, 5.87, 5.12]
-		})
-	
+	if uploaded_file is not None:
+		try:
+			df = pd.read_csv(uploaded_file)
+			st.session_state.df = df
+		except Exception as e:
+			st.write("There was an error processing the CSV file.")
+			st.write(e)
+
+	else:
+		st.session_state.df = pd.DataFrame(
+			{
+				"country": [
+					"United States",
+					"United Kingdom",
+					"France",
+					"Germany",
+					"Italy",
+					"Spain",
+					"Canada",
+					"Australia",
+					"Japan",
+					"China",
+				],
+				"gdp": [
+					19294482071552,
+					2891615567872,
+					2411255037952,
+					3435817336832,
+					1745433788416,
+					1181205135360,
+					1607402389504,
+					1490967855104,
+					4380756541440,
+					14631844184064,
+				],
+				"happiness_index": [
+					6.94,
+					7.16,
+					6.66,
+					7.07,
+					6.38,
+					6.4,
+					7.23,
+					7.22,
+					5.87,
+					5.12,
+				],
+			}
+		)
+	chart_path = os.path.join("exports/charts")
 	with st.form("Question"):
 		question = st.text_input("Question", value="", type="default")
 		submitted = st.form_submit_button("Submit")
 		if submitted:
 			with st.spinner():
 				llm = OpenAI(api_token=st.session_state.openai_key)
-				df = SmartDataframe(st.session_state.df, config={"llm": llm})
-				response = df.chat(question)  # Using 'chat' method based on your context.
-			
-				# After generating the chart (if applicable), display it:
-				chart_path = os.path.join("exports/charts", "temp_chart.png")
-				if os.path.exists(chart_path):
-					plt.savefig(chart_path)
-					st.image(chart_path, caption="Generated Chart", use_column_width=True)
-				
+				df = SmartDataframe(
+					st.session_state.df,
+					config={
+						"llm": llm,
+						"save_charts_path": chart_path,
+						"save_charts": True,
+						"verbose": True,
+					},
+				)
+				response = df.chat(
+					question
+				)  # Using 'chat' method based on your context
+
 				# Display the textual response (if any):
 				if response:
 					st.write(response)
-				
+				chart_path = os.path.join("exports/charts", "temp_chart.png")
+				if os.path.exists(chart_path):
+					st.image(
+						chart_path, caption="Generated Chart", use_column_width=True
+					)
 				# Append the question to the history:
 				st.session_state.prompt_history.append(question)
 
@@ -2708,6 +2830,5 @@ def ex18():
 		st.session_state.prompt_history = []
 		st.session_state.df = None
 ''')
-	  
 	st.markdown("**:red[Code Output]**")
 	ex18()
