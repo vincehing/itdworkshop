@@ -946,6 +946,11 @@ def class1_ex7():
 	st.code('''
 	openapi_key = "xxxxxx"
 	''')
+	st.write("Include the following global variables in your ***main.py*** file under the import statements:")
+	st.code('''
+os.environ["OPENAI_API_KEY"] = st.secrets["openapi_key"]
+openai.api_key = st.secrets["openapi_key"]
+''')
 	#st.markdown("**:red[Code Output]**")
 	pass
 
