@@ -5,7 +5,7 @@ import openai
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-#exercis 12
+#exercise 12
 from langchain.memory import ConversationBufferWindowMemory
 #exercise 13
 from langchain.document_loaders import TextLoader,PyPDFLoader
@@ -1848,7 +1848,7 @@ def upload_file_streamlit():
 		return temp_file_path
 	
 #exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
-def vectorstore_creator(query):
+def vectorstore_creator():
 	# WORKING_DIRECTORY set above in the main.py
 	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
 	embeddings = OpenAIEmbeddings()
