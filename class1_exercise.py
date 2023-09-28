@@ -17,7 +17,7 @@ import tempfile
 #exercise 15
 import sqlite3
 import pandas as pd
-import datetime
+from datetime import datetime
 #exercise 16
 from langchain.agents import ConversationalChatAgent, AgentExecutor
 from langchain.callbacks import StreamlitCallbackHandler
@@ -357,8 +357,26 @@ def ex2():
 
 def class1_ch2():
 	st.subheader("Challenge 2: The Streamlit sidebar ")
-	st.markdown("""Copy the code for ***ex2()*** and paste in the ***main()*** function. Change the title to ***Code Exercises*** and name the options ***ex1()***, ***ex2()***, and so on.""")
+	st.write("Copy the code for ***ex2()*** and paste in the ***main()*** function. Like this:")
+	st.code('''
+def main():
+	placeholder = st.empty()
+	
+	with st.sidebar:
+		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
+
+	if option == "Option 1":
+		with placeholder.container():
+			st.write("You selected option 1")
+	elif option == "Option 2":
+		with placeholder.container():
+			st.write("You selected option 2")
+	else:
+		st.write("Please select an option from the sidebar")
+''')		 
+	st.write("Now, for this challenge exercise, change the sidebar title to ***Code Exercises*** and name the options ***ex1()***, ***ex2()***, and so on.""")
 	st.write("This way, just by selecting the options in the sidebar, you can run the different exercises.")
+	st.write("For the rest of this course, you would need to keep updating the sidebar as you add more code exercises, in order to toggle which code exercise to run.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
 		st.code('''
@@ -1758,7 +1776,7 @@ def upload_file_streamlit():
 		return temp_file_path
 	
 #exercise 13 - split and chunk, embeddings and storing in vectorstores for reference
-def vectorstore_creator(query):
+def vectorstore_creator():
 	# WORKING_DIRECTORY set above in the main.py
 	# Process the temporary file using UnstructuredFileLoader (or any other method you need)
 	embeddings = OpenAIEmbeddings()
