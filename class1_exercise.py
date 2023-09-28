@@ -328,17 +328,14 @@ def class1_ex2():
 	st.code('''
 # Exercise 2 : Streamlit sidebar
 def ex2():
-	placeholder = st.empty()
 	
 	with st.sidebar:
 		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
 
 	if option == "Option 1":
-		with placeholder.container():
-			st.write("You selected option 1")
+		st.write("You selected option 1")
 	elif option == "Option 2":
-		with placeholder.container():
-			st.write("You selected option 2")
+		st.write("You selected option 2")
 	else:
 		st.write("Please select an option from the sidebar")
 ''')
@@ -360,17 +357,13 @@ def class1_ch2():
 	st.write("Copy the code for ***ex2()*** and paste in the ***main()*** function. Like this:")
 	st.code('''
 def main():
-	placeholder = st.empty()
-	
 	with st.sidebar:
 		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
 
 	if option == "Option 1":
-		with placeholder.container():
-			st.write("You selected option 1")
+		st.write("You selected option 1")
 	elif option == "Option 2":
-		with placeholder.container():
-			st.write("You selected option 2")
+		st.write("You selected option 2")
 	else:
 		st.write("Please select an option from the sidebar")
 ''')		 
@@ -381,22 +374,17 @@ def main():
 	with st.expander("Reveal Code"):
 		st.code('''
 def main():
-	placeholder = st.empty()
-		 
 	with st.sidebar:
 		option = st.selectbox("Code Exercises", ["", "ex1", "ex2", "ex3"])
 	
 	if option == "ex1":
-		with placeholder.container():
-			ex1()
+		ex1()
 	
 	elif option == "ex2":
-		with placeholder.container():
-			ex2()
+		ex2()
 		  
 	elif option == "ex3":
-		with placeholder.container():
-			ex3()
+		ex3()
 ''')
 
 def ex3a():
