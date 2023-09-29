@@ -2248,6 +2248,8 @@ def class1_ch15():
 	with st.expander("Reveal Code"):
 		st.code('''
 def ch15_chatbot():
+	#display ex15 table
+	ex15()
 	# Prompt_template form from ex11
 	prompt_template = PromptTemplate(
 		input_variables=["occupation", "topic", "age"],
