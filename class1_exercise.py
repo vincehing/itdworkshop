@@ -1971,8 +1971,10 @@ def ex14():
 	st.write(memory_data)
 	st.session_state.prompt_template = f"""
 {st.session_state.input_prompt}
+
 This is the last conversation history:
-{memory_data}"""
+{memory_data}
+"""
 	st.write("new prompt template: ", st.session_state.prompt_template)
 
 	st.session_state.vectorstore = vectorstore_creator()
