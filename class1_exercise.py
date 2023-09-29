@@ -1582,7 +1582,7 @@ Below is the conversation history between the AI and Users so far
 {memory_data}
 
 """
-	st.write("New prompt template: \n", st.session_state.prompt_template)
+	st.write("New prompt template:", st.session_state.prompt_template)
 	# call the function in your base bot
 	# Initialize chat history
 	if "msg" not in st.session_state:
@@ -1671,7 +1671,7 @@ Below is the conversation history between the AI and Users so far
 
 """
 
-	st.write("New prompt template: \n", st.session_state.prompt_template)
+	st.write("New prompt template: ", st.session_state.prompt_template)
 	# call the function in your base bot
 	# Initialize chat history
 	if "msg" not in st.session_state:
