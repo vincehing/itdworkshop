@@ -498,7 +498,7 @@ def ex3b():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
-	name = st.text_input("Enter your name", John)
+	name = st.text_input("Enter your name", "John")
 	age = st.text_input("State your age", 30)
 	gender = st.selectbox("State your gender", ["Male", "Female"])
 	city = st.text_input("State your city", "New York")
