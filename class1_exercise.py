@@ -2241,6 +2241,7 @@ def class1_ch15():
 	st.subheader("Challenge 15: Using a database")
 	st.write("For this challenge, we will incorporate using a database from our previous exercise.")
 	st.write("Copy the code from ***ex14()*** and use the ***ex15()*** to collect and display the data.")
+	ex15()
 
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
