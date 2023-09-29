@@ -1874,10 +1874,13 @@ def ex14():
 	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write(memory_data)
-	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
-										This is the last conversation history
-										{memory_data}
-										"""
+	st.session_state.prompt_template = f"""
+st.session_state.input_prompt: {st.session_state.input_prompt}
+
+This is the last conversation history
+{memory_data}
+
+"""
 	st.write("new prompt template: ", st.session_state.prompt_template)
 
 	st.session_state.vectorstore = vectorstore_creator()
@@ -1966,10 +1969,13 @@ def ex14():
 	# step 2 integrate the memory in the prompt_template (st.session_state.prompt_template) show a hint
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write(memory_data)
-	st.session_state.prompt_template = f"""{st.session_state.input_prompt}
-										This is the last conversation history
-										{memory_data}
-										"""
+	st.session_state.prompt_template = f"""
+st.session_state.input_prompt: {st.session_state.input_prompt}
+
+This is the last conversation history
+{memory_data}
+
+"""
 	st.write("new prompt template: ", st.session_state.prompt_template)
 
 	st.session_state.vectorstore = vectorstore_creator()
