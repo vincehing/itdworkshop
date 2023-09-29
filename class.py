@@ -190,11 +190,11 @@ def main():
 					MenuItem(ex13, icon='journal-code'),
 					MenuItem(ex14, icon='journal-code'),
     			]), 
+				MenuItem('Part 3 deck', icon='file-slides', href='https://docs.google.com/presentation/d/1fvMGaUC-K49ws1NaCdENB3CC4L7WZr337yTcsLqak1k/edit?usp=sharing'),
 				MenuItem('Database', icon='', children=[
 					MenuItem(ex15, icon='journal-code'),
 					MenuItem(ch15, icon='journal-code'),
     			]), 
-				MenuItem('Part 3 deck', icon='file-slides', href='https://docs.google.com/presentation/d/1fvMGaUC-K49ws1NaCdENB3CC4L7WZr337yTcsLqak1k/edit?usp=sharing'),
 				MenuItem('Smart Agent', icon='', children=[
 					MenuItem(ex16, icon='journal-code'),
     			]), 
