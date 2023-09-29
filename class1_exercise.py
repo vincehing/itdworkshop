@@ -2708,6 +2708,8 @@ def class1_ex18():
 	st.subheader("Exercise 18: Data Analytics")
 	st.write("In this exercise, we will use the Pandas AI library to perform data analytics.")
 	st.write("The Pandas AI library is a smart agent that can perform data analytics on a dataframe.")
+	st.write("You may need to install the following library:")
+	st.code('''pip install bs4''')
 	st.write("Copy and run the code below to see the chatbot in action.")
 
 	st.markdown("**:blue[Code]**")
