@@ -1777,6 +1777,7 @@ def class1_ex13():
 	st.code('''
 pip install pypdf
 pip install lancedb
+pip install tiktoken
 ''')
 	st.markdown("**:blue[Code]**")
 	st.code('''
