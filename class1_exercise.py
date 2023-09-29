@@ -1341,12 +1341,11 @@ def ex11a():  # change in ex11a
 	# creating a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt)
 	if st.button("Run my chain"):
-		with st.status("Running Chain"):
-			input_prompt = prompt.format(subject="English", topic="Verbs")
-			# Showing what is sent to LLM Chain
-			st.write("Input prompt: ", input_prompt)
-			# Showing the output from LLM Chain
-			st.write(chain.run({"subject": "English", "topic": "Verbs"}))
+		input_prompt = prompt.format(subject="English", topic="Verbs")
+		# Showing what is sent to LLM Chain
+		st.write("Input prompt: ", input_prompt)
+		# Showing the output from LLM Chain
+		st.write(chain.run({"subject": "English", "topic": "Verbs"}))
 		
 def class1_ex11a():
 	st.subheader("Exercise 11a: Prompt Template with LangChain")
@@ -1368,12 +1367,11 @@ def ex11a():  # change in ex11a
 	# creating a LLM chain with the langchain call and prompt template
 	chain = LLMChain(llm=llm, prompt=prompt)
 	if st.button("Run my chain"):
-		with st.status("Running Chain"):
-			input_prompt = prompt.format(subject="English", topic="Verbs")
-			# Showing what is sent to LLM Chain
-			st.write("Input prompt: ", input_prompt)
-			# Showing the output from LLM Chain
-			st.write(chain.run({"subject": "English", "topic": "Verbs"}))
+		input_prompt = prompt.format(subject="English", topic="Verbs")
+		# Showing what is sent to LLM Chain
+		st.write("Input prompt: ", input_prompt)
+		# Showing the output from LLM Chain
+		st.write(chain.run({"subject": "English", "topic": "Verbs"}))
 ''')
 	st.markdown("**:red[Code Output]**")
 	#actual code here
