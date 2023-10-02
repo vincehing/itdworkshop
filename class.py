@@ -95,7 +95,7 @@ st.session_state.login_key = True
 
 def main():
 	st.title("ITD Sharing Workshops 2023") 
-	divider(label='One Day Workshop - Exploring Generative AI and LLMs', icon='journal-code', align='left')
+	divider(label='Exploring Generative AI: Codecraft Workshop', icon='journal-code', align='left')
 
 	if 'login_key' not in st.session_state:
 		st.session_state.login_key = False
