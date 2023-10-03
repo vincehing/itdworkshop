@@ -255,7 +255,15 @@ def part1_intro1():
 		 	* Metacog for CotF MOE
 		 	* AILC prototype for MOE
 		 """)
-	
+
+def ex1():
+	# Exercise 1 : Functions
+	st.write("Hello World")
+	# only prints the Hello {name} if input box is not empty
+	name = st.text_input("Enter your name")
+	if name:
+		st.write("Hello " + name)
+
 def class1_ex1():
 	st.subheader("Exercise 1: Functions")
 	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
@@ -281,12 +289,9 @@ if __name__ == "__main__":
 	st.code("streamlit run main.py")
 	st.markdown("You should see the following behaviour in your browser window:")
 	st.markdown("**:red[Code Output]**")
-	# Exercise 1 : Functions
-	st.write("Hello World")
-	# only prints the Hello {name} if input box is not empty
-	name = st.text_input("Enter your name")
-	if name:
-		st.write("Hello " + name)
+	#actual code here
+	ex1()
+
 
 def ch1():
 	name = st.text_input("Enter your name")
