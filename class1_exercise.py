@@ -292,7 +292,6 @@ if __name__ == "__main__":
 	#actual code here
 	ex1()
 
-
 def ch1():
 	name = st.text_input("Enter your name")
 	gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -326,6 +325,18 @@ def ch1():
 	st.markdown("**:red[Code Output]**")
 	# Actual code here
 	ch1()
+
+def ex2():
+	# Exercise 2 : Streamlit sidebar
+	with st.sidebar:
+		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
+
+	if option == "Option 1":
+		st.write("You selected option 1")
+	elif option == "Option 2":
+		st.write("You selected option 2")
+	else:
+		st.write("Please select an option from the sidebar")
 
 def class1_ex2():
 	st.subheader("Exercise 2: The Streamlit sidebar")
@@ -685,6 +696,22 @@ def main():
 	st.write("session_state.gender: ", st.session_state.gender)
 	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
 
+def ex5():
+	st.title("My first chatbot")
+
+	if "store_msg" not in st.session_state:
+		st.session_state.store_msg = []
+
+	prompt = st.chat_input("Say something")
+	if prompt:
+		st.write(f"User has sent the following prompt: {prompt}")
+		st.session_state.store_msg.append(prompt)
+		for message in st.session_state.store_msg:
+			with st.chat_message("user"):
+				st.write(message)
+			with st.chat_message("assistant"):
+				st.write("Hello human, what can I do for you?")
+
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
 	st.write("We will start creating a user interface for our first chatbot.")
@@ -710,20 +737,8 @@ def ex5():
 				st.write("Hello human, what can I do for you?")
 ''')
 	st.markdown("**:red[Code Output]**")
-	st.markdown("**My first chatbot**")
-
-	if "store_msg" not in st.session_state:
-		st.session_state.store_msg = []
-
-	prompt = st.chat_input("Say something")
-	if prompt:
-		st.write(f"User has sent the following prompt: {prompt}")
-		st.session_state.store_msg.append(prompt)
-		for message in st.session_state.store_msg:
-			with st.chat_message("user"):
-					st.write(message)
-			with st.chat_message("assistant"):
-				st.write("Hello human, what can I do for you?")
+	#actual code here
+	ex5()
 
 def ex6():
 	st.markdown("**Echo Bot**")
@@ -899,6 +914,25 @@ openai.api_key = st.secrets["openapi_key"]
 def class1_ch7():
 	pass
 
+def ex8():
+	st.title("Api Call")
+	MODEL = "gpt-3.5-turbo"
+	response = openai.ChatCompletion.create(
+		model=MODEL,
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant."},
+			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
+		],
+		temperature=0,
+	)
+	st.markdown("**This is the raw response:**") 
+	st.write(response)
+	st.markdown("**This is the extracted response:**")
+	st.write(response["choices"][0]["message"]["content"].strip())
+	s = str(response["usage"]["total_tokens"])
+	st.markdown("**Total tokens used:**")
+	st.write(s)
+
 def class1_ex8():
 	st.subheader("Exercise 8: Calling the OpenAI LLM API")
 	st.write("In this exercise, we will learn how to call the OpenAI LLM API")
@@ -934,23 +968,8 @@ def ex8():
 	st.write(s)
 ''')
 	st.markdown("**:red[Code Output]**")
-	st.title("Api Call")
-	MODEL = "gpt-3.5-turbo"
-	response = openai.ChatCompletion.create(
-		model=MODEL,
-		messages=[
-			{"role": "system", "content": "You are a helpful assistant."},
-			{"role": "user", "content": "Tell me about Singapore in the 1970s in 50 words."},
-		],
-		temperature=0,
-	)
-	st.markdown("**This is the raw response:**") 
-	st.write(response)
-	st.markdown("**This is the extracted response:**")
-	st.write(response["choices"][0]["message"]["content"].strip())
-	s = str(response["usage"]["total_tokens"])
-	st.markdown("**Total tokens used:**")
-	st.write(s)
+	#actual code here
+	ex8()
 
 def chat_completion(prompt):
 	MODEL = "gpt-3.5-turbo"
@@ -1116,7 +1135,6 @@ def chat_completion_stream(prompt):
 		stream=True,  # stream option
 	)
 	return response
-
 
 # integration API call into streamlit chat components
 def ex9_basebot():
