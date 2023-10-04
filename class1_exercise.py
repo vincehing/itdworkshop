@@ -266,12 +266,20 @@ def ex1():
 
 def class1_ex1():
 	st.subheader("Exercise 1: Functions")
-	st.markdown("Create a new file called ***main.py*** and copy the code below into the file.")
-	st.write("For this exercise, we will putting the code for *helloworld* inside a Python function")
+	st.markdown("In the ***main.py*** file, the code below is already in ***ex1()*** in the ***part1.py*** file.")
+	st.write("The code for *helloworld* is inside what you call a Python function.")
+	st.write("The ***def main()*** function and ***if _ _ name _ _ == '_ _ main _ _'*** statement are coding conventions for any Python programme.")
+	st.write("You need to include an import statement in ***main.py*** to import the ***ex1()*** function from the other file.")
+	st.code('''
+from part1 import ex1
+''')
+	st.write("You will need to do the same for all the other exercises and challenges for the rest of the workshop. The code exercises are already in the respective files: ***part1.py, part2.py, part3.py, part4.py***.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
 import streamlit as st
-	 
+
+from part1 import ex1
+		 	 
 #Exercise 1: Functions
 def ex1():
 	st.write("Hello World")
@@ -302,7 +310,7 @@ def ch1():
 
 def class1_ch1():
 	st.subheader("Challenge 1: Input, Output and Variables")
-	st.write("Create a new function called ***ch1()*** and call it in the main function.")
+	st.write("Create a new function called ***ch1()*** in ***part1.py*** and call it in the main function.")
 	st.write("Create three variables *name*, *age* and *gender*, and obtain these from the user.")
 	st.write("Once the user filled up the input boxes, display back the information to the user.")
 	st.write("Code hint: the following piece of code checks if *name* has been filled, and if so, displays it back to the user.")
@@ -397,6 +405,7 @@ def ex3():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
+	# get user input to update the dictionary
 	name = st.text_input("Enter your name", "John")
 	age = st.text_input("State your age", 30)
 	gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -437,6 +446,7 @@ def ex3():
 	for key, value in person.items():
 		st.write(key + ": " + str(value))
 
+	# get user input to update the dictionary
 	name = st.text_input("Enter your name", "John")
 	age = st.text_input("State your age", 30)
 	gender = st.selectbox("State your gender", ["Male", "Female"])
@@ -454,7 +464,7 @@ def ex3():
 	ex3()
 
 def ex4a():
-	st.subheader("Session Data:")
+	#Exercise 4a: Creating Session Data
 	if "session_data" not in st.session_state:
 		st.session_state.session_data = ["alpha", "omega"]
 	
@@ -476,7 +486,7 @@ def ex4a():
 	st.write("gender: ", st.session_state.gender)
 
 def class1_ex4a():
-	st.subheader("Exercise 4: Session Data")
+	st.subheader("Exercise 4a: Session Data")
 	st.write("We can create variables to store data in a user session. Session data persist within a user session.")
 
 	st.markdown("**:blue[Code]**")
@@ -509,7 +519,8 @@ def ex4a():
 	ex4a()
 
 def ex4b():
-	st.subheader("Session Data:")
+	#Exercise 4b: Session Data with User Input
+
 	user_name = st.text_input("Enter your name")
 	user_age = st.text_input("State your age")
 	user_gender = st.selectbox("State your gender", ["", "Male", "Female"])
@@ -525,7 +536,7 @@ def ex4b():
 		st.write("gender: ", st.session_state.gender)
 
 def class1_ex4b():
-	st.subheader("Session Data")
+	st.subheader("Exercise 4b: Session Data with User Input")
 	st.write("Lets now get input from the user and store it in the session data.")
 	st.write("Now run *ex4a()* again to check the session data. Note that it persists.")
 
@@ -550,17 +561,35 @@ def ex4b():
 	st.markdown("**:red[Code Output]**")
 	ex4b()
 
+def ch4():
+	if "name" not in st.session_state:
+		st.session_state.name = "Yoda"
+
+	if "age" not in st.session_state:
+		st.session_state.age = 999
+
+	if "gender" not in st.session_state:
+		st.session_state.gender = "male"
+
+	if "prompt_template" not in st.session_state:
+		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
+
+	st.write("session_state.name: ", st.session_state.name)
+	st.write("session_state.age: ", st.session_state.age)
+	st.write("session_state.gender: ", st.session_state.gender)
+	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
+
 def class1_ch4():
 	st.subheader("Challenge 4: Session Data")
 	st.markdown("""
-		 Add a new function called ***ch4()*** to the ***main.py*** file and call it in the main function.\n
+		 Add a new function called ***ch4()*** to the ***part1.py*** file and call it in the main function.\n
 		 In *ch4()*, modify the code in Exercise 4b to include the following:
 		 * Create session data for ***name***, ***age*** and ***gender***
 		 * Create session data for ***prompt_template*** with the following value:
 			 "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-		 * Include this code in ***main*** as well, because we need the session data for later exercises.\n
+		 * Include this code in ***main()*** as well, because we need the session data for later exercises. Omit the ***st.write*** functions, since we do not want to see this output every time we run ***main()***. \n
 		 Hint:
-		 * To check that the session data is created, you can print out the session data using ***st.write()***:
+		 * In ***ch4()***, to check that the session data is created, you can print out the session data using ***st.write()***:
 		 """)
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
@@ -601,22 +630,8 @@ def main():
 ''')
 		  
 	st.markdown("**:red[Code Output]**")
-	if "name" not in st.session_state:
-		st.session_state.name = "Yoda"
-
-	if "age" not in st.session_state:
-		st.session_state.age = 999
-
-	if "gender" not in st.session_state:
-		st.session_state.gender = "male"
-
-	if "prompt_template" not in st.session_state:
-		st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
-
-	st.write("session_state.name: ", st.session_state.name)
-	st.write("session_state.age: ", st.session_state.age)
-	st.write("session_state.gender: ", st.session_state.gender)
-	st.write("session_state.prompt_template: ", st.session_state.prompt_template)
+	#actual code here
+	ch4()
 
 def ex5():
 	st.title("My first chatbot")
@@ -637,7 +652,7 @@ def ex5():
 def class1_ex5():
 	st.subheader("Exercise 5: Elements of a chatbot")
 	st.write("We will start creating a user interface for our first chatbot.")
-	st.write("Append the following code to the ***main.py*** file.")
+	st.write("Call the following code from ***part1.py*** in your **main()**.")
 	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
@@ -691,7 +706,7 @@ def ex6():
 def class1_ex6():
 	st.subheader("Exercise 6: Building a simple echo chatbot")
 	st.write("We will now build a simple echo chatbot.")
-	st.write("Append the following code to the ***main.py*** file.")
+	st.write("Call the following code from **part1.py** in your ***main()***.")
 	st.write("You should see the output below when you run your programme.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
@@ -762,7 +777,7 @@ def ch6():
 def class1_ch6():
 	st.subheader("Challenge 6: Rule based chatbot ")
 	st.markdown("""
-		 Create a new function called ***ch6()*** and modify the ***ex6()*** function to create the following rule based chatbot:\n
+		 Create a new function called ***ch6()*** in **part1.py** and modify the ***ex6()*** function to create the following rule based chatbot:\n
 		 * Human : “Hello”,  Assistant: “Hi there what can I do for you”\n
 		 * Human : “What is your name?”,  Assistant: “My name is EAI , an electronic artificial being”\n	
 		 * Human : “How old are you?”,  Assistant: “Today is my birthday!”\n
@@ -860,7 +875,7 @@ def class1_ex8():
 	st.write("In this exercise, we will learn how to call the OpenAI LLM API")
 	st.write("Note that there is a new import statement **import openai**")
 	st.markdown("""
-		 Append the following code to your **main.py** and run it.\n
+		 Call the following code in your **main()** and run it.\n
 		 You should see the output as shown below.\n
 		 """)
 	st.markdown("**:blue[Code]**")
@@ -909,23 +924,26 @@ def class1_ch8():
 	st.subheader("Challenge 8: Incorporate your LLM API call into your chatbot")
 	st.write("In this challenge, we will incorporate the LLM API call into our previous rule-based *Echo* chatbot")
 	st.markdown("""
-		 Create a new function **ch8()** and copy the code from **ex6()** into it.\n
-		 Then, copy the code from **ex8** into a new function named **chat_completion()**.\n
-		 Now, instead of echoing the user's input, we will call the LLM API to generate a response.\n
-		 This function should return the response from the LLM API like this:\n
-		 """)
-	st.code('''return response["choices"][0]["message"]["content"].strip()''')
+**Step1**\n
+Create a new function **ch8()** in ***part1.py*** and copy the code from **ex6()** into it. Recall that **ex6()** shows the chat history and gets a chat input from the user, and echoes the user input back to the user. \n
+**Step 2**\n
+Next, copy the code from **ex8** into a new function named **chat_completion()**. Recall that **ex8()** is about making an API call.\n
+Now, instead of echoing the user's input in **ex6()**, we will call the LLM API to generate a response. In particular, we are replacing this line of code with the response from the API call:\n
+""")
+	st.code('''
+response = f"Echo: {prompt}"
+''')
 	st.markdown("""
-		 In **chat_completion()**, replace the previous *Tell me the history ..."* prompt from **ex8()** with the current user's input.\n
-		 In **ch8()**, you can use the following code to call **chat_completion()**:\n
-		 """)
+**Step 3**\n
+In **chat_completion()**, what we will do is to replace the previous *Tell me the history ..."* prompt from **ex8()** with the current user's input.\n
+In order to do so, in **ch8()**, use the following code to call **chat_completion()**.\n
+What we are doing now is to pass the prompt from the user to the API call instead of hard-coding the prompt as in **ex8()**.\n""")
 	st.code('''
 	 if prompt := st.chat.input("What's up?"):
 	 	#display user messgae in chat message container
 	 	reply = chat_completion(prompt) 
 	 	st.chat_message("user").markdown(prompt)
 		''')
-	st.write("Don't forget to add the user message to the chat history!")
 	st.write("You should see the code output as shown below.")
 	st.markdown("**:blue[Code]**")
 	with st.expander("Reveal Code"):
@@ -1129,7 +1147,7 @@ if "prompt_template" not in st.session_state:
 	st.session_state.prompt_template = "Speak like Yoda from Star Wars for every question that was asked, do not give a direct answer but ask more questions in the style of wise Yoda from Star Wars"
 	''')
 	st.markdown("""
-		 Copy and run the code below. You should get the same chatbot behaviour as the code output below.\n
+		 Run the code below. You should get the same chatbot behaviour as the code output below.\n
 		 Try varying the temperature setting (0.0 to 1.0) to see how it affects the chatbot's response.\n
 		 """)
 	st.markdown("**:blue[Code]**")
@@ -1207,12 +1225,12 @@ def ch10():
 
 def class1_ch10():
 	st.subheader("Challenge 10: Make your bot like someone you know!")
-	st.write("Now, let's create your own prompt to make your bot speak like someone you know!") 
 	st.write("Modify the ***prompt_template*** in your ***main()*** to your own liking.")
 	st.write("Be imaginative!")
-	st.write("You can use the streaming chat_completion function you wrote earlier.")
-	st.write("Don't forget to replace the system prompt with your own prompt_template!")
-	st.write("Optionally, you can get a new prompt from the user like this:")
+	st.write("Now, in new function called **chat_completion_stream_prompt()**, we are going to modify the earlier **streaming chat_completion** function to accept a user prompt input.")
+	st.write("You will need to pass in a new input variable called **prompt** and replace the user content with the new **prompt** variable.")
+	st.write("Replace the system prompt with **st.session_state.prompt_template**.")
+	st.write("Before calling **chat_completion_stream_prompt()**, get a new prompt from the user like this to update the **st.session_state.prompt_template**:")
 	st.code('''
 if my_prompt_template := st.text_input("Enter a system prompt template. E.g. Speak like Yoda from Star Wars."):
 	st.session_state.prompt_template = my_prompt_template
@@ -1361,7 +1379,7 @@ def class1_ex11b():
 	st.subheader("Exercise 11b")
 	st.write("Now, we will create a chatbot with a prompt template that is more complex.")
 	st.write("We will use the ***prompt_inputs_form()*** function to get the user's input for the prompt template.")
-	st.write("Copy and run the code below to see the chatbot in action.")
+	st.write("Run the code below to see the chatbot in action.")
 
 	st.markdown("**:blue[Code]**")
 	st.code('''

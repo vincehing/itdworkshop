@@ -140,7 +140,7 @@ def main():
 					# 	MenuItem(intro, icon='journal-code'),
 					# MenuItem(res, icon='journal-code'),
 				# ]), 
-					MenuItem('Part 0 & 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
+					MenuItem('Part 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 		      		MenuItem('Intro to Streamlit', icon='', children=[
 					# MenuItem(ui, icon='journal-code'),
 					# MenuItem(indent, icon='journal-code'),
