@@ -1153,7 +1153,7 @@ if "prompt_template" not in st.session_state:
 	st.markdown("**:blue[Code]**")
 	st.code('''
 # Exercise 10: Basic prompt engineering
-def ex10():
+def ex10_basebot():
 	#prompt_template in session state already set in main()
 	MODEL = "gpt-3.5-turbo"
 	response = openai.ChatCompletion.create(
@@ -1255,7 +1255,7 @@ def chat_completion_stream_prompt(prompt):
 	return response
 
 # Challenge 10: Make the bot speak like someone you know
-def ch10():
+def ch10_basebot():
 	# call the function in your base bot
 	# Initialize chat history
 	if "msg" not in st.session_state:
@@ -1904,7 +1904,7 @@ def class1_ex14():
 # save the vectorstore in st.session_state
 # add semantic search prompt into memory prompt
 # integrate back into your chatbot
-def ex14():
+def ex14_basebot():
 	# Prompt_template form from ex11
 	prompt_template = PromptTemplate(
 		input_variables=["occupation", "topic", "age"],
@@ -2365,7 +2365,7 @@ pip install duckduckgo-search
 	st.code('''
 # smart agents accessing the internet for free
 # https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/search_and_chat.py
-def ex16():
+def ex16_agent_bot():
 	st.title("🦜 LangChain: Chat with internet search")
 
 	msgs = StreamlitChatMessageHistory()
@@ -2510,7 +2510,7 @@ def document_search(query: str) -> str:
 	return json_string
 
 # combine vector store and internet search
-def ex17():
+def ex17_agent_bot():
 	st.title("🦜 LangChain: Chat with internet search")
 
 	st.session_state.vectorstore = vectorstore_creator()
@@ -2681,7 +2681,7 @@ def class1_ex18():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 # PandasAI- A smart agent that can do visual analytics
-def ex18():
+def ex18_pandas_AI():
 	st.title("pandas-ai streamlit interface")
 
 	# Upload CSV file using st.file_uploader
