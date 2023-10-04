@@ -1435,15 +1435,15 @@ def ch11():
 		# set session_state.prompt_template
 		st.session_state.prompt_template = input_prompt
 		st.write("New session_state.prompt_template: ", input_prompt)
-	# call ch10_basebot() with the new session_state.prompt_template
+	# call ch10() with the new session_state.prompt_template
 	ch10()
 
 def class1_ch11():
 	st.subheader("Challenge 11: Prompt Template with LangChain")
 	st.write("Now, let's incorporate the prompt template into our chatbot from the previous exercise.")
 	st.write("We will use the ***prompt_inputs_form()*** function to get the user's input for the prompt template.")
-	st.write("You can use the ***ch10_basebot()*** function from the previous exercise to do the llm api call with the updated session_state.prompt_template.")
-	st.write("Ignore the text input field that asks for a system prompt template from ch10_basebot(), since we will be using the prompt template from the user's input.")
+	st.write("You can use the ***ch10*** function from the previous exercise to do the llm api call with the updated session_state.prompt_template.")
+	st.write("Ignore the text input field that asks for a system prompt template from ch10(), since we will be using the prompt template from the user's input.")
 	st.write("As you interact with the chatbot, observe that the prompt template is updated with the latest user input as seen from the code output.")
 
 	st.markdown("**:blue[Code]**")
@@ -1465,7 +1465,7 @@ def ch11():
 		# set session_state.prompt_template
 		st.session_state.prompt_template = input_prompt
 		st.write("New session_state.prompt_template: ", input_prompt)
-	# call ch10_basebot() with the new session_state.prompt_template
+	# call the ch10() basebot with the new session_state.prompt_template
 	ch10()
 ''')
 	st.markdown("**:red[Code Output]**")
@@ -1931,11 +1931,10 @@ def ex14():
 	memory_data = st.session_state.memory.load_memory_variables({})
 	st.write(memory_data)
 	st.session_state.prompt_template = f"""
-{st.session_state.input_prompt}
+		{st.session_state.input_prompt}
 
-This is the last conversation history:
-{memory_data}
-"""
+		This is the last conversation history:
+		{memory_data}"""
 	st.write("new prompt template: ", st.session_state.prompt_template)
 
 	st.session_state.vectorstore = vectorstore_creator()
@@ -1956,9 +1955,10 @@ This is the last conversation history:
 				docs = st.session_state.vectorstore.similarity_search(prompt)
 				docs = docs[0].page_content
 				# add your query prompt
-				vs_prompt = f"""You should reference this search result to help your answer,
-								{docs}
-								if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
+				vs_prompt = f"""
+					You should reference this search result to help your answer,
+					{docs}
+					if the search result does not anwer the query, please say you are unable to answer, do not make up an answer"""
 			else:
 				vs_prompt = ""
 			# add query prompt to your memory prompt and send it to LLM
