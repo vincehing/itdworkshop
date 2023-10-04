@@ -327,84 +327,6 @@ def ch1():
 	ch1()
 
 def ex2():
-	# Exercise 2 : Streamlit sidebar
-	with st.sidebar:
-		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
-
-	if option == "Option 1":
-		st.write("You selected option 1")
-	elif option == "Option 2":
-		st.write("You selected option 2")
-	else:
-		st.write("Please select an option from the sidebar")
-
-def class1_ex2():
-	st.subheader("Exercise 2: The Streamlit sidebar")
-	st.markdown("In your ***main.py***, copy the code below into the file.")
-	st.markdown("**:blue[Code]**")
-	st.code('''
-# Exercise 2 : Streamlit sidebar
-def ex2():
-	
-	with st.sidebar:
-		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
-
-	if option == "Option 1":
-		st.write("You selected option 1")
-	elif option == "Option 2":
-		st.write("You selected option 2")
-	else:
-		st.write("Please select an option from the sidebar")
-''')
-	st.write("Refresh the browser to see the changes.")
-
-	st.markdown("You should see the following selectbox in the sidebar on the left:")
-	st.markdown("**:red[Code Output]**")
-	
-	my_option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
-	if my_option == "Option 1":
-		st.write("You selected option 1")
-	elif my_option == "Option 2":
-		st.write("You selected option 2")
-	else:
-		st.write("Please select an option from the sidebar")
-
-def class1_ch2():
-	st.subheader("Challenge 2: The Streamlit sidebar ")
-	st.write("Copy the code for ***ex2()*** and paste in the ***main()*** function. Like this:")
-	st.code('''
-def main():
-	with st.sidebar:
-		option = st.selectbox("My sidebar", ["", "Option 1", "Option 2"])
-
-	if option == "Option 1":
-		st.write("You selected option 1")
-	elif option == "Option 2":
-		st.write("You selected option 2")
-	else:
-		st.write("Please select an option from the sidebar")
-''')		 
-	st.write("Now, for this challenge exercise, change the sidebar title to ***Code Exercises*** and name the options ***ex1()***, ***ex2()***, and so on.""")
-	st.write("This way, just by selecting the options in the sidebar, you can run the different exercises.")
-	st.write("For the rest of this course, you would need to keep updating the sidebar as you add more code exercises, in order to toggle which code exercise to run.")
-	st.markdown("**:blue[Code]**")
-	with st.expander("Reveal Code"):
-		st.code('''
-def main():
-	with st.sidebar:
-		option = st.selectbox("Code Exercises", ["", "ex1", "ex2", "ex3"])
-	
-	if option == "ex1":
-		ex1()
-	
-	elif option == "ex2":
-		ex2()
-		  
-	elif option == "ex3":
-		ex3()
-''')
-
-def ex3a():
     gender = st.selectbox("State your gender", ["Male", "Female"])
     age = int(st.text_input("State your age", 18))
     photo = st.camera_input("Smile! take a picture here.")
@@ -425,12 +347,12 @@ def ex3a():
     else:
         st.write("No photo taken")
 
-def class1_ex3a():
-	st.subheader("Exercise 3: If-else logical conditionals")
+def class1_ex2():
+	st.subheader("Exercise 2: If-else logical conditionals")
 	st.markdown("If-else statements help control the flow and logic of our application.")
 	st.markdown("**:blue[Code]**")
 	st.code('''
-def ex3a():
+def ex2():
     gender = st.selectbox("State your gender", ["Male", "Female"])
     age = int(st.text_input("State your age", 18))
     photo = st.camera_input("Smile! take a picture here.")
@@ -453,9 +375,9 @@ def ex3a():
 ''')
 	st.markdown("**:red[Code Output]**")
 	#actual code here
-	ex3a()
+	ex2()
 
-def ex3b():
+def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -487,7 +409,7 @@ def ex3b():
 	st.write("Here is your updated *person* dictionary: ")
 	st.write(person)
 
-def class1_ex3b():
+def class1_ex3():
 	st.subheader("Exercise 3: Data and Loops ")
 	st.write("We can store data in a list or dictionary and display the data using a for loop.")
 	st.write("Append the following code to the ***main.py*** file. Refresh the browser to see the changes.")
@@ -495,7 +417,7 @@ def class1_ex3b():
 	st.markdown("**:blue[Code]**")
 	st.code('''
 #Data and Loops
-def ex3b():
+def ex3():
 	# Data list
 	fruits = ["apple", "banana", "orange"]
 
@@ -529,7 +451,7 @@ def ex3b():
 ''')
 	st.markdown("**:red[Code Output]**")
 	#actual code here
-	ex3b()
+	ex3()
 
 def ex4a():
 	st.subheader("Session Data:")

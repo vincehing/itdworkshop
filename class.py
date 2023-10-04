@@ -15,9 +15,7 @@ from class1_exercise import (
 				class1_ex1, 
 				class1_ch1, 
 				class1_ex2, 
-				class1_ch2, 
-				class1_ex3a,
-				class1_ex3b, 
+				class1_ex3,
 				class1_ex4a, 
 				class1_ex4b, 
 				class1_ch4, 
@@ -60,9 +58,7 @@ part1_1 = "What is Streamlit"
 ex1 = "Exercise 1"
 ch1 = "Challenge 1"
 ex2 = "Exercise 2"
-ch2 = "Challenge 2"
-ex3a = "Exercise 3a"
-ex3b = "Exercise 3b"
+ex3 = "Exercise 3"
 ch3 = "Challenge 3"
 ex4a = "Exercise 4a"
 ex4b = "Exercise 4b"
@@ -131,19 +127,19 @@ def main():
 	with st.sidebar: #options for sidebar
 		if st.session_state.login_key == True:
 			option = menu([
-					MenuItem('Workshop deck', icon='file-slides', href='https://docs.google.com/presentation/d/1aomXduB3xgy7EkXmp5INmZnX0zdloCgoCa9BZ78-NJk/edit?usp=share_link'),
-					MenuItem('Pre-workshop prep', icon='', children=[
-					MenuItem(prep, icon='journal-code'),
-					MenuItem(hw1, icon='journal-code'),
-				]),
-					MenuItem('Introduction', icon='', children=[
+					MenuItem('Intro deck', icon='file-slides', href='https://docs.google.com/presentation/d/1aomXduB3xgy7EkXmp5INmZnX0zdloCgoCa9BZ78-NJk/edit?usp=share_link'),
+				# 	MenuItem('Pre-workshop prep', icon='', children=[
+				# 	MenuItem(prep, icon='journal-code'),
+				# 	MenuItem(hw1, icon='journal-code'),
+				# ]),
+					# MenuItem('Introduction', icon='', children=[
 					# 	MenuItem(obj, icon='journal-code'),
 					#	MenuItem(outline, icon='journal-code'),
-					MenuItem(final, icon='journal-code'),
+					# MenuItem(final, icon='journal-code'),
 					# 	MenuItem(rules, icon='journal-code'),
 					# 	MenuItem(intro, icon='journal-code'),
-					MenuItem(res, icon='journal-code'),
-				]), 
+					# MenuItem(res, icon='journal-code'),
+				# ]), 
 					MenuItem('Part 0 & 1 deck', icon='file-slides', href='https://docs.google.com/presentation/d/169KpD9qmabZ00mdAQEawhpPqv1MLMijW6jiPV_nKbLk/edit?usp=sharing'),
 		      		MenuItem('Intro to Streamlit', icon='', children=[
 					# MenuItem(ui, icon='journal-code'),
@@ -152,9 +148,7 @@ def main():
 					MenuItem(ex1, icon='journal-code'),
 					MenuItem(ch1, icon='journal-code'),
 					MenuItem(ex2, icon='journal-code'),
-					MenuItem(ch2, icon='journal-code'),
-					MenuItem(ex3a, icon='journal-code'),
-					MenuItem(ex3b, icon='journal-code'),
+					MenuItem(ex3, icon='journal-code'),
 					# MecnuItem(ch3, icon='journal-code'),
 					MenuItem(ex4a, icon='journal-code'),
 					MenuItem(ex4b, icon='journal-code'),
@@ -290,18 +284,10 @@ def main():
 		elif option == ex2:
 			with placeholder2.container():
 				class1_ex2()
-
-		elif option == ch2:
-			with placeholder2.container():
-				class1_ch2()
 		
-		elif option == ex3a:
+		elif option == ex3:
 			with placeholder2.container():
-				class1_ex3a()
-
-		elif option == ex3b:
-			with placeholder2.container():
-				class1_ex3b()
+				class1_ex3()
 
 		elif option == ex4a:
 			with placeholder2.container():
