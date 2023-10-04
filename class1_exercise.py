@@ -1795,10 +1795,8 @@ def class1_ex13():
 	st.write("Now, we will create a vector store to store the user's document.")
 	st.write("This process uses OpenAI to generate embeddings and LanceDB for storing these embeddings.")
 	st.write("For now, this only works for pdf files.")
-	st.write("You will need to run the following commands in terminal to install new libaries:")
+	st.write("You may need to run the following commands in terminal to install new libaries:")
 	st.code('''
-pip install pypdf
-pip install lancedb
 pip install tiktoken
 ''')
 	st.markdown("**:blue[Code]**")
@@ -2418,6 +2416,11 @@ def class1_ex16():
 	st.write("In this exercise, we will configure a chatbot with an internet search tool that shows all intermediate steps and tool logs.")
 	st.write("This overcomes the limitation of the training data that is only up to a certain point in time, by being able to access the current internet to search for answers.")
 
+	st.write("You may need to run the following commands in terminal to install new libaries:")
+	st.code('''
+pip install duckduckgo-search
+''')
+	
 	st.markdown("**:blue[Code]**")
 	st.code('''
 # smart agents accessing the internet for free
